@@ -55,7 +55,7 @@ const Bio = () => {
         }}
       />
       <p className="bio_description">
-        dev thoughts of <strong>{author}</strong>
+        dev thoughts of <br /> <strong>{author}</strong>
         {/* {` `}
         <a href={`https://twitter.com/${social.twitter}`}>
           You should follow him on Twitter
