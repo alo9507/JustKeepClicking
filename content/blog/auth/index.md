@@ -6,9 +6,6 @@ description: "Set your development team free with this reusable multi-provider a
 
 <blockquote>"All models are flawed. Some are useful." George E.P. Box</blockquote>
 
-Part 2: EZClientAuth: Swift + Firebase Implementation
-Part 3: EZClientAuth: Testing
-
 An Authentication framework that grows with your project.
 
 Authentication is hard. Authentication is less hard when you reduced to its component parts. This we call its domain.
@@ -25,7 +22,7 @@ There are three components to client-side authentication:
 - DataStore: An on-device cache for persisting your AuthSession between application launches
   Example: browser local storage, Keychain or FileSystem on iOS
 
-Using only the above 3 tools, we will build an Authentication domain capable of
+Using only the above 3 constructs, we will build an Authentication domain capable of
 
 Features:
 
@@ -33,55 +30,52 @@ Features:
 - Persisted login between application launches
 - Ability to change authentication provider in a single line of code
 
-Even if you don't know Swift, I promise you this framework will conceptually wherever a client has to prove its identity.
+- Even if you don't know Swift, I promise this framework will conceptually wherever a client has to prove its identity.
 
-Assumptions:
-Authentication is a sufficiently complex domain to warrant special treatment distinct from other client-server relationships like data persistence.
+<h4>Constraints + Requirements</h4>
 
-Start with what we want (coding by wishful thinking), then work backwards to the abstractions which succinctly deliver that behavior.
+1. Expose the minimum amount of surface area necessary for the application to fulfill its authentication tasks
+2. Be fully testable/mockable
+3. Allow for arbitrary remote authentication providers (e.g. Auth0, Firebase, Keycloak)
+4. Allow for arbitrary client-side caches
 
-You do not have the luxury of a backend service that has already abstracted your company’s auth provider, leaving you with the need to directly integrate an Auth SDK like Firebase or Keycloak into your application.
+<h4>Approach</h4>
+Domain/Interface Driven Development: No mention of implementations
 
-You don’t want to re-authenticate every time your application launches.
+<h3>The Golden Rule of DDD</h3>
 
-Constraints + Requirements:
-Expose the minimum amount of surface area necessary for the application to fulfill its authentication tasks
-Be fully testable/mockable
-Allow for arbitrary remote authentication providers (e.g. Auth0, Firebase, Keycloak)
-Allow for arbitrary client-side caches
-
-Approach:
-Domain/Interface Driven Development: At no point in this post will there be any mention
+<i>Start with what we want (coding by wishful thinking), then work backwards to the abstractions which succinctly deliver that behavior.</i>
 
 The key statement in DDD:
 
 I want \_**\_ that does \_\_** so that **\_**.
 I want some X that does Y. My app Z doesn’t care what X is.
 
-If you can fill in the blanks above for your domain, and create an interface to accomplish it, you can likely
+If you can fill in the blanks above for your domain, and create an interface to accomplish those tasks, you can reap the beneifts of DDD, which include
 
-Benefits:
-Prevent vendor lock-in: Interface Driven Design reduces switching costs by reducing a) the lines of code you need to change in a refactor, and b) encapsulating those lines of code to a smaller area, in our case one file per auth provider
-Fine-grained error handling: When you’re domain has been reduced,
-Straightforward testing:
+<h4>Benefits of DDD</h4>
+
+1. Prevent vendor lock-in: Interface Driven Design reduces switching costs by reducing a) the lines of code you need to change in a refactor, and b) encapsulating those lines of code to a smaller area, in our case one file per auth provider
+
+2. Fine-grained error handling: When you’re domain has been reduced,
+
+3. Straightforward testing
 
 Let’s get started with the nucleus of authentication: the auth session.
 
-AuthSession
-I want something that encapsulates my auth state (basically a token).
+<h2>AuthSession</h2>
+
+I want <span style="text-decoration: underline; font-weight: 900">something that encapsulates my auth state</span>.
 
 <div class="impl">
 
 ```swift
-public class PUBAuthSession: Codable {
+public class AuthSession: Codable {
 
     public let token: String
 
-    public let refreshToken: String
-
-    public init(token: String, refreshToken: String) {
+    public init(token: String) {
         self.token = token
-        self.refreshToken = refreshToken
     }
 }
 ```
@@ -93,20 +87,69 @@ Where does this AuthSession come from?
 
 <h2>RemoteAuthProvider</h2>
 
-I want something that takes an email and password and returns an AuthSession if successful, or a helpful error message if unsuccessful.
+<h4>The Ask</h4>
+I want <span style="text-decoration: underline; font-weight: 900">something that takes an email and password and returns an AuthSession if successful, or a helpful error message if unsuccessful.</span>
 
-That something is the RemoteAuthProvider. That "helpful success-or-error response" sounds like a good use of a tuple to me.
+<h4>The Interface</h4>
 
-Let’s make a tuple-like structure using a Swift typealias (link to Swift docs). A typealias simply bundles up an AuthSession and Errors in one tuple.
+<div class="impl">
 
-The ? means they are Optionals, aka they may be null and we MUST account for that. That's the beauty of null-safe languages.
+```swift
+protocol RemoteAuthProvider {}
+```
 
-// Null safe language aside
-This means we can always just check if the error is non-nil to determine if a process should continue.
+</div>
 
-(Get rid of the PUB thing, it will only confuse people)
+I want something I give an email and password, or a phone number and password, that return me an AuthSession or helpful error message if it fails.
 
-A common idiom you'll see in null-safe languages is called guarding for null, in which we exectue some code then return from the method if a designated object is null.
+Let's add signIn to the protocol
+
+<div class="impl">
+
+```swift
+protocol RemoteAuthProvider {
+    func signIn(email: String?,
+                password: String?,
+                phoneNumber: String?,
+                _ completion: @escaping AuthResponse)
+}
+```
+
+</div>
+
+The `AuthResponse` is a tuple that fulfills the requirement that the `RemoteAuthProvider` return either an `AuthSession` or an `AuthError`
+
+The `email`, `phoneNumber` and `password` are all Optionals to allow for maximum flexibility in implementing new `RemoteAuthProvider`s.
+
+<h4>Auth Response</h4>
+
+<div class="impl">
+
+```swift
+typealias AuthResponse = (AuthSession?, AuthError?) -> Void
+```
+
+</div>
+
+<i>From the Swift docs</i>
+
+<blockquote>A typealias in Swift is literally an alias for an existing type.</blockquote>
+
+This typealias bundles the existing types `AuthSession` and `AuthError`, which we'll see in a minute.
+
+<h4>The Null Safe Tango</h4>
+
+The `?` makes the return `Optional`.
+
+Is error nil?
+
+- Yes. Continue execution.
+- No. Throw and AuthError with that error
+
+Is there an AuthSesion?
+
+- Yes. Continue execution.
+- No.
 
 <div class="impl">
 
@@ -119,12 +162,18 @@ guard object != nil else {
     // account for the fact that you object is nil then return
 }
 
-// safely code knowing that ZERO errors occurred and your object is not nil :-)
+// safely code knowing that ZERO errors occurred and your return object is not nil :-)
 ```
 
 </div>
 
-Let's create an enum, `AuthError`, to house all the possible Errors we may encounted in Auth workflows, along with helpful error messages.
+<h4>Comprehensive Error Handling</h4>
+
+I want <span style="text-decoration: underline; font-weight: 900">something that let's me control how errors are presented to the consuming code.</span>
+
+Let's create an enum, `AuthError`, to house all the possible errors we may encounted in Auth workflows, along with helpful error messages.
+
+Included here are just a few.
 
 <div class="impl">
 
@@ -132,7 +181,6 @@ Let's create an enum, `AuthError`, to house all the possible Errors we may encou
 public enum PUBAuthError: Error, Equatable {
     case failedToPersistUserSessionData(_ error: String)
     case failedToSignInWithRemote(_ error: String)
-    case failedToRetrieveAuthSession(_ error: String)
     case wrongEmail(_ error: String)
     case wrongPassword(_ error: String)
 
@@ -141,33 +189,15 @@ public enum PUBAuthError: Error, Equatable {
         case .failedToReadLocalAuthSession(let error):
             return "Failed to read locally persisted : \(error)"
         }
+        case .failedToSignInWithRemote(let error):
+            return "Failed to sign in with remote auth provider: \(error)"
     }
 }
 ```
 
 </div>
 
-The helpful `errorDescription`s prove indispensable when implementing new Auth providers and debugging your application.
-
-<div class="impl">
-
-```swift
-public typealias PUBAuthResponse = (PUBAuthSession?, PUBAuthError?) -> Void
-```
-
-</div>
-
-For now, lets just add signIn
-
-<div class="impl">
-
-```swift
-public protocol RemoteAuthProvider {
-    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping PUBAuthResponse)
-}
-```
-
-</div>
+This custom error gives you as an app or SDK developer intimate control over how network and caching errors percolate up to the consuming application.
 
 Code that aspires to be a RemoteAuthProvider implements this interface. Our application code never knows about them.
 

@@ -19,10 +19,10 @@ class Layout extends React.Component {
           }}
         >
           <Link
+            id="site_title"
             style={{
               boxShadow: `none`,
               textDecoration: `none`,
-              color: `inherit`,
             }}
             to={`/`}
           >
@@ -39,10 +39,10 @@ class Layout extends React.Component {
           }}
         >
           <Link
+            className="article_title"
             style={{
               boxShadow: `none`,
               textDecoration: `none`,
-              color: `inherit`,
             }}
             to={`/`}
           >
@@ -53,6 +53,7 @@ class Layout extends React.Component {
     }
     return (
       <div
+        className="article_container"
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
@@ -63,7 +64,7 @@ class Layout extends React.Component {
         <header>{header}</header>
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()}, Powered by
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>

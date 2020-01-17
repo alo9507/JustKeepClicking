@@ -26,13 +26,21 @@ class BlogIndex extends React.Component {
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  <Link
+                    className="article_link"
+                    style={{
+                      boxShadow: `none`,
+                    }}
+                    to={node.fields.slug}
+                  >
                     {title}
                   </Link>
                 </h3>
-                <small>{node.frontmatter.date}</small>
+                <small className="frontpage_date">
+                  {node.frontmatter.date}
+                </small>
               </header>
-              <section>
+              <section className="article_description">
                 <p
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,

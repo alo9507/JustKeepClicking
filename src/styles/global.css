@@ -1,0 +1,56 @@
+:root {
+  --purpleDark: #212b87;
+  --purpleLight: #2d389a;
+  --pink: #fc78ad;
+  --orange: #ee9da3;
+  --turquoise: #2dd3cb;
+  --yellow: #fee552;
+  --eggshell: #e5e5e6;
+}
+
+.article_container {
+  background-color: var(--purpleDark);
+}
+
+.frontpage_date {
+  color: var(--eggshell);
+}
+
+.article_date {
+  color: var(--eggshell);
+}
+
+.bio_description {
+  color: var(--yellow);
+}
+
+html {
+  background-color: var(--purpleLight);
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+#site_title {
+  color: var(--pink);
+}
+
+body {
+  font-family: "Source Code Pro", monospace;
+  overflow-x: hidden;
+}
+
+.article_link {
+  color: var(--turquoise);
+}
+
+.article_description {
+  color: white;
+}
+
+.article_title {
+  color: var(--pink);
+}
+
+.artcile_body {
+  color: var(--eggshell);
+}

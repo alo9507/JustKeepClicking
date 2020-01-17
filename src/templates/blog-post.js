@@ -21,6 +21,7 @@ class BlogPostTemplate extends React.Component {
         <article>
           <header>
             <h1
+              className="article_title"
               style={{
                 marginTop: rhythm(1),
                 marginBottom: 0,
@@ -29,6 +30,7 @@ class BlogPostTemplate extends React.Component {
               {post.frontmatter.title}
             </h1>
             <p
+              className="article_date"
               style={{
                 ...scale(-1 / 5),
                 display: `block`,
@@ -38,7 +40,10 @@ class BlogPostTemplate extends React.Component {
               {post.frontmatter.date}
             </p>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section
+            className="artcile_body"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
           <hr
             style={{
               marginBottom: rhythm(1),
