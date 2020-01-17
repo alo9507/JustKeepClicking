@@ -45,6 +45,7 @@ class BlogPostTemplate extends React.Component {
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
           <hr
+            className="bottom_hr"
             style={{
               marginBottom: rhythm(1),
             }}
@@ -56,6 +57,7 @@ class BlogPostTemplate extends React.Component {
 
         <nav>
           <ul
+            className="prev_next_link"
             style={{
               display: `flex`,
               flexWrap: `wrap`,
@@ -66,14 +68,18 @@ class BlogPostTemplate extends React.Component {
           >
             <li>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
+                <Link
+                  className="prev_link"
+                  to={previous.fields.slug}
+                  rel="prev"
+                >
                   ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
+                <Link className="next_link" to={next.fields.slug} rel="next">
                   {next.frontmatter.title} →
                 </Link>
               )}

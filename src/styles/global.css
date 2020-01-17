@@ -8,49 +8,76 @@
   --eggshell: #e5e5e6;
 }
 
-.article_container {
-  background-color: var(--purpleDark);
-}
-
-.frontpage_date {
-  color: var(--eggshell);
-}
-
-.article_date {
-  color: var(--eggshell);
-}
-
-.bio_description {
-  color: var(--yellow);
-}
-
 html {
   background-color: var(--purpleLight);
   overflow-x: hidden;
   box-sizing: border-box;
 }
 
-#site_title {
-  color: var(--pink);
-}
-
 body {
-  font-family: "Source Code Pro", monospace;
-  overflow-x: hidden;
+  font-family: "Merriweather", Georgia, serif;
 }
 
-.article_link {
+footer {
+  color: var(--eggshell);
+}
+
+#gatsby_link {
   color: var(--turquoise);
 }
 
-.article_description {
-  color: white;
+/* ARTICLE */
+.article_container {
+  background-color: var(--purpleDark);
 }
 
 .article_title {
   color: var(--pink);
 }
 
+.article_date {
+  color: var(--eggshell);
+  font-family: Merriweather, Georgia, serif;
+}
+
+.article_description {
+  color: var(--eggshell);
+}
+
+blockquote {
+  color: var(--eggshell);
+}
+
 .artcile_body {
   color: var(--eggshell);
+}
+
+.prev_link {
+  color: var(--turquoise);
+}
+
+.next_link {
+  color: var(--turquoise);
+}
+
+.bottom_hr {
+  background-color: white;
+}
+
+/* FRONTPAGE */
+#site_title {
+  color: var(--pink);
+}
+
+.frontpage_date {
+  color: var(--eggshell);
+}
+
+/* BIO */
+.bio_description {
+  color: var(--yellow);
+}
+
+.article_link {
+  color: var(--turquoise);
 }

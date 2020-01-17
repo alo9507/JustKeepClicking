@@ -1,7 +1,7 @@
 ---
 title: Domain Driven Authentication
 date: "2020-01-13T22:12:03.284Z"
-description: "Set your development team free with this reusable multi-provider authentication framework: EZClientAuth"
+description: "Set your development team free with this flexible multi-provider authentication framework: EZClientAuth"
 ---
 
 <blockquote>"All models are flawed. Some are useful." George E.P. Box</blockquote>
