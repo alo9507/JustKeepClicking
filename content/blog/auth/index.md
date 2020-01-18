@@ -59,6 +59,8 @@ If you can fill in the blanks above for your domain, and create an interface to 
 
 - <b>Straightforward testing</b>: Because DDD is realized through interfaces, you can always create a mock that adheres to that interface for testing.
 
+![technical_skill](swiftlogo.jpeg)
+
 <h4>Implementation: Swift</h4>
 Even if you don't know Swift, I promise this framework will port conceptually wherever a client has to prove its identity.
 
@@ -143,32 +145,42 @@ This typealias bundles the existing types `AuthSession` and `AuthError`, which w
 
 Swift is a null safe language. It uses the question mark charcater `?` to indicate that this object is either the object, or nil. It is an <i>optional</i> type.
 
-Null safety is central to the EZClientAuth framework, so let's explore this before continuing development.
+Null checking is central to the EZClientAuth framework, so let's explore this before continuing development.
 
-<h4>Leveraging Null Safety to Direct Authentication Flow</h4>
+<h4>Leveraging Null Checks to Direct Authentication Flow</h4>
 
 Null-safe languages like Kotlin and Swift force you to answer the question <i>"What happens if this object is nil?"</i> at compile time, not runtime. So rather than receiving a surprising `undefined` or `NullPointerException` after building, or worse, in production, you receive compiler errors requesting that you as a developer consider the null case.
 
-We'll use raw Swift null-safe langauge features like `guard` and `if let` blocks to guide the flow of authentication around the many errors that may occur.
+We'll use Swift's built-in null-checking features, the `guard` statement and `if let` blocks to guide the flow of authentication around the many errors that may occur.
 
-An idiomatic flow in null safe language:
+An idiomatic null-checking flow:
 
 <div class="impl">
 
 ```swift
 guard error == nil else {
-    // account for the error then return
+    // Complete with the error
+    completion(nil, error)
+    return
 }
+// ERROR-FREE ZONE HEREAFTER!
 
 guard object != nil else {
-    // account for the fact that you object is nil then return
+    // Account for the fact that you object is nil
+    completion(nil, "The Object is nil!")
+    return
 }
 
-// safely code knowing that ZERO errors occurred
-// and your return object is not nil :-)
+// Complete with your object and no errors
+completion(object, nil)
+
+// Safely code seure in the fact that ZERO errors occurred
+// and your Object is not nil :-)
 ```
 
 </div>
+
+A `guard` checks the condition it precedes, and if it is false, the control flow is forced to return in the else block, ensuring that after the guard, that condition is guaranteed true.
 
 <h4>Comprehensive Error Handling</h4>
 
