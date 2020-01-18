@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="403px" height="150px" viewBox="0 0 403 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="403px" height="175px" viewBox="0 0 403 175" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
     <title>CodeReuse</title>
     <desc>Created with Sketch.</desc>
     <g id="CodeReuse" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#FFFFFF" x="0" y="0" width="403" height="150"></rect>
+        <rect fill="#FFFFFF" x="0" y="0" width="403" height="175"></rect>
         <g id="Equation" transform="translate(0.000000, -5.000000)">
             <text id="TTR" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
                 <tspan x="0.624" y="43">TTR</tspan>
@@ -32,8 +32,9 @@
             <tspan x="15.462" y="120" font-family="Avenir-Book, Avenir" font-weight="normal">=</tspan>
             <tspan x="27.018" y="120"> </tspan>
             <tspan x="31.914" y="120" font-family="Avenir-Roman, Avenir" font-weight="normal">Effort Size of Feature</tspan>
-            <tspan x="0" y="145">n</tspan>
-            <tspan x="9.9" y="145" font-family="Avenir-Roman, Avenir" font-weight="normal"> = # of Developers</tspan>
+            <tspan x="0" y="145" font-family="Avenir-Roman, Avenir" font-weight="normal"></tspan>
+            <tspan x="0" y="170">n</tspan>
+            <tspan x="9.9" y="170" font-family="Avenir-Roman, Avenir" font-weight="normal"> = # of Developers</tspan>
         </text>
     </g>
 </svg>

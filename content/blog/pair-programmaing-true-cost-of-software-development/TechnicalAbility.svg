@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="398px" height="131px" viewBox="0 0 398 131" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="398px" height="156px" viewBox="0 0 398 156" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
     <title>TechnicalAbility</title>
     <desc>Created with Sketch.</desc>
     <g id="TechnicalAbility" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#FFFFFF" x="0" y="0" width="398" height="131"></rect>
+        <rect fill="#FFFFFF" x="0" y="0" width="398" height="156"></rect>
         <g id="Equation" transform="translate(0.000000, -5.000000)">
             <text id="TTR" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
                 <tspan x="0.624" y="48">TTR</tspan>
@@ -27,8 +27,9 @@
             <tspan x="35.604" y="101" font-family="Avenir-Book, Avenir" font-weight="normal">=</tspan>
             <tspan x="47.16" y="101"> </tspan>
             <tspan x="52.056" y="101" font-family="Avenir-Roman, Avenir" font-weight="normal">Time to Release</tspan>
-            <tspan x="0" y="126">n</tspan>
-            <tspan x="9.9" y="126" font-family="Avenir-Roman, Avenir" font-weight="normal"> = # of programmers</tspan>
+            <tspan x="0" y="126" font-family="Avenir-Roman, Avenir" font-weight="normal"></tspan>
+            <tspan x="0" y="151">n</tspan>
+            <tspan x="9.9" y="151" font-family="Avenir-Roman, Avenir" font-weight="normal"> = # of programmers</tspan>
         </text>
     </g>
 </svg>

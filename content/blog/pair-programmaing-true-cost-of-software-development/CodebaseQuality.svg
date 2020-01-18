@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="403px" height="191px" viewBox="0 0 403 191" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="403px" height="216px" viewBox="0 0 403 216" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
     <title>CodebaseQuality</title>
     <desc>Created with Sketch.</desc>
     <g id="CodebaseQuality" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#FFFFFF" x="0" y="0" width="403" height="191"></rect>
+        <rect fill="#FFFFFF" x="0" y="0" width="403" height="216"></rect>
         <g id="Equation" transform="translate(0.000000, -12.000000)">
             <text id="TTR" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
                 <tspan x="0.624" y="69">TTR</tspan>
@@ -48,9 +48,9 @@
             <tspan x="53.172" y="161" font-family="Avenir-Book, Avenir" font-weight="normal">=</tspan>
             <tspan x="64.728" y="161"> </tspan>
             <tspan x="69.624" y="161" font-family="Avenir-Book, Avenir" font-weight="normal">Net Value of Reusable Code</tspan>
-            <tspan x="285.462" y="161"></tspan>
-            <tspan x="0" y="186">n</tspan>
-            <tspan x="9.9" y="186" font-family="Avenir-Roman, Avenir" font-weight="normal"> = # of Developers</tspan>
+            <tspan x="0" y="186"></tspan>
+            <tspan x="0" y="211">n</tspan>
+            <tspan x="9.9" y="211" font-family="Avenir-Roman, Avenir" font-weight="normal"> = # of Developers</tspan>
         </text>
     </g>
 </svg>

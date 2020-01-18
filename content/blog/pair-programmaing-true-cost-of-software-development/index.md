@@ -12,7 +12,7 @@ This legitimate concern with pairing stems from the following notion about the n
 
 Where number of programmers is taken to mean <i>independently operating</i> programmers. The argument goes that if two programmers are coalesced onto a single task, then the time to release will lengthen.
 
-But this is <b>not</b> the time to release equation. The truth, as usual, is much more subtle.
+But this is <b>not</b> even close to a comprehensive Time to Release equation. The truth, as usual, is much more subtle.
 
 Let's progressively introduce complexities to this time-to-release (TTR) equation untl we arrive at a more realistic notion of what factors effect time to release.
 
@@ -115,11 +115,11 @@ This is where the 10x Engineer’s cool cousin, the Team Multiplier Engineer, ac
 
 <img src="./UpskillingOpportunity.svg" alt="technical_ability" class="equation">
 
-<h2>The Equation</h2>
+<h2>The Time to Release Equation</h2>
 
 Endlessly debatable, but here’s what I take to be a more realistic equation determing time to release a new feature:
 
-NOTICE! n is just one small factor amidst so many others. (arrow pointing to n), whereas before it was the only factor in the denominator.
+<img src="./FinalEquation.svg" alt="final_equation" class="equation">
 
 A powerful symmetry emerges. The top half of the equation is all technical factors. The bottom half of the equation is all human factors.
 
@@ -127,20 +127,19 @@ The lead Software Engineer is responsible for minimizing the top half of this eq
 
 The Product Manager is responsible for maximizing the bottom half of this equation, i.e. the human half.
 
-So we now return to our initial question: how does pairing effect TTR?
+Let's now answer the original question:
 
-<blockquote>QUESTION: What is pair programming?</blockquote>
-<blockquote>ANSWER: A tool with the potential to maximize the bottom (human) part of the software development equation</blockquote>
-
-Provided pairing is done correctly in a way that maximizes codebase familiarity and upskilling opportunities, it's very possible that the long term health of the project will be benefitted.
+<blockquote><b>QUESTION</b>: How does pair programming effect time to release?</blockquote>
 
 <h2>Pair Programming and Time To Release</h2>
 
-<h3>Positives</h3>
+<blockquote><b>ANSWER</b>: Pairing has the potential to MAXIMIZE the bottom (i.e. human) part of the time to release equation</blockquote>
 
-The Operands of the Development Equation positively impacted by Pairing:
+<h3>Upskilling Opportunities during Project</h3>
 
 Pairing provides ample upskilling opportunities every minute of every day. Pair programming makes knowledge transfer and onboarding a near inevitability.
+
+<h3>Codebase Familiarity</h3>
 
 Breadth-first familiarity with the entire codebase with good pairing rotations
 
