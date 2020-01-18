@@ -6,41 +6,39 @@ description: "Set your development team free with this flexible multi-provider a
 
 <blockquote>"All models are flawed. Some are useful." George E.P. Box</blockquote>
 
-An Authentication framework that grows with your project.
+GitHub: [EZClientAuth](https://github.com/alo9507/EZClientAuth)
 
-Authentication is hard. Authentication is less hard when you reduced to its component parts. This we call its domain.
+Authentication is hard. Authentication is less hard once it's reduced to its component parts.
 
-A domain keeps you abstracted just far enough from your auth implementation to think clearly, yet close enough to save it from becoming the most seductive carrot in programming - a useless abstraction.
+This we call the authentication domain.
 
-There are three components to client-side authentication:
+We will build EZClientAuth from 3 components of this authentication domain:
 
-- AuthSession: An object encapsulating authentication state, i.e. the authentication token.
+`AuthSession`
+</br>An object encapsulating authentication state, e.g. the authentication token.
 
-- RemoteAuthProvider: A remote service capable of creating, removing and updating AuthSessions using some kind of credential.
-  Examples: Firebase, Auth0, Keycloak
+`RemoteAuthProvider`
+</br>
+A remote service capable of creating, deleting and refreshing AuthSessions using some form of credential.
+</br>
+<i class="example">Examples: Firebase, AuthO, Keycloak</i>
 
-- DataStore: An on-device cache for persisting your AuthSession between application launches
-  Example: browser local storage, Keychain or FileSystem on iOS
+`DataStore`
+</br>
+An on-device cache for persisting your AuthSession between application launches
+</br>
+<i class="example">Examples: Browser local storage, Keychain on iOS</i>
 
-Using only the above 3 constructs, we will build an Authentication domain capable of
+<h4>What It Can Do</h4>
 
-Features:
+- <b>Basic Auth CRUD</b>: sign-in, sign-out, checking if the client is already authenticated
+- <b>Caching</b>: Peristing the AuthSession between application launches
+- <b>Multiple Auth Providers</b>: Ability to change authentication provider in a single line of code
+- <b>Multiple Caching Providers</b>: Ability to change what cache is used with a single line of code.
 
-- Basic Auth CRUD: sign-in, sign-out, checking if the client is already authenticated
-- Persisted login between application launches
-- Ability to change authentication provider in a single line of code
+<h4>Domain Driven Development (DDD)</h4>
 
-- Even if you don't know Swift, I promise this framework will conceptually wherever a client has to prove its identity.
-
-<h4>Constraints + Requirements</h4>
-
-1. Expose the minimum amount of surface area necessary for the application to fulfill its authentication tasks
-2. Be fully testable/mockable
-3. Allow for arbitrary remote authentication providers (e.g. Auth0, Firebase, Keycloak)
-4. Allow for arbitrary client-side caches
-
-<h4>Approach</h4>
-Domain/Interface Driven Development: No mention of implementations
+Coined by Eric Evans in his 1962 masterpiece [Domain Driven Design: Tackling Complexity at the Heart of Software Development](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software-ebook/dp/B00794TAUG), DDD strips away the accidental complexities of implementations by focusing on the underlying domain across all implementations.
 
 <h3>The Golden Rule of DDD</h3>
 
@@ -55,15 +53,20 @@ If you can fill in the blanks above for your domain, and create an interface to 
 
 <h4>Benefits of DDD</h4>
 
-1. Prevent vendor lock-in: Interface Driven Design reduces switching costs by reducing a) the lines of code you need to change in a refactor, and b) encapsulating those lines of code to a smaller area, in our case one file per auth provider
+- <b>Prevent vendor lock-in</b>: Interface Driven Design reduces switching costs by reducing a) the lines of code you need to change in a refactor, and b) encapsulating those lines of code to a smaller area, in our case one file per auth provider
 
-2. Fine-grained error handling: When you’re domain has been reduced,
+- <b>Fine-grained error handling</b>: When you’re domain has been reduced to its flows, you can hook into the error paths with custom errors across implementations.
 
-3. Straightforward testing
+- <b>Straightforward testing</b>: Because DDD is realized through interfaces, you can always create a mock that adheres to that interface for testing.
+
+<h4>Implementation: Swift</h4>
+Even if you don't know Swift, I promise this framework will port conceptually wherever a client has to prove its identity.
 
 Let’s get started with the nucleus of authentication: the auth session.
 
-<h2>AuthSession</h2>
+<hr/>
+
+<h2 style="text-decoration: underline;">AuthSession</h2>
 
 I want <span style="text-decoration: underline; font-weight: 900">something that encapsulates my auth state</span>.
 
@@ -85,9 +88,10 @@ public class AuthSession: Codable {
 Why not a simple String? As you’re authentication needs grow more complex, you may want more properties and helper methods to manage it.
 Where does this AuthSession come from?
 
-<h2>RemoteAuthProvider</h2>
+<hr/>
 
-<h4>The Ask</h4>
+<h2 style="text-decoration: underline;">RemoteAuthProvider</h2>
+
 I want <span style="text-decoration: underline; font-weight: 900">something that takes an email and password and returns an AuthSession if successful, or a helpful error message if unsuccessful.</span>
 
 <h4>The Interface</h4>
@@ -100,9 +104,9 @@ protocol RemoteAuthProvider {}
 
 </div>
 
-I want something I give an email and password, or a phone number and password, that return me an AuthSession or helpful error message if it fails.
+I want something I give an email and password, or a phone number and password, that return me an AuthSession or helpful error message if it fails. So let's add signIn to the protocol.
 
-Let's add signIn to the protocol
+Our `RemoteAuthProvider` will communicate back to the calling code through callbacks, also known as <i>completion handlers</i>.
 
 <div class="impl">
 
@@ -119,7 +123,7 @@ protocol RemoteAuthProvider {
 
 The `AuthResponse` is a tuple that fulfills the requirement that the `RemoteAuthProvider` return either an `AuthSession` or an `AuthError`
 
-The `email`, `phoneNumber` and `password` are all Optionals to allow for maximum flexibility in implementing new `RemoteAuthProvider`s.
+The `email`, `phoneNumber` and `password` are all Optionals to allow for maximum flexibility in implementing new `RemoteAuthProvider`s that may take different credentials, e.g. social media logins.
 
 <h4>Auth Response</h4>
 
@@ -137,19 +141,17 @@ typealias AuthResponse = (AuthSession?, AuthError?) -> Void
 
 This typealias bundles the existing types `AuthSession` and `AuthError`, which we'll see in a minute.
 
-<h4>The Null Safe Tango</h4>
+Swift is a null safe language. It uses the question mark charcater `?` to indicate that this object is either the object, or nil. It is an <i>optional</i> type.
 
-The `?` makes the return `Optional`.
+Null safety is central to the EZClientAuth framework, so let's explore this before continuing development.
 
-Is error nil?
+<h4>Leveraging Null Safety to Direct Authentication Flow</h4>
 
-- Yes. Continue execution.
-- No. Throw and AuthError with that error
+Null-safe languages like Kotlin and Swift force you to answer the question <i>"What happens if this object is nil?"</i> at compile time, not runtime. So rather than receiving a surprising `undefined` or `NullPointerException` after building, or worse, in production, you receive compiler errors requesting that you as a developer consider the null case.
 
-Is there an AuthSesion?
+We'll use raw Swift null-safe langauge features like `guard` and `if let` blocks to guide the flow of authentication around the many errors that may occur.
 
-- Yes. Continue execution.
-- No.
+An idiomatic flow in null safe language:
 
 <div class="impl">
 
@@ -162,35 +164,58 @@ guard object != nil else {
     // account for the fact that you object is nil then return
 }
 
-// safely code knowing that ZERO errors occurred and your return object is not nil :-)
+// safely code knowing that ZERO errors occurred
+// and your return object is not nil :-)
 ```
 
 </div>
 
 <h4>Comprehensive Error Handling</h4>
 
-I want <span style="text-decoration: underline; font-weight: 900">something that let's me control how errors are presented to the consuming code.</span>
+<blockquote>As SDK developers, we are responsible for improving the lives of developers. Helpful error handling is central in achieving this goal.</blockquote>
+
+Authentication is fertile ground for confusing errors. Let's create a wrapper around the deeper errors thrown by the `RemoteAuthProvider` (e.g. network errors) that will percolate these low-level errors in a developer-friendly manner.
+
+For example,
+
+<div class="impl">
+
+```swift
+.incorrectCredentials("
+                    Provider: Firebase
+                    HTTP ERROR: 401
+                    Email: myEmail@g.com
+                    Password: abc123!
+                    ")
+```
+
+</div>
+
+is much more informative to developers than
+
+<div class="impl">
+
+```swift
+.networkError("HTTP ERROR 401")
+```
+
+</div>
 
 Let's create an enum, `AuthError`, to house all the possible errors we may encounted in Auth workflows, along with helpful error messages.
 
-Included here are just a few.
+There are dozens that the EZClientAuth implements. Let's just start with `incorrectCredentials`.
 
 <div class="impl">
 
 ```swift
 public enum PUBAuthError: Error, Equatable {
-    case failedToPersistUserSessionData(_ error: String)
-    case failedToSignInWithRemote(_ error: String)
-    case wrongEmail(_ error: String)
-    case wrongPassword(_ error: String)
+    case incorrectCredentials(_ error: String)
 
     public var errorDescription: String? {
         switch self {
-        case .failedToReadLocalAuthSession(let error):
-            return "Failed to read locally persisted : \(error)"
+        case .incorrectCredentials(let error):
+            return "Incorrect credentials: \(error)"
         }
-        case .failedToSignInWithRemote(let error):
-            return "Failed to sign in with remote auth provider: \(error)"
     }
 }
 ```
@@ -201,7 +226,7 @@ This custom error gives you as an app or SDK developer intimate control over how
 
 Code that aspires to be a RemoteAuthProvider implements this interface. Our application code never knows about them.
 
-<h2>DataStore</h2>
+<h2 style="text-decoration: underline;">DataStore</h2>
 
 I want (underline this) some place to locally persist my auth session so that (underline this) my users don’t have to log in between each launch.
 
@@ -212,7 +237,11 @@ I want helpful error messages when serialization fails
 ```swift
 public protocol PUBAuthDataStore {
     func readAuthSession(_ completion: @escaping PUBAuthResponse)
-    func save(authSession: PUBAuthSession, _ completion: @escaping PUBErrorResponse)
+
+    func save(
+        authSession: PUBAuthSession,
+        _ completion: @escaping PUBErrorResponse)
+
     func delete(_ completion: @escaping PUBErrorResponse)
 }
 ```
@@ -233,25 +262,35 @@ Herein lies another responsibility belonging to neither the RemoteAuthProvider o
 
 We will create our core class to do this: the AuthManager.
 
-<h2>AuthManager</h2>
+<hr/>
 
+<h2 style="text-decoration: underline;">AuthManager</h2>
+
+<h4>The Behavior</h4>
 I want a manager that synchronizes my AuthSession between the RemoteAuthProvider and the DataStore AND houses the one and only AuthSession as a property so that I never have a stale AuthSession in cache or in my application's runtime.
 
-An AuthManager has a RemoteAuthProvider, a DataStore, and an AuthSession.
+<h4>The Interface</h4>
 
 <div class="impl">
 
 ```swift
-public protocol PUBAuthManager {
-    var authProvider: PUBAuthProvider? { get }
-    var dataStore: PUBAuthDataStore { get }
-    var authSession: PUBAuthSession? { get }
+public protocol AuthManager {
+    var authProvider: AuthProvider? { get }
+    var dataStore: AuthDataStore { get }
+    var authSession: AuthSession? { get }
 
-    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping PUBAuthResponse)
+    func signIn(
+        email: String?,
+        password: String?,
+        phoneNumber: String?,
+        _ completion: @escaping AuthResponse
+        )
 }
 ```
 
 </div>
+
+An AuthManager has a RemoteAuthProvider, a DataStore, and an AuthSession.
 
 Let's see how AuthManager facilitates signing in.
 
@@ -260,29 +299,45 @@ signIn: Sign in with RemoteAuthProvider in exchange for an AuthSession. If succe
 <div class="impl">
 
 ```swift
-    func signIn(email: String? = nil, password: String? = nil, phoneNumber: String? = nil, _ completion: @escaping PUBAuthResponse) {
-        // 1
-        remoteAuthProvider.signIn(email: email, password: password, phoneNumber: phoneNumber) { [weak self] (authSession, error) in
+    func signIn(
+        email: String? = nil,
+        password: String? = nil,
+        phoneNumber: String? = nil,
+        _ completion: @escaping AuthResponse) {
+
+        // 1: Sign in with your remote
+        remoteAuthProvider.signIn(
+            email: email, password:
+            password, phoneNumber: phoneNumber) { [weak self] (authSession, error) in
+            //2. Check for errors
             guard error == nil else {
-                // 2
-                return completion(nil, PUBAuthError.failedToSignInWithRemote("email: \(email), password: \(password) \(error!.localizedDescription)"))
+                return completion(
+                    nil,
+                    .failedToSignInWithRemote("\(error!.localizedDescription)"))
             }
 
-            // 3
+            //3. Check for auth session
             guard let authSession = authSession else {
-                // 3
-                return completion(nil, PUBAuthError.failedToRetrieveAuthSession("No AuthSession, but also no errors?"))
+                return completion(
+                    nil,
+                    failedToRetrieveAuthSession(
+                        "No AuthSession, but also no errors?"))
             }
 
-            // 4
+            // 4. Cache the Auth Session
             self?.dataStore.save(authSession: authSession, { (error) in
+
+                // 5. Check for caching errors
                 guard error == nil else {
-                    // 5
-                    return completion(nil, PUBAuthError.failedToPersistUserSessionData(error!.localizedDescription))
+                    return completion(
+                        nil,
+                        .failedToPersistUserSessionData(error!.localizedDescription))
                 }
-                // 6
+
+                // 6. Set the AuthSession on the AuthManager
                 self!.authSession = authSession
-                // 7
+
+                // 7. Complete with the synchronized AuthSession
                 completion(authSession, nil)
             })
         }
@@ -292,15 +347,16 @@ signIn: Sign in with RemoteAuthProvider in exchange for an AuthSession. If succe
 </div>
 
 Let's break that down:
-1: Send our sign-in credentials to our RemoteAuthProvider in exchange for our (AuthSession?, Error?) tuple
-(Red for error)
-2: If there are errors, complete with the helpful PUBAuthError.failedToSignInWithRemote so the consuming code knows exactly what part of the authentication process failed
-3: Ensure the authSession is not nil
-3.5: If there somehow is no errors but also no errors, complete with the helpful PUBAuthError.failedToRetrieveAuthSession so the consuming code knows exactly what part of the authentication process failed
-4: Attempt to persist the AuthSession returned from our RemoteAuthProvider to our DataStore
-5: Ensure there are not errors
-6: Save that AuthSession onto our AuthManager
-7: Complete with out AuthSession and no errors
+
+- Step 1: Send our sign-in credentials to our RemoteAuthProvider in exchange for our (AuthSession?, Error?) tuple
+  (Red for error)
+- Step 2: If there are errors, complete with the helpful AuthError.failedToSignInWithRemote so the consuming code knows exactly what part of the authentication process failed
+- Step 3: Ensure the authSession is not nil
+- Step 3.5: If there somehow is no errors but also no errors, complete with the helpful PUBAuthError.failedToRetrieveAuthSession so the consuming code knows exactly what part of the authentication process failed
+- Step 4: Attempt to persist the AuthSession returned from our RemoteAuthProvider to our DataStore
+- Step 5: Ensure there are not errors
+- Step 6: Save that AuthSession onto our AuthManager
+- Step 7: Complete with out AuthSession and no errors
 
 Using Nulls to Guide your Auth Workflow:
 1: Do something with remote
@@ -322,7 +378,7 @@ AuthSession Synchronization:
 
 We will hide our AuthManager behind an enum, and expose only the PUBAuthManager interface.
 
-<h2>Auth</h2>
+<h2 style="text-decoration: underline;">Auth</h2>
 
 Keeping these
 
@@ -330,7 +386,7 @@ Top 3 Reasons for Using a Singleton:
 
 - The object is used in many parts of the application
 - It's conceptually difficult to imagine a need for more than one of that object to exist simultaneously
-- Changes to the object should be reflected instantly across the application
+- Changes to the object should be shared across across the application
 
 AuthSession abides by all three, namely:
 1: Any code that makes remote calls will likely need an authentication token in its header
@@ -355,8 +411,13 @@ public struct PUBAuth {
     }
 
     // 3: Sole exposed method for configuring AuthManager with the application-provided choice of RemoteAuthProvider and optional DataStore
-    static public func configure(for authProvider: PUBAuthProvider, with dataStore: PUBAuthDataStore? = nil) {
-        manager.configure(for: authProvider, with: dataStore)
+    static public func configure(
+        for authProvider: PUBAuthProvider,
+        with dataStore: PUBAuthDataStore? = nil) {
+        // 3.5 Hand off AuthProviderChoice and datastore to the singleton manager
+        manager.configure(
+            for: authProvider,
+            with: dataStore)
     }
 }
 ```
@@ -373,6 +434,8 @@ In case it was parsed over, here's the MONEYSHOT one more time:
 We can configure our AuthManager with any authProvider and any dataStore and rest assured that our cached AuthSession, runtime AuthSession, and remote AuthSession all remain in sync.
 
 SIDENOTE: To the keen eyed among you, this may look familair. It's is inspired by FirebaseAuth with Firebase.configure(). and Auth.auth() syntax.
+
+That's it. The implementation of signOut, isAuthenticated, and any other authentication behaviors follow naturally from this.
 
 SignOut
 
