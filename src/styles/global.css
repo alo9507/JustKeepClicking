@@ -1,11 +1,11 @@
 :root {
   --purpleDark: #212b87;
   --purpleLight: #2d389a;
-  --pink: #fc78ad;
+  --pink: #fca6c5;
   --orange: #ee9da3;
   --turquoise: #2dd3cb;
   --yellow: #fee552;
-  --primaryBackground: #ffffff;
+  --primaryBackground: #282c36;
   --secondaryBackground: #e5e5e6;
   --grey: #333333;
 }
@@ -21,11 +21,11 @@ body {
 }
 
 footer {
-  color: var(--purpleLight);
+  color: var(--secondaryBackground);
 }
 
 #gatsby_link {
-  color: var(--turquoise);
+  color: var(--pink);
 }
 
 /* ARTICLE */
@@ -34,9 +34,11 @@ footer {
 }
 
 .equation {
-  border: 2px solid black;
+  background-color: white;
+  border: 2px solid var(--pink);
   border-radius: 25px;
   padding: 30px;
+  min-width: 100%;
 }
 
 .article_title {
@@ -44,20 +46,20 @@ footer {
 }
 
 .article_date {
-  color: var(--grey);
+  color: var(--secondaryBackground);
   font-family: Merriweather, Georgia, serif;
 }
 
 .article_description {
-  color: var(--grey);
+  color: var(--secondaryBackground);
 }
 
 blockquote {
-  color: var(--grey);
+  color: var(--secondaryBackground);
 }
 
 .artcile_body {
-  color: var(--grey);
+  color: var(--secondaryBackground);
 }
 
 .prev_link {
@@ -73,11 +75,11 @@ blockquote {
 }
 
 .example {
-  color: var(--purpleLight);
+  color: var(--pink);
 }
 
 a {
-  color: var(--purpleDark);
+  color: var(--pink);
 }
 
 /* FRONTPAGE */
@@ -86,14 +88,14 @@ a {
 }
 
 .frontpage_date {
-  color: var(--grey);
+  color: var(--secondaryBackground);
 }
 
 /* BIO */
 .bio_description {
-  color: var(--purpleLight);
+  color: var(--secondaryBackground);
 }
 
 .article_link {
-  color: var(--turquoise);
+  color: var(--pink);
 }

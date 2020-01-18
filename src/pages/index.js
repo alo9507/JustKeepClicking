@@ -14,17 +14,6 @@ class BlogIndex extends React.Component {
 
     return (
       <>
-        {`put this whole thing in a grid with media breakpoints for stack resources and nav`}
-        <div
-          style={{
-            position: "absolute",
-            backgroundColor: "red",
-            top: 0,
-            left: 0,
-            width: "200px",
-            height: "200px",
-          }}
-        ></div>
         <Layout location={this.props.location} title={siteTitle}>
           <SEO title="just keep clicking" />
           <Bio />
