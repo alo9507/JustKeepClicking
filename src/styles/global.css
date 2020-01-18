@@ -91,6 +91,10 @@ a {
   color: var(--secondaryBackground);
 }
 
+.frontpage_reading_time {
+  color: var(--secondaryBackground);
+}
+
 /* BIO */
 .bio_description {
   color: var(--secondaryBackground);

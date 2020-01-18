@@ -193,7 +193,7 @@ For example,
 <div class="impl">
 
 ```swift
-.incorrectCredentials("
+AuthError.incorrectCredentials("
                     Provider: Firebase
                     HTTP ERROR: 401
                     Email: myEmail@g.com
@@ -208,7 +208,7 @@ is much more informative to developers than
 <div class="impl">
 
 ```swift
-.networkError("HTTP ERROR 401")
+AuthError.networkError("HTTP ERROR 401")
 ```
 
 </div>
@@ -220,13 +220,13 @@ There are dozens that the EZClientAuth implements. Let's just start with `incorr
 <div class="impl">
 
 ```swift
-public enum PUBAuthError: Error, Equatable {
+public enum AuthError: Error, Equatable {
     case incorrectCredentials(_ error: String)
 
     public var errorDescription: String? {
         switch self {
         case .incorrectCredentials(let error):
-            return "Incorrect credentials: \(error)"
+            return "Credentials provided are not known: \(error)"
         }
     }
 }
@@ -247,14 +247,14 @@ I want helpful error messages when serialization fails
 <div class="impl">
 
 ```swift
-public protocol PUBAuthDataStore {
-    func readAuthSession(_ completion: @escaping PUBAuthResponse)
+public protocol AuthDataStore {
+    func readAuthSession(_ completion: @escaping AuthResponse)
 
     func save(
-        authSession: PUBAuthSession,
-        _ completion: @escaping PUBErrorResponse)
+        authSession: AuthSession,
+        _ completion: @escaping ErrorResponse)
 
-    func delete(_ completion: @escaping PUBErrorResponse)
+    func delete(_ completion: @escaping ErrorResponse)
 }
 ```
 
@@ -279,7 +279,7 @@ We will create our core class to do this: the AuthManager.
 <h2 style="text-decoration: underline;">AuthManager</h2>
 
 <h4>The Behavior</h4>
-I want a manager that synchronizes my AuthSession between the RemoteAuthProvider and the DataStore AND houses the one and only AuthSession as a property so that I never have a stale AuthSession in cache or in my application's runtime.
+I want a manager that synchronizes my AuthSession between the RemoteAuthProvider and the DataStore AND houses the one and only AuthSession as a property. This prevents a stale AuthSession in cache or in my application's runtime.
 
 <h4>The Interface</h4>
 
@@ -287,8 +287,9 @@ I want a manager that synchronizes my AuthSession between the RemoteAuthProvider
 
 ```swift
 public protocol AuthManager {
-    var authProvider: AuthProvider? { get }
+    var remoteAuthProvider: RemoteAuthProvider { get }
     var dataStore: AuthDataStore { get }
+
     var authSession: AuthSession? { get }
 
     func signIn(
@@ -306,54 +307,62 @@ An AuthManager has a RemoteAuthProvider, a DataStore, and an AuthSession.
 
 Let's see how AuthManager facilitates signing in.
 
-signIn: Sign in with RemoteAuthProvider in exchange for an AuthSession. If successful, it should persist the AuthSession to the DataStore then assign itself that AuthSession.
+Step 1: Send Credentials to `RemoteAuthProvider` and receive an `AuthSession` if successful, and `AuthError` if unsuccesful.
 
 <div class="impl">
 
 ```swift
-    func signIn(
-        email: String? = nil,
-        password: String? = nil,
-        phoneNumber: String? = nil,
-        _ completion: @escaping AuthResponse) {
-
-        // 1: Sign in with your remote
-        remoteAuthProvider.signIn(
-            email: email, password:
-            password, phoneNumber: phoneNumber) { [weak self] (authSession, error) in
-            //2. Check for errors
-            guard error == nil else {
-                return completion(
-                    nil,
-                    .failedToSignInWithRemote("\(error!.localizedDescription)"))
-            }
-
-            //3. Check for auth session
-            guard let authSession = authSession else {
-                return completion(
-                    nil,
-                    failedToRetrieveAuthSession(
-                        "No AuthSession, but also no errors?"))
-            }
-
-            // 4. Cache the Auth Session
-            self?.dataStore.save(authSession: authSession, { (error) in
-
-                // 5. Check for caching errors
-                guard error == nil else {
-                    return completion(
-                        nil,
-                        .failedToPersistUserSessionData(error!.localizedDescription))
-                }
-
-                // 6. Set the AuthSession on the AuthManager
-                self!.authSession = authSession
-
-                // 7. Complete with the synchronized AuthSession
-                completion(authSession, nil)
-            })
-        }
+// 1: Sign in with your remote
+remoteAuthProvider.signIn(
+    email: email, password:
+    password, phoneNumber: phoneNumber) { [weak self] (authSession, error) in
+    //2. Check for errors
+    guard error == nil else {
+        return completion(
+            nil,
+            .failedToSignInWithRemote("\(error!.localizedDescription)"))
     }
+
+    //3. Check for auth session
+    guard let authSession = authSession else {
+        return completion(
+            nil,
+            failedToRetrieveAuthSession(
+                "No AuthSession, but also no errors?"))
+    }
+```
+
+</div>
+
+Step 2: Attempt to cache the AuthSession returned, throw an `AuthError` if a caching error (e.g. seialization) occurs.
+
+<div class="impl">
+
+```swift
+// 4. Cache the Auth Session
+self?.dataStore.save(authSession: authSession, { (error) in
+
+    // 5. Check for caching errors
+    guard error == nil else {
+        return completion(
+            nil,
+            .failedToPersistUserSessionData(error!.localizedDescription))
+    }
+})
+```
+
+</div>
+
+Step 3: Set the `AuthManager`'s `AuthSession` equal to the return AuthSession so it can be used throughout the application
+
+<div class="impl">
+
+```swift
+// 6. Set the AuthSession on the AuthManager
+self!.authSession = authSession
+
+// 7. Complete with the synchronized AuthSession
+completion(authSession, nil)
 ```
 
 </div>
@@ -364,7 +373,7 @@ Let's break that down:
   (Red for error)
 - Step 2: If there are errors, complete with the helpful AuthError.failedToSignInWithRemote so the consuming code knows exactly what part of the authentication process failed
 - Step 3: Ensure the authSession is not nil
-- Step 3.5: If there somehow is no errors but also no errors, complete with the helpful PUBAuthError.failedToRetrieveAuthSession so the consuming code knows exactly what part of the authentication process failed
+- Step 3.5: If there somehow is no errors but also no errors, complete with the helpful AuthError.failedToRetrieveAuthSession so the consuming code knows exactly what part of the authentication process failed
 - Step 4: Attempt to persist the AuthSession returned from our RemoteAuthProvider to our DataStore
 - Step 5: Ensure there are not errors
 - Step 6: Save that AuthSession onto our AuthManager
@@ -388,13 +397,15 @@ AuthSession Synchronization:
 2: Sign-in should immediately perist AuthSession once it's received from RemoteAuthProvider
 3: Sign-out should immediately remove AuthSession once we sign-out from RemoteAuthProvider
 
-We will hide our AuthManager behind an enum, and expose only the PUBAuthManager interface.
-
 <h2 style="text-decoration: underline;">Auth</h2>
 
-Keeping these
+We could just allow the consuming code to create as many AuthManagers as they want, but this would .
 
-Top 3 Reasons for Using a Singleton:
+<blockquote>The tradeoff in SDK development is opinionated vs. flexible. Shoot for 80% approval.</blockquote>
+
+I can think of few circumstances in which the consuming code would be benefit from multiple AuthManager's all with different states.
+
+AuthManager checks off all three of my usualy criteria for making a singltone:
 
 - The object is used in many parts of the application
 - It's conceptually difficult to imagine a need for more than one of that object to exist simultaneously
@@ -408,24 +419,24 @@ AuthSession abides by all three, namely:
 If the above three criteria are not true, you may be better off just injecting through initializers or setters as need as needed and spare yourself the trouble of Singletons.
 (e.g. testing, which we'll cover in Part III).
 
-The honor of the Singleton now upheld, lets create a singleton AuthManager to house our one and only AuthSession.
+The honor of the Singleton now upheld, lets create a construct, simply called Auth, that will be the consuming code's entry point to a singleton AuthManager, owner of the one and only AuthSession.
 
 <div class="impl">
 
 ```swift
-public struct PUBAuth {
+public struct Auth {
     // 1: Singleton AuthManager for sign-in, sign-out, etc.
-    static public let manager: PUBAuthManager = AuthManager()
+    static public let manager: AuthManager = AuthManager()
 
     // 2: Convenience getter for the authSession
-    static public var session: PUBAuthSession? {
+    static public var session: AuthSession? {
         return manager.authSession
     }
 
     // 3: Sole exposed method for configuring AuthManager with the application-provided choice of RemoteAuthProvider and optional DataStore
     static public func configure(
-        for authProvider: PUBAuthProvider,
-        with dataStore: PUBAuthDataStore? = nil) {
+        for authProvider: AuthProvider,
+        with dataStore: AuthDataStore? = nil) {
         // 3.5 Hand off AuthProviderChoice and datastore to the singleton manager
         manager.configure(
             for: authProvider,
@@ -472,7 +483,7 @@ Testing:
 - Testing the AuthManager itself
   Make a MockAuthManager that implements the AuthManager protocol. Give it a MockDataStore that implements the DataStore interface. Give the MockAuthManager a MockRemoteAuthProvider that implements the RemoteAuthProvider interface.
 
-- Mocking PUBAuthManager in the app itself so you can unit test your application
+- Mocking AuthManager in the app itself so you can unit test your application
   Easily make a MockAuthManager in your app.
   Make MockAuthManager succeed when you want to test happy paths.
   Make MockAuthManager fail when you want to test error handling.

@@ -143,12 +143,9 @@ Pairing provides ample upskilling opportunities every minute of every day. Pair 
 
 Breadth-first familiarity with the entire codebase with good pairing rotations
 
-<h3>Negatives</h3>
-Raw highly-skilled programmer hours devoted to the feature
+<b>Distraction to Senior Devs:</b> The hours of developers with high skill weightings would be diverted from coding to training others. Some time will be spent talking rather than typing.
 
-In a pair programming environment, it is a fact that some of your most senior devs will end up pairing with junior developers. Assuming the senior dev doesn’t just stone wall the junior and fly on the keyboard solo, some of that developers time will go towards talking rather than typing.
-
-Depth-first specialization and familiarity in certain parts of the codebase. Without pair rotations, is possible for one person to develop a deep familiarity, a kind of intellectual marriage to one part of the codebase that they solo-coded at some point.
+<b>Developers are Less Specialized:</b> Both a blessing and a curse, depth-first specialization and familiarity in certain parts of the codebase can boost developer efficiency for certain tasks. Without pair rotations, is possible for one person to develop a deep familiarity, a kind of intellectual marriage, to one part of the codebase that they solo-coded at some point.
 
 This can make some devs incredibly fast at implementing features in one part of the codebase, but much slower in others.
 
