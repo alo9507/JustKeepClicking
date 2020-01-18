@@ -13,44 +13,57 @@ class BlogIndex extends React.Component {
     const posts = data.allMarkdownRemark.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={node.fields.slug}>
-              <header>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <Link
-                    className="article_link"
+      <>
+        {`put this whole thing in a grid with media breakpoints for stack resources and nav`}
+        <div
+          style={{
+            position: "absolute",
+            backgroundColor: "red",
+            top: 0,
+            left: 0,
+            width: "200px",
+            height: "200px",
+          }}
+        ></div>
+        <Layout location={this.props.location} title={siteTitle}>
+          <SEO title="just keep clicking" />
+          <Bio />
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <article key={node.fields.slug}>
+                <header>
+                  <h3
                     style={{
-                      boxShadow: `none`,
+                      marginBottom: rhythm(1 / 4),
                     }}
-                    to={node.fields.slug}
                   >
-                    {title}
-                  </Link>
-                </h3>
-                <small className="frontpage_date">
-                  {node.frontmatter.date}
-                </small>
-              </header>
-              <section className="article_description">
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
-          )
-        })}
-      </Layout>
+                    <Link
+                      className="article_link"
+                      style={{
+                        boxShadow: `none`,
+                      }}
+                      to={node.fields.slug}
+                    >
+                      {title}
+                    </Link>
+                  </h3>
+                  <small className="frontpage_date">
+                    {node.frontmatter.date}
+                  </small>
+                </header>
+                <section className="article_description">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </section>
+              </article>
+            )
+          })}
+        </Layout>
+      </>
     )
   }
 }

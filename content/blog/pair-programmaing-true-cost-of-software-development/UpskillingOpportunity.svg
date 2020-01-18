@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="501px" height="267px" viewBox="0 0 501 267" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>UpskillingOpportunity</title>
+    <desc>Created with Sketch.</desc>
+    <g id="UpskillingOpportunity" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="501" height="267"></rect>
+        <g id="Equation" transform="translate(0.000000, -12.000000)">
+            <text id="TTR" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
+                <tspan x="0.624" y="69">TTR</tspan>
+            </text>
+            <text id="n(D-*-(S-+-Upskillin" font-family="Avenir-Roman, Avenir" font-size="24" font-weight="normal" letter-spacing="-0.576">
+                <tspan x="83.736" y="87" fill="#000000">n(D * (S + </tspan>
+                <tspan x="188.544" y="87" fill="#FF0000">Upskilling during Project</tspan>
+                <tspan x="438.216" y="87" fill="#000000">) + CF</tspan>
+            </text>
+            <rect id="Rectangle" fill="#000000" x="83" y="60" width="418" height="3"></rect>
+            <text id="=" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
+                <tspan x="55.592" y="69">=</tspan>
+            </text>
+            <g id="Numerator" transform="translate(146.000000, 0.000000)" fill="#000000">
+                <text id="E---NVRC-+" font-family="Avenir-Heavy, Avenir" font-size="24" font-weight="600" letter-spacing="-0.576">
+                    <tspan x="6.336" y="41">E</tspan>
+                    <tspan x="20.424" y="41" font-family="Avenir-Roman, Avenir" font-weight="normal"> - </tspan>
+                    <tspan x="40.032" y="41">NVRC</tspan>
+                    <tspan x="104.4" y="41" font-family="Avenir-Roman, Avenir" font-weight="normal">  + </tspan>
+                </text>
+                <rect id="Rectangle-Copy" transform="translate(217.000000, 33.500000) scale(1, -1) translate(-217.000000, -33.500000) " x="153" y="33" width="128" height="1"></rect>
+                <text id="Codebase-Size" font-family="Avenir-Heavy, Avenir" font-size="16" font-weight="600" letter-spacing="-0.384">
+                    <tspan x="164.072" y="30">Codebase Size</tspan>
+                </text>
+                <text id="Codebase-Quality" font-family="Avenir-Heavy, Avenir" font-size="16" font-weight="600" letter-spacing="-0.384">
+                    <tspan x="153.192" y="49">Codebase Quality</tspan>
+                </text>
+                <text id="(" font-family="Avenir-Light, Avenir" font-size="48" font-weight="300" letter-spacing="-1.152">
+                    <tspan x="141.672" y="48">(</tspan>
+                </text>
+                <path d="M289.773684,55 L292,53.5472973 C290.042105,50.4159159 288.526316,47.2361111 287.452632,44.0078829 C286.378947,40.7796547 285.842105,37.277027 285.842105,33.5 C285.842105,31.8213213 285.968421,30.0942192 286.221053,28.3186937 C286.473684,26.5431682 286.860526,24.7837838 287.381579,23.0405405 C287.902632,21.2972973 288.542105,19.610548 289.3,17.9802928 C290.057895,16.3500375 290.957895,14.8731231 292,13.5495495 L292,13.5495495 L289.584211,12 C287.5,15.0022523 285.881579,18.3757508 284.728947,22.1204955 C283.576316,25.8652402 283,29.6584084 283,33.5 C283,35.3400901 283.15,37.1963213 283.45,39.0686937 C283.75,40.9410661 284.184211,42.7972973 284.752632,44.6373874 C285.321053,46.4774775 286.023684,48.2772147 286.860526,50.0365991 C287.697368,51.7959835 288.668421,53.4504505 289.773684,55 L289.773684,55 Z" id="(" fill-rule="nonzero" transform="translate(287.500000, 33.500000) rotate(-180.000000) translate(-287.500000, -33.500000) "></path>
+            </g>
+        </g>
+        <text id="TTR-=-Time-to-Releas" font-family="Avenir-Heavy, Avenir" font-size="18" font-weight="600" letter-spacing="-0.432" fill="#000000">
+            <tspan x="0" y="112">TTR </tspan>
+            <tspan x="35.604" y="112" font-family="Avenir-Book, Avenir" font-weight="normal">=</tspan>
+            <tspan x="47.16" y="112"> </tspan>
+            <tspan x="52.056" y="112" font-family="Avenir-Roman, Avenir" font-weight="normal">Time to Release</tspan>
+            <tspan x="0" y="137">E</tspan>
+            <tspan x="10.566" y="137" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Effort Size of Feature</tspan>
+            <tspan x="0" y="162">NVRC</tspan>
+            <tspan x="48.276" y="162" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Net Value of Reusable Code</tspan>
+            <tspan x="0" y="187">n</tspan>
+            <tspan x="9.9" y="187" font-family="Avenir-Roman, Avenir" font-weight="normal"> = # of Developers</tspan>
+            <tspan x="0" y="212">D</tspan>
+            <tspan x="13.23" y="212" font-family="Avenir-Roman, Avenir" font-weight="normal"> = 1 Developer</tspan>
+            <tspan x="0" y="237">S</tspan>
+            <tspan x="9.9" y="237" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Skill Weighting</tspan>
+            <tspan x="0" y="262">CF</tspan>
+            <tspan x="21.798" y="262" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Codebase Familiarity</tspan>
+        </text>
+    </g>
+</svg>

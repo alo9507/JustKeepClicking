@@ -1,150 +1,161 @@
 ---
-title: Pair Programming and the The Race to Deliver New Features
+title: Pair Programming in the The Race to Release
 date: "2020-01-13T22:12:03.284Z"
 description: "What part of the software development equation does pairing improve?"
 ---
 
-<blockquote>"Why would I pay two programmers to do the job of one?"</blockquote>
+<blockquote>Enterprise asks of pair programming culture: why would I pay two developers to do the job of one?</blockquote>
 
-Enterprises ask of pair programming culture: why would I pay two developers to do the job of one?
+This legitimate concern with pairing stems from the following notion about the nature of software release time:
 
-This perplexity with pairing reflects the following notion about the nature of software development:
+<img src="./StartingEquation.svg" alt="equation_1" class="equation">
 
-Time to Develop New Feature = Effort Size of New Feature / # of Programmers
+Where number of programmers is taken to mean <i>independently operating</i> programmers. The argument goes that if two programmers are coalesced onto a single task, then the time to release will lengthen.
 
-Where number of programmers is taken to mean independently operating programmers. The argument goes that if two programmers are coalesced into one, then the software development time grows.
+But this is <b>not</b> the time to release equation. The truth, as usual, is much more subtle.
 
-But this is <b>not</b> the equation of software development time. The truth, as usual, is much more subtle.
+Let's progressively introduce complexities to this time-to-release (TTR) equation untl we arrive at a more realistic notion of what factors effect time to release.
 
-This article will be devoted to breaking down the operators on the right side of this equation: The human factor in the numerator. The codebase factor in the denominator.
+Finally, we'll look at how pairing effects both the human and codebase factors of the resulting equation.
 
-We'll progressively introduce complexities untl we arrive at a more realistic notion of the cost of software development.
+<h2>Technical Ability of Programmers</h2>
 
-Finally, we'll look at how pairing effects the human / codebase, top and bottom halves of the equation.
+<blockquote>Quote here</blockquote>
 
-As we introduce each new factor, we'll abbreviate it thereafter fro formatting reasons.
-
-<h2>Complexity 1: Technical Ability of Programmers</h2>
-Not all programmers are of equal technical skills. Better devs spend less time researching and more time cutting the throat of the project.
+Not all programmers are of equal technical skill. Software development is nothing more than hundreds of small decisions every day. Experienced devs make better decisions quicker.
 
 Thus:
 
-The greater the skill, the fewer devs necessary to achieve the same TTD.
+<img src="./TechnicalAbility.svg" alt="technical_ability" class="equation">
 
-The mythical 10x engineer fits in here as one part of the equation, with a massive skill weighting.
+The greater the technical ability, the fewer devs <i><b>n</b></i> necessary to achieve the same Time to Release, <b>TTR</b>.
+
+The mythical 10x engineer fits in here as a major factor, with a massive skill weighting.
 
 This one's obvious, so we won't belabor it.
 
-<h2>Complexity 2: Pre-existing Code</h2>
+<h2>Code Reuse</h2>
 
-<blockquote>Good devs code well, great devs know how to lift adapt and integrate existing code into the new project. </blockquote>
+<blockquote>Good devs code well, great devs know how to lift, adapt and integrate existing code into the new project.</blockquote>
 
-Most codebases are not ex nihilo.
+Most codebases are not ex nihilo. The decision to buy or build should be made in light of <i><b>net value of reusable code</b></i>, where
+
+Net Value of reusable code = Effort to custom build - integration cost of existing code
+
+If it takes more time and energy to integrate existing code than it would be to build from scratch, the net value becomes negative and lengthens TTR rather than shortening it.
 
 Thus:
 
-Time to Develop New Feature = Effort Size of New Feature - Existing Code / # of Programmers
+<img src="./CodeReuse.svg" alt="technical_ability" class="equation">
 
-Where Value of reusable code = Time to custom build from scratch - integration cost of reusable code
+<h2>Codebase Size</h2>
 
-<h2>Size of Codebase</h2>
+<blockquote>Quote here</blockquote>
 
-As the codebase grows in size the possibility for regressions caused by new features grows.
+As the codebase grows in size, the possibility for regressions caused by new features grows.
 
-<h2>Quality of Codebase</h2>
+This is why greenfield projects often see massive velocity early on: there are fewer constraints on each user story.
 
-Quality is a combination of architecture, consistency and and comprehensibility (think documentation).
+<img src="./CodebaseSize.svg" alt="technical_ability" class="equation">
 
-With good architecture, codebase growth in size carries with it a smaller increase in complexity, as new features fit snugly into existing paradigms rather than being solved in an ad hoc “take it as it comes” manner that leads to gross interdependencies. Good architecture scales, thus we set it as a divisor to size of codebase to indicate the better the architecture and code hygiene, the less of an impact codebase size will have on time to develop a new feature.
+<h2>Codebase Quality</h2>
 
-<h2>Familiarity with Codebase</h2>
+<blockquote>The greater the quality of a codebase, the less effect codebase size will have on time-to-release</blockquote>
+
+Quality is a combination of both human and performance factors, including properly deployed architectural patterns, naming consistency, performance and documentation.
+
+Good architecture and documentations allow codebases to grow in size without increasing in complexity. New features fit snugly into existing paradigms rather than being solved in an ad hoc “take it as it comes” manner that leads to gross interdependencies and spaghetti code.
+
+We reflect this by dividing codebase size by codebase quality, since quality offsets the negative effects of size. Even a monorepo as massive as Google's may not effect TTR if the quality is such that the place to add new modules is obvious and not interdependent.
+
+<img src="./CodebaseQuality.svg" alt="technical_ability" class="equation">
+
+<h2>Codebase Familiarity</h2>
+
+<blockquote>Quote here</blockquote>
 
 Familiarity with codebase here encapsulates:
-Tribal knowledge: “I remember what we named that method - let me just search for it”
-Architectural knowledge: “How should I implement this new screen with navigation and networking. I should use the precedent set by the Coordinator pattern and Repository pattern.”
+
+- <b>Tribal knowledge</b>: “I remember what we named that method - let me just search for it”
+- <b>Architectural knowledge</b>: “How should I implement this new screen with navigation and networking. I should use the precedent set by the Coordinator pattern and Repository pattern.”
+
+Codebase familiarity is the ability to reach for precedent in existing code rather than solving the problem for the first time.
+
+Codebase familiarity lets you solve problems once and use that answer everywhere.
 
 Even a great dev in uncharted territory may perform a slower than a less skilled dev familiar with the ley of this land, however idiosyncratic it may be.
 
+A feature can be added to even the most inconsistent and undisciplined codebase if a programmer if familair with the quirks from weeks in the trenches.
+
+I think familiarity isn't quite as valuable as technical skill, so we add it rather than multiply it.
+
+<img src="./CodebaseFamiliarity.svg" alt="technical_ability" class="equation">
+
 <h2>Upskilling Opportunities during Project</h2>
 
-<blockquote>You are not the same developer towards the end of a project as you were at the beginning</blockquote>
+<blockquote>You are not the same developer towards the end of a project as you were at the beginning. Programmer skill is dynamic across time and grows logarithmically in a step-wise fashion proportional to the quantity and diversity of upskilling opportunitites presented to developers during a project.</blockquote>
 
-<blockquote>Programmer skill is dynamic across time and grows logarithmically with the number and diversity of upskilling opportunitites presented to them.</blockquote>
+Many projects are marathons, not sprints, and during that marathon novice and intermediate developers can really rise to the occasion. Programmer ability towards the end of the project is always greater than it was at the beginning.
 
-Why logarithmically? Becuase progression comes stepwise. An initial boost levels off to a new norm. Here's an example from my own life:
+Why do I say tehcnical skill improves logarithmically? Because revelations level-off to new palteaus. An initial boost levels off to a new norm.
 
-So we should adjust the skill weighting of an individual programmer to reflect this time and upskilling opportunity factor.
+Why step-wise? Becuase revelations by definition only come once in a while, and they take time to sink in. An "aha!" moment paired with practice is what lifts a developer to the next level.
 
-Many projects are marathons, not sprints, and during that marathon people can really rise to the occasion, progressing from novice to expert. Programmer ability towards the end of the project is greater than it was at the beginning. This upskilling across time is a factor in
+I’ve had certain revelations in my career that have massively improved my productivity. Here’s a graph of what this year has looked like:
 
-This may be bundled with technical ability, but in reality it is a factor playing into net technical ability.
+<img src="./SkillOverTime.svg" alt="technical_ability" class="equation">
 
-Time to Develop a New Feature = (Size of project - Pre-exisiting code) / # of (programmer \* skill multiplier)
+So we should multiply the skill weighting of an individual programmer to reflect this reality of change over time.
 
-Skill does not increase at a linear rate over time. It’s more like a stepwise logarithmic function.
+Where upskilling time is a rough estimate of how deep into the projet we are and how many upskilling opportunitites have been presented to the developer.
 
-There are plateaus in progression, so a complete novice will go from effectively useless to productive in a month, reflecting a major increase in their contribution to TTD. People who are already experts may improve in familiarity quickly, but without much increase in their technical ability.
+It’s the job of a good team leader, particularly a technical one, to figure out what plateaus people are in, what revelations are needed to break out of those plateaus, and how to deliver them. This greatly effects feature TTR.
 
-I’ve had certain revelations in my career that have massively improved my productivity. Here’s a graph of that.
+This is where the 10x Engineer’s cool cousin, the Team Multiplier Engineer, acts as a major scaling factor. Some devs just teach really well. They care that others know what they know. They multiply the lesser abilities of other devs on the team with their positivity, kindness, and knack for succinct and comprehensible explanations of complex subject.
 
-It’s the job of a good team leader, particularly a technical one, to figure out what plateaus people are in, what revelations are needed to break out of those plateaus, and how to deliver them. This effects time to develop features greatly.
+<img src="./UpskillingOpportunity.svg" alt="technical_ability" class="equation">
 
-(If initial skill is low, time has a greater effect. How to reflect mathematically?)
+<h2>The Equation</h2>
 
-![technical_skill](technical_skill.png)
+Endlessly debatable, but here’s what I take to be a more realistic equation determing time to release a new feature:
 
-Technical Ability Multiplier = (Initial Technical Ability / Overall Improvement) \* Time
+NOTICE! n is just one small factor amidst so many others. (arrow pointing to n), whereas before it was the only factor in the denominator.
 
-Improvement decay = Technical Ability
+A powerful symmetry emerges. The top half of the equation is all technical factors. The bottom half of the equation is all human factors.
 
-That’s why we have so many bootcamps: a small amount of requisite skill is all that’s necessary to be menially productive in the software development workforce.
+The lead Software Engineer is responsible for minimizing the top half of this equation, i.e. the codebase half.
 
-When devs say “At first I was learning so much on the project, but know it’s just the same thing everyday,” this improvement decay is partially what they’re referring to.
+The Product Manager is responsible for maximizing the bottom half of this equation, i.e. the human half.
 
-This is where the 10x Engineer’s cool cousin, the Team Multiplier Engineer, acts as a scaling factor. Some devs just teach really well. They care that others know what they know. They multiply the lesser abilities of other devs on the team with their positivity, openness, and teaching.
-
-The deeper into the project we go, the better the devs get, the greater the acceleration, but also the larger the codebase. The negative effect of codebase size is balanced by familiarity with the codebase
-
-The Equation
-
-Endlessly debatable, but here’s what we’ve arrived at.
-
-Time to Develop = Size of codebase \* (Productive Hours + Unproductive Hours / Programmers) - Pre-exisiting code)
-
-Footnote:
-A powerful symmetry emerges.
+So we now return to our initial question: how does pairing effect TTR?
 
 <blockquote>QUESTION: What is pair programming?</blockquote>
 <blockquote>ANSWER: A tool with the potential to maximize the bottom (human) part of the software development equation</blockquote>
 
-The Product Manager is responsible for maximizing the top half of this equation, i.e. the human half.
+Provided pairing is done correctly in a way that maximizes codebase familiarity and upskilling opportunities, it's very possible that the long term health of the project will be benefitted.
 
-The lead Software Engineer is responsible for minimizing the top half of this equation, i.e. the codebase half.
+<h2>Pair Programming and Time To Release</h2>
 
-The product manager can foster team maximization with proper pair rotations, managing who is assigned to what stories in the backlog, and pair rotations.
-
-The tech anchor can foster this through lunch and learns, documentation, good architecture from the start, proper PR reviews.
-
-NOTICE! n is just one small factor amidst so many others. (arrow pointing to n)
-
-Now that we have an okay more complex view of the factors effecting Feature TTD, lets see which operators are positively and negatively effected by pair programming.
-
-Pair Programming and Time To Delivery
+<h3>Positives</h3>
 
 The Operands of the Development Equation positively impacted by Pairing:
-Training multiplier:
-Pair programming makes knowledge transfer and onboarding a near inevitability.
+
+Pairing provides ample upskilling opportunities every minute of every day. Pair programming makes knowledge transfer and onboarding a near inevitability.
+
 Breadth-first familiarity with the entire codebase with good pairing rotations
-Proper rotations provide
 
-The Operands of the Development Equation negatively impacted by Pairing:
-Raw skilled programmer hours devoted to the codebase
+<h3>Negatives</h3>
+Raw highly-skilled programmer hours devoted to the feature
+
 In a pair programming environment, it is a fact that some of your most senior devs will end up pairing with junior developers. Assuming the senior dev doesn’t just stone wall the junior and fly on the keyboard solo, some of that developers time will go towards talking rather than typing.
-Depth-first specialization and familiarity in certain parts of the codebase
-This can make some devs incredibly fast at implementing features in one part of the codebase, but much slower in others.
-This can of course be offset with user story rotations, but it’s still one mind that created that feature solo.
 
-The Only Thing that Matters: Who Wins this Debate?
+Depth-first specialization and familiarity in certain parts of the codebase. Without pair rotations, is possible for one person to develop a deep familiarity, a kind of intellectual marriage to one part of the codebase that they solo-coded at some point.
+
+This can make some devs incredibly fast at implementing features in one part of the codebase, but much slower in others.
+
+This can of course be offset with user story rotations, but it’s still a single mind that created that feature.
+
+<h2>The Only Thing that Matters: Who Wins this Debate?</h2>
 
 Just kidding.
 
@@ -152,4 +163,4 @@ Some devs like pairing all the time. Some like pairing most of the time. Some li
 
 They are all correct.
 
-I happen to be a social dev. My entire career except for a few months has been spent pairing. I prefer rabbit holing with my headphones in for hours, getting lunch, then popping out and sharing what I made in a good pairing session. To facilitate this, my personal preferred work routine would be 3 days pairing and 2 days solo coding, to be decided by me and my pair in our iteration planning meeting.
+I happen to be a social dev. My entire career except for a few months has been within pair programming cultures. I prefer rabbit holing with my headphones in for hours, getting lunch, then popping out and sharing what I made in a good pairing session. My personal preferred work routine would be 3 days pairing and 2 days solo coding, to be decided by me and my pair in our iteration planning meeting.

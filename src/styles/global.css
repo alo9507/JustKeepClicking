@@ -33,6 +33,12 @@ footer {
   background-color: var(--primaryBackground);
 }
 
+.equation {
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 30px;
+}
+
 .article_title {
   color: var(--pink);
 }

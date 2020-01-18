@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="439px" height="73px" viewBox="0 0 439 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>StartingEquation</title>
+    <desc>Created with Sketch.</desc>
+    <g id="StartingEquation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="439" height="73"></rect>
+        <text id="Time-to-Release-a-Ne" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
+            <tspan x="0.616" y="24">Time to Release </tspan>
+            <tspan x="6.256" y="57">a New Feature </tspan>
+        </text>
+        <text id="Effort-Size-of-Featu" font-family="Avenir-Roman, Avenir" font-size="24" font-weight="normal" letter-spacing="-0.576" fill="#000000">
+            <tspan x="215.368" y="19">Effort Size of Feature</tspan>
+        </text>
+        <text id="#-of-Developers" font-family="Avenir-Roman, Avenir" font-size="24" font-weight="normal" letter-spacing="-0.576" fill="#000000">
+            <tspan x="249.304" y="67"># of  Developers</tspan>
+        </text>
+        <rect id="Rectangle" fill="#000000" x="206" y="35" width="233" height="3"></rect>
+        <text id="=" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
+            <tspan x="176.592" y="43">=</tspan>
+        </text>
+    </g>
+</svg>
