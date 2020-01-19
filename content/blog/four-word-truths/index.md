@@ -12,7 +12,7 @@ Thoughtful perks foster culture
 
 Diversity isn’t just quota
 
-Actions talk, emails lie.
+Actions talk, emails lie
 
 Unconscious biases are inefficient
 
@@ -50,15 +50,13 @@ Employees keenly identify bullshit
 
 “True memory” is oxymoronic
 
+Cultures are adaptive machines <i>(Eric Raymond's, not mine)</i>
+
 Style points always matter
 
 Good Art morphs minds
 
 Personal progress accumulates exponentially
-
-Employment doesn’t equal vocation
-
-You’re not your personality
 
 Isolation breeds genuine individuality
 
@@ -71,8 +69,6 @@ Cowards hide behind bureaucracy
 Self-centeredness is always self-defeating
 
 Discursive thought wastes energy
-
-You’re still a kid
 
 Lasting lessons require suffering
 
@@ -88,8 +84,12 @@ Experimentation yields quicker answers
 
 Idle speculation hinders experimentation
 
-The brain’s 70% fluid
-
-Professional karma is real
-
 Personal narrative warps reality
+
+---
+
+ANVA
+NVAN
+NVNV
+
+NVPN

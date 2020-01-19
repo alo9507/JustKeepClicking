@@ -1,7 +1,7 @@
 :root {
   --purpleDark: #212b87;
   --purpleLight: #2d389a;
-  --pink: #fca6c5;
+  --secondaryText: #fca6c5;
   --orange: #ee9da3;
   --turquoise: #2dd3cb;
   --yellow: #fee552;
@@ -25,7 +25,7 @@ footer {
 }
 
 #gatsby_link {
-  color: var(--pink);
+  color: var(--secondaryText);
 }
 
 /* ARTICLE */
@@ -35,14 +35,14 @@ footer {
 
 .equation {
   background-color: white;
-  border: 2px solid var(--pink);
+  border: 2px solid var(--secondaryText);
   border-radius: 25px;
   padding: 30px;
   min-width: 100%;
 }
 
 .article_title {
-  color: var(--pink);
+  color: var(--secondaryText);
 }
 
 .article_date {
@@ -63,11 +63,11 @@ blockquote {
 }
 
 .prev_link {
-  color: var(--turquoise);
+  color: var(--secondaryText);
 }
 
 .next_link {
-  color: var(--turquoise);
+  color: var(--secondaryText);
 }
 
 .bottom_hr {
@@ -75,16 +75,16 @@ blockquote {
 }
 
 .example {
-  color: var(--pink);
+  color: var(--secondaryText);
 }
 
 a {
-  color: var(--pink);
+  color: var(--secondaryText);
 }
 
 /* FRONTPAGE */
 #site_title {
-  color: var(--pink);
+  color: var(--secondaryText);
 }
 
 .frontpage_date {
@@ -101,5 +101,5 @@ a {
 }
 
 .article_link {
-  color: var(--pink);
+  color: var(--secondaryText);
 }
