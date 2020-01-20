@@ -91,5 +91,5 @@ Personal narrative warps reality
 ANVA
 NVAN
 NVNV
-
 NVPN
+NVArtN
