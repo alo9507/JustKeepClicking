@@ -4,6 +4,4 @@ date: "2020-01-15T22:12:03.284Z"
 description: "Click here to discover the problem with 10x engineers"
 ---
 
-Sometimes they leave and they were the only one's that understood their code.
-
-They also had all of the credentials for our CI/CD, logging platforms and IDE enterprise subscriptions etc. and forgot to write them down.
+They leave. And then what do you do with all the developers that never understand the 10x'er's code?

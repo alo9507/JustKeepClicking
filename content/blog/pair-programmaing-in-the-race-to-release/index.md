@@ -1,5 +1,5 @@
 ---
-title: Pair Programming in the The Race to Release
+title: Pair Programming in the The Race to Release, Part 1 | The TTR Equation
 date: "2020-01-13T22:12:03.284Z"
 description: "What part of the software development equation does pairing improve?"
 ---
@@ -143,54 +143,4 @@ Let's now answer the original question:
 
 <blockquote><b>QUESTION</b>: How does pair programming effect time to release?</blockquote>
 
-<h2>Pair Programming and Time To Release</h2>
-
-<blockquote><b>ANSWER</b>: Pairing has the potential to MAXIMIZE the bottom (i.e. human) part of the time to release equation</blockquote>
-
-<h3>Upskilling Opportunities during Project</h3>
-
-<b>The Good:</b></br>
-
-+Upskilling opportunities for Junior developers and Intermediate+Senior developers entering new disciplines
-
-Pairing provides ample upskilling opportunities every minute of every day. Pair programming makes knowledge transfer and onboarding a near inevitability.
-
-Many developers value ability to improve highly. This makes pairing highly attractive to either overall junior developers, or intermediate to senior developers entering a new software engineering discipline.
-
-<b>The Bad:</br>
-
-<b>Distraction to Experienced Devs:</b>The raw hours that developers with high skill weightings spend actually coding in a healthy pair programming culture is by necesssity less than it would be otherwise. Some time is diverted from coding to explaining what they're doing and why they're doing it to other developers.
-
-Some time will be spent talking rather than typing.
-
-<b>Pair Programming Changes Who You Can Hire</b> This is not bad in itself, but it may exclude certain anti-social or even misanthropic geniuses with very high skill weightings from joining you organization. 10x Engineers glow on the surface, but they have one unfortunate characteristic that could crush your product.
-
-Though pairing has the potential to prevent the hiring of 10x Engineers with high individual skill weightings, it also is the best way to constantly provide upskilling opportunities to all developers on the project and increase overall Codebase Familiarity.
-
-+Codebase Familiarity
-
--Skillweighting of 10X Engineers
-
-<h3>Codebase Familiarity</h3>
-
-Breadth-first familiarity with the entire codebase with good pairing rotations
-
-<b>Distraction to Senior Devs:</b>
-
-<b>Developers are Less Specialized:</b> Both a blessing and a curse, depth-first specialization and familiarity in certain parts of the codebase can boost developer efficiency for certain tasks. Without pair rotations, is possible for one person to develop a deep familiarity, a kind of intellectual marriage, to one part of the codebase that they solo-coded at some point.
-
-This can make some devs incredibly fast at implementing features in one part of the codebase, but much slower in others.
-
-This can of course be offset with user story rotations, but it’s still a single mind that created that feature.
-
-<h2>The Only Thing that Matters: Who Wins this Debate?</h2>
-
-Just kidding.
-
-Some devs like pairing all the time. Some like pairing most of the time. Some like pairing less of the time. Some don’t like pairing at all.
-
-They are all correct.
-
-I happen to be a social dev. My entire career except for a few months has been within pair programming cultures. I prefer rabbit holing with my headphones on for hours, getting lunch, then popping out and sharing what I made in a good pairing session. My personal preferred work routine would be 3 days pairing and 2 days solo coding, to be decided by me and my pair in our iteration planning meeting.
-
-That's all! LMK what your take is on pairing in the comments, and any additional factors I missed in the Time-to-Release Equation.
+I attempt an answer to this question in Part II: [How Pair Programming Effects TTR](/pair-programming-answer/)
