@@ -12,11 +12,23 @@ This legitimate concern with pairing stems from the following notion about the n
 
 Where number of programmers is taken to mean <i>independently operating</i> programmers. The argument goes that if two programmers are coalesced onto a single task, then the time to release will lengthen.
 
-But this is <b>not</b> even close to a comprehensive Time to Release equation. The truth, as usual, is much more subtle.
+But this is <b>not</b> even close to a comprehensive Time-to-Release (TTR) equation. The truth, as usual, is much more subtle.
 
-Let's progressively introduce complexities to this time-to-release (TTR) equation untl we arrive at a more realistic notion of what factors effect time to release.
+Let's progressively introduce complexities to the TTR equation untl we arrive at a more realistic notion of what factors effect time to release.
 
-Finally, we'll look at how pairing effects both the human and codebase factors of the resulting equation.
+Once we've arrived at a more thorough (though unavoidably imperfect) TTR equation, we'll examine what human and codebase factors are effected positively and negatively by pair programming.
+
+<h2>Codebase Divided by Humans</h2>
+
+Before we get started adding complexities to the TTR equation, let's first observe the fact that one level of abstraction higher than the equation above, we arrive at:
+
+<img src="./CodeOverHuman.svg" alt="technical_ability" class="equation">
+
+The more complex, or "larger" the codebase factor, the higher the TTR.
+
+The more maximized the human factor in terms of skill, the lower the TTR.
+
+With this in mind, let's go through those factors one by one. There are 8 of them.
 
 <h2>Technical Ability of Programmers</h2>
 
@@ -117,7 +129,7 @@ This is where the 10x Engineer’s cool cousin, the Team Multiplier Engineer, ac
 
 <h2>The Time to Release Equation</h2>
 
-Endlessly debatable, but here’s what I take to be a more realistic equation determing time to release a new feature:
+Endlessly debatable, but here’s what I take to be a more realistic equation for determing time to release a new feature:
 
 <img src="./FinalEquation.svg" alt="final_equation" class="equation">
 
@@ -137,13 +149,33 @@ Let's now answer the original question:
 
 <h3>Upskilling Opportunities during Project</h3>
 
+<b>The Good:</b></br>
+
++Upskilling opportunities for Junior developers and Intermediate+Senior developers entering new disciplines
+
 Pairing provides ample upskilling opportunities every minute of every day. Pair programming makes knowledge transfer and onboarding a near inevitability.
+
+Many developers value ability to improve highly. This makes pairing highly attractive to either overall junior developers, or intermediate to senior developers entering a new software engineering discipline.
+
+<b>The Bad:</br>
+
+<b>Distraction to Experienced Devs:</b>The raw hours that developers with high skill weightings spend actually coding in a healthy pair programming culture is by necesssity less than it would be otherwise. Some time is diverted from coding to explaining what they're doing and why they're doing it to other developers.
+
+Some time will be spent talking rather than typing.
+
+<b>Pair Programming Changes Who You Can Hire</b> This is not bad in itself, but it may exclude certain anti-social or even misanthropic geniuses with very high skill weightings from joining you organization. 10x Engineers glow on the surface, but they have one unfortunate characteristic that could crush your product.
+
+Though pairing has the potential to prevent the hiring of 10x Engineers with high individual skill weightings, it also is the best way to constantly provide upskilling opportunities to all developers on the project and increase overall Codebase Familiarity.
+
++Codebase Familiarity
+
+-Skillweighting of 10X Engineers
 
 <h3>Codebase Familiarity</h3>
 
 Breadth-first familiarity with the entire codebase with good pairing rotations
 
-<b>Distraction to Senior Devs:</b> The hours of developers with high skill weightings would be diverted from coding to training others. Some time will be spent talking rather than typing.
+<b>Distraction to Senior Devs:</b>
 
 <b>Developers are Less Specialized:</b> Both a blessing and a curse, depth-first specialization and familiarity in certain parts of the codebase can boost developer efficiency for certain tasks. Without pair rotations, is possible for one person to develop a deep familiarity, a kind of intellectual marriage, to one part of the codebase that they solo-coded at some point.
 
@@ -159,4 +191,6 @@ Some devs like pairing all the time. Some like pairing most of the time. Some li
 
 They are all correct.
 
-I happen to be a social dev. My entire career except for a few months has been within pair programming cultures. I prefer rabbit holing with my headphones in for hours, getting lunch, then popping out and sharing what I made in a good pairing session. My personal preferred work routine would be 3 days pairing and 2 days solo coding, to be decided by me and my pair in our iteration planning meeting.
+I happen to be a social dev. My entire career except for a few months has been within pair programming cultures. I prefer rabbit holing with my headphones on for hours, getting lunch, then popping out and sharing what I made in a good pairing session. My personal preferred work routine would be 3 days pairing and 2 days solo coding, to be decided by me and my pair in our iteration planning meeting.
+
+That's all! LMK what your take is on pairing in the comments, and any additional factors I missed in the Time-to-Release Equation.

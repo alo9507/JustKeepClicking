@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="393px" height="58px" viewBox="0 0 393 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>CodeOverHuman</title>
+    <desc>Created with Sketch.</desc>
+    <g id="CodeOverHuman" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="393" height="58"></rect>
+        <text id="Time-to-Release-a-Ne" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
+            <tspan x="0.616" y="19">Time to Release </tspan>
+            <tspan x="6.256" y="52">a New Feature </tspan>
+        </text>
+        <text id="Codebase-Factors" font-family="Avenir-Roman, Avenir" font-size="24" font-weight="normal" letter-spacing="-0.576" fill="#000000">
+            <tspan x="206.952" y="23">Codebase Factors</tspan>
+        </text>
+        <text id="Human-Factors" font-family="Avenir-Roman, Avenir" font-size="24" font-weight="normal" letter-spacing="-0.576" fill="#000000">
+            <tspan x="222.152" y="57">Human Factors</tspan>
+        </text>
+        <rect id="Rectangle" fill="#000000" x="206" y="30" width="187" height="3"></rect>
+        <text id="=" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
+            <tspan x="176.592" y="38">=</tspan>
+        </text>
+    </g>
+</svg>

@@ -51,6 +51,8 @@ This DDD approach endows EZClientAuth with the flexibility to plug in any Remote
 <h4>Implementation: Swift</h4>
 Today we'll be hacking in Swift, but I promise, even if you don't know Swift, this domain driven approach to authentication will port to any langauge that provides you with interfaces or protocols.
 
+Much of what you'll see in fact was inspired by Ray Wenderlich's excellent resource, [Advanced iOS App Architecture](https://store.raywenderlich.com/products/advanced-ios-app-architecture)
+
 Let’s get started with the nucleus of authentication: the `AuthSession`.
 
 <hr/>

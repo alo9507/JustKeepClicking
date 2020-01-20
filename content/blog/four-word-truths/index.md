@@ -4,6 +4,8 @@ date: "2020-01-13T22:12:03.284Z"
 description: " "
 ---
 
+Step One is starting
+
 Good writing scales vision
 
 Bad code kills companies
@@ -15,8 +17,6 @@ Diversity isn’t just quota
 Actions talk, emails lie
 
 Unconscious biases are inefficient
-
-False assumptions waste time
 
 Decisiveness saves valuable time
 
@@ -42,9 +42,9 @@ The compiler never lies
 
 Code controls your behavior
 
-Step One is starting
-
 Your mind will decay
+
+False assumptions waste time
 
 Employees keenly identify bullshit
 
@@ -84,12 +84,4 @@ Experimentation yields quicker answers
 
 Idle speculation hinders experimentation
 
-Personal narrative warps reality
-
----
-
-ANVA
-NVAN
-NVNV
-NVPN
-NVArtN
+Mental narratives warp reality
