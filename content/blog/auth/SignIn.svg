@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="997px" height="1170px" viewBox="0 0 997 1170" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Sign In</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#919A66" offset="0%"></stop>
+            <stop stop-color="#B57474" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50.7844479%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#919A66" offset="0%"></stop>
+            <stop stop-color="#B67A7A" offset="100%"></stop>
+            <stop stop-color="#B57474" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#5688A8" offset="0%"></stop>
+            <stop stop-color="#919A66" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Sign-In">
+            <rect id="Background" fill="#D8D8D8" x="0" y="0" width="997" height="1170"></rect>
+            <g id="RemoteAuthProvider" transform="translate(347.000000, 183.000000)">
+                <rect id="Background" fill="#B57474" x="0" y="0" width="288" height="269" rx="34"></rect>
+                <text font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" fill="#FFFFFF">
+                    <tspan x="24" y="36">RemoteAuthProvider</tspan>
+                </text>
+                <text id="signIn" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" fill="#FFFFFF">
+                    <tspan x="24" y="92">signIn</tspan>
+                </text>
+            </g>
+            <g id="AuthManager" transform="translate(360.000000, 554.000000)">
+                <rect id="Rectangle" fill="#919A66" x="0" y="0" width="263" height="229" rx="41"></rect>
+                <text font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" fill="#FFFFFF">
+                    <tspan x="54" y="43">AuthManager</tspan>
+                </text>
+                <text id="authSession" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" fill="#FFFFFF">
+                    <tspan x="15" y="94">authSession</tspan>
+                </text>
+            </g>
+            <g id="DataStore" transform="translate(372.000000, 868.000000)">
+                <rect id="Rectangle" fill="#5688A8" x="0" y="0" width="239" height="275" rx="48"></rect>
+                <text font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" fill="#FFFFFF">
+                    <tspan x="62" y="46">DataStore</tspan>
+                </text>
+                <text id="save" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" fill="#FFFFFF">
+                    <tspan x="22" y="97">save</tspan>
+                </text>
+            </g>
+            <g id="Steps" transform="translate(19.000000, 331.000000)">
+                <g id="Step1" transform="translate(0.000000, 44.000000)" fill="#000000" font-family="Avenir-Black, Avenir" font-weight="700">
+                    <text id="1" font-size="60">
+                        <tspan x="78" y="60">1</tspan>
+                    </text>
+                    <text id="AuthManager-sends-cr" font-size="21">
+                        <tspan x="12.2605" y="98">AuthManager sends </tspan>
+                        <tspan x="44.1385" y="127">credentials to </tspan>
+                        <tspan x="6.6325" y="156">RemoteAuthProvider </tspan>
+                        <tspan x="62.23" y="185">for sign in</tspan>
+                    </text>
+                </g>
+                <g id="Step2" transform="translate(737.000000, 59.000000)" fill="#000000" font-family="Avenir-Black, Avenir" font-weight="700">
+                    <text id="2" font-size="60">
+                        <tspan x="78" y="60">2</tspan>
+                    </text>
+                    <text id="RemoteAuth-returns" font-size="21">
+                        <tspan x="6.6325" y="98">RemoteAuthProvider </tspan>
+                        <tspan x="61.4635" y="127">returns an </tspan>
+                        <tspan x="37.1665" y="156">AuthSession to </tspan>
+                        <tspan x="43.7605" y="185">AuthManager</tspan>
+                    </text>
+                </g>
+                <g id="Step3" transform="translate(749.000000, 470.000000)" fill="#000000" font-family="Avenir-Black, Avenir" font-weight="700">
+                    <text id="3" font-size="60">
+                        <tspan x="78" y="60">3</tspan>
+                    </text>
+                    <text id="RemoteAuth-returns" font-size="21">
+                        <tspan x="43.7605" y="98">AuthManager </tspan>
+                        <tspan x="29.365" y="127">synchronizes the </tspan>
+                        <tspan x="0.574" y="156">AuthSession by saving </tspan>
+                        <tspan x="37.765" y="185">it to DataStore</tspan>
+                    </text>
+                </g>
+                <path id="1" d="M315.972322,0 L311.843416,26.5132445 L303.719258,20.7366806 C264.548701,77.7078461 245,122.513375 245,155 C245,190.766972 268.688954,241.442183 316.142664,306.834992 L317.58793,308.821097 L318.766833,310.436705 L315.535617,312.79451 L314.356714,311.178903 C265.478279,244.194248 241,192.200106 241,155 C241,121.501303 260.844058,76.0252546 300.458939,18.4184205 L292.284383,12.6048218 L315.972322,0 Z" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+                <path id="2" d="M695.972322,12 L691.843416,38.5132445 L683.719258,32.7366806 C644.548701,89.7078461 625,134.513375 625,167 C625,202.766972 648.688954,253.442183 696.142664,318.834992 L697.58793,320.821097 L698.766833,322.436705 L695.535617,324.79451 L694.356714,323.178903 C645.478279,256.194248 621,204.200106 621,167 C621,133.501303 640.844058,88.0252546 680.458939,30.4184205 L672.284383,24.6048218 L695.972322,12 Z" fill="url(#linearGradient-2)" fill-rule="nonzero"></path>
+                <path id="3" d="M707.972322,422 L703.843416,448.513245 L695.719258,442.736681 C656.548701,499.707846 637,544.513375 637,577 C637,612.766972 660.688954,663.442183 708.142664,728.834992 L709.58793,730.821097 L710.766833,732.436705 L707.535617,734.79451 L706.356714,733.178903 C657.478279,666.194248 633,614.200106 633,577 C633,543.501303 652.844058,498.025255 692.458939,440.418421 L684.284383,434.604822 L707.972322,422 Z" fill="url(#linearGradient-3)" fill-rule="nonzero"></path>
+            </g>
+            <g id="AuthSession" transform="translate(674.000000, 457.000000)">
+                <circle id="Oval" fill="#EFE049" cx="41" cy="41" r="41"></circle>
+                <circle id="Oval" fill="#E4D647" cx="41.5" cy="15.5" r="6.5"></circle>
+                <circle id="Oval-Copy-4" fill="#E4D647" cx="19.5" cy="55.5" r="6.5"></circle>
+                <circle id="Oval-Copy-5" fill="#E4D647" cx="57.5" cy="60.5" r="6.5"></circle>
+                <circle id="Oval-Copy-6" fill="#E4D647" cx="61.5" cy="24.5" r="6.5"></circle>
+                <circle id="Oval-Copy-7" fill="#E4D647" cx="19.5" cy="18.5" r="6.5"></circle>
+                <circle id="Oval-Copy" fill="#E4D647" cx="70.5" cy="43.5" r="6.5"></circle>
+                <circle id="Oval-Copy-2" fill="#E4D647" cx="41.5" cy="66.5" r="6.5"></circle>
+                <circle id="Oval-Copy-3" fill="#E4D647" cx="12.5" cy="36.5" r="6.5"></circle>
+                <text id="Auth-Session" font-family="Avenir-Black, Avenir" font-size="14" font-weight="700" fill="#000000">
+                    <tspan x="25.428" y="42">Auth</tspan>
+                    <tspan x="16.874" y="61">Session</tspan>
+                </text>
+            </g>
+            <g id="AuthSession-Copy" transform="translate(686.000000, 868.000000)">
+                <circle id="Oval" fill="#EFE049" cx="41" cy="41" r="41"></circle>
+                <circle id="Oval" fill="#E4D647" cx="41.5" cy="15.5" r="6.5"></circle>
+                <circle id="Oval-Copy-4" fill="#E4D647" cx="19.5" cy="55.5" r="6.5"></circle>
+                <circle id="Oval-Copy-5" fill="#E4D647" cx="57.5" cy="60.5" r="6.5"></circle>
+                <circle id="Oval-Copy-6" fill="#E4D647" cx="61.5" cy="24.5" r="6.5"></circle>
+                <circle id="Oval-Copy-7" fill="#E4D647" cx="19.5" cy="18.5" r="6.5"></circle>
+                <circle id="Oval-Copy" fill="#E4D647" cx="70.5" cy="43.5" r="6.5"></circle>
+                <circle id="Oval-Copy-2" fill="#E4D647" cx="41.5" cy="66.5" r="6.5"></circle>
+                <circle id="Oval-Copy-3" fill="#E4D647" cx="12.5" cy="36.5" r="6.5"></circle>
+                <text id="Auth-Session" font-family="Avenir-Black, Avenir" font-size="14" font-weight="700" fill="#000000">
+                    <tspan x="25.428" y="41">Auth</tspan>
+                    <tspan x="16.874" y="60">Session</tspan>
+                </text>
+            </g>
+            <text id="Sign-In-Flow" font-family="Avenir-Black, Avenir" font-size="60" font-weight="700" fill="#000000">
+                <tspan x="342" y="144">Sign In Flow</tspan>
+            </text>
+            <text id="Domain-Driven-Authen" font-family="Avenir-Black, Avenir" font-size="60" font-weight="700" fill="#FFFFFF">
+                <tspan x="86" y="76">Domain Driven Authentication</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

@@ -74,6 +74,8 @@ Lasting lessons require suffering
 
 Nostalgia guilds the Past
 
+Missing semi-colon, failed demo.
+
 Creative constraints enforce innovation
 
 Personal narrative warps reality
