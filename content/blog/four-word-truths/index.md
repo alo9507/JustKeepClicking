@@ -74,7 +74,7 @@ Lasting lessons require suffering
 
 Nostalgia guilds the Past
 
-Missing semi-colon, failed demo.
+Missing semi-colon, failed demo. (Ancient Chinese proverb I believe)
 
 Creative constraints enforce innovation
 

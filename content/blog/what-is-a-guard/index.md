@@ -4,6 +4,8 @@ date: "2020-01-17T22:12:03.284Z"
 description: "Get your integrity checks out of the way so you can code confidently and prevent massive if-else indentations"
 ---
 
+<h2>IN PROGRESS</h2>
+
 What is a guard?
 
 <blockquote>A guard is an if statement with one additional requirement: if the condition fails, then control-flow must end with a `return`</blockquote>

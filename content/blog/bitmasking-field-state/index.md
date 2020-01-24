@@ -4,6 +4,8 @@ date: "2020-01-12T22:12:03.284Z"
 description: "Use Bitmasks for Rendering Form Fields"
 ---
 
+<h2>IN PROGRESS</h2>
+
 The Goal: Create an exhaustive form field renderer in ~50 lines of code to keep the touched, focused, set and valid appearance of our forms in sync with their state.
 
 The Tool: Bitmasks
