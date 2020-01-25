@@ -175,6 +175,11 @@ typealias AuthResponse = (AuthSession?, AuthError?) -> Void
 
 The `AuthResponse` is a tuple that packages up the `AuthSession` returned from `RemoteAuthProvider`, or any `AuthError`s if they occur.
 
+There are 3 scenarios for the return from RemoteAuthProvider:
+`AuthSession` is not `nil` --> User is authenticated. Here is the `AuthSession`.
+`AuthError` is not `nil` --> Authentication with `RemoteAuthProvider` failed, therefore authentication status could not be determined and `AuthSession` is nil
+`AuthSession` is nil. `AuthError` is `nil` --> User is not authenticated.
+
 <blockquote>A typealias in Swift is literally an alias for an existing type.</blockquote>
 
 Authentication is fertile ground for confusing errors. `AuthError` is a wrapper around the deeper errors thrown by the `RemoteAuthProvider` (e.g. network errors) and `AuthDataStore` (e.g. serialization errors) that will percolate these low-level errors in a developer-friendly manner.
@@ -271,7 +276,7 @@ So once we get our AuthSession from `RemoteAuthProvider`, we can persist it loca
 
 But how do we ensure that the cached `AuthSession` get stale or fall out of sync with the `RemoteAuthProvider`. Also, how do we propogate this AuthSession across the rest of our app to use it in our many network calls?
 
-<h3>Overcoming The Challenge of Synchronizing Remote, Local, and Runtime Authentication State</h3>
+<h3>Solving The Problem of Synchronizing Remote, Local, and Runtime Authentication State</h3>
 
 Tell me if this has ever happened to you while implementing authentication in an app:
 
@@ -318,7 +323,7 @@ public protocol AuthManager {
 
 </div>
 
-An AuthManager has a `RemoteAuthProvider`, a `DataStore`, and an `AuthSession`.
+An AuthManager owns a `RemoteAuthProvider`, a `DataStore`, and an `AuthSession`.
 
 The three steps to signing in:
 
@@ -562,11 +567,11 @@ public struct Auth {
 
 </div>
 
-In case you parsed over, here's the moneyshot of EZClientAuth one more time:
+In case you parsed over, here's the moneyshot of EZClientAuth:
 
 `manager.configure(for: authProvider)`
 
-We use the `Auth.configure` method to <i>method-inject</i> the `RemoteAuthProvider` into our singleton `AuthManager`
+We use the `Auth.configure` method to <i>method-inject</i> the `RemoteAuthProvider` into our singleton `AuthManager`.
 
 In our application we can simply configure our `AuthManager` with any authProvider we've written an implementation for, and rest assured that our remote, cached, and runtime AuthSession will all remain synchronized thanks to the controlled and tested code paths of the `AuthManager`.
 
@@ -588,16 +593,6 @@ func scene(
 
 </div>
 
-Thereafter, you can just call `Auth.manager.signIn(*ARGS*)`, `Auth.manager.signOut()`, `Auth.manager.isAuthenticated()` and whatever else on your AuthManager and reap the benefits of Remote, Cache and Runtime synchronization, all with the certainty that a switch to a new authentication provider might take days rather than weeks to implement.
+Thereafter, you can just call `Auth.manager.signIn(email: myEmail, password: myPassword)`, `Auth.manager.signOut()`, `Auth.manager.isAuthenticated()` and whatever else on your AuthManager and reap the benefits of Remote, Cache and Runtime synchronization, all with the certainty that a switch to a new authentication provider might take days rather than weeks to implement.
 
-<h3>What's Next?</h3>
-
-That's it for today.
-
-It would be cool to provide a way for the application to write and provide it's own `RemoteAuthProvider` to the EZClientAuth framework.
-
-In follow up articles, we will:
-
-Create a Firebase `RemoteAuthProvider`
-Integrate EZClientAuth into a real application (see example app)
-Testing your application with a MockAuthManager. Show how to maintian testable code with a MockAuthManager
+The implementations of `signOut` and `isAuthenticated` can be foudn in the [example app](https://github.com/alo9507/EZClientAuth). They follow the same pattern as `signIn`.

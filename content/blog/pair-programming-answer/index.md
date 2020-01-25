@@ -24,39 +24,34 @@ and
 
 Here we venture an answer:
 
-<blockquote><b>ANSWER</b>: Pairing has the potential to directly MAXIMIZE the bottom (i.e. human) part of the TTR equation, resulting in second order consequences that MINIMIZE the top half of the TTR equation.</blockquote>
+<blockquote>Pairing has the potential to directly MAXIMIZE the bottom human part of the TTR equation, resulting in second order consequences that MINIMIZE the top codebase half of the TTR equation.</blockquote>
 
-Let's look at what factors pairing has a push and pull effect.
+Let's examine how pairing effects
 
-<h2>Upskilling Opportuntiies</h2>
+<h2>Ample Upskilling Opportuntiies</h2>
 
-<h3>The Good</h3>
+Pairing provides upskilling opportunities every minute of every day. Pair programming makes knowledge transfer and onboarding a near inevitability.
 
-Pairing provides ample upskilling opportunities every minute of every day. Pair programming makes knowledge transfer and onboarding a near inevitability.
+Lasting lessons require a degree of suffering. When confronting a difficult technical challenge, the solo developer bears that suffering alone. In a pair programming environment, that lasting lessons sits with both developers as they co-construct a soltuion and remember the lesson for later use.
 
 Many developers value on-the-job professional development opportunities very highly. This makes companies with pair programming cultures highly attractive to both junior developers as well as intermediate or senior developers entering a new software engineering discipline. Certain breeds of senior devs of course enjoy pairing with other senior devs as well.
 
-<b>The Bad:</br>
+<h3>Talking rather than typing</h3>
 
-<b>Distraction to Experienced Devs:</b>The raw hours that developers with high skill weightings spend actually coding in a healthy pair programming culture is by necesssity less than it would be otherwise. Some time is diverted away from coding and devoted to explaining what they're doing and why they're doing it to other developers.
+The raw hours that developers with high skill weightings spend actually coding in a healthy pair programming culture is by necesssity less than it would be otherwise. Some time is diverted away from coding and devoted to explaining what they're doing and why they're doing it to other developers.
 
 Some time will be spent talking rather than typing.
 
-<h2>Skill Weighting</h2>
-
-<b>Pair Programming Changes How You Hire</b> This is not bad in itself, but it may exclude certain anti-social or even misanthropic geniuses with very high individual skill weightings from joining you organization. 10x Engineers glow on the surface, but they have [one unfortunate characteristic](/the-problem-with-10x-engineers/) that could crush your product.
+<h3>Pair programming changes how you hire</h3>
+This is not bad in itself, but it may exclude certain anti-social or even misanthropic geniuses with very high individual skill weightings from joining you organization. 10x Engineers glow on the surface, but they have [one unfortunate characteristic](/the-problem-with-10x-engineers/) that could crush your product.
 
 Though a healthy pairing culture may preclude the hiring of a certain breed of irascible genius 10x Engineers, it is still the best way to provide literally constant upskilling opportunities to all developers on the project.
 
-<h2>Codebase Familiarity</h2>
-
-<h3>The Good</h3>
+<h2>Breadth-first Codebase Familiarity</h2>
 
 Devs talk shop. The conversations that take place organically during pairing and exploring the codebase lead to a healthy breadth-first familiarity with the entire codebase with good pairing rotations.
 
-<h3>The Bad</h3>
-
-<b>Developers May be Slightly Less Specialized</b> Both a blessing and a curse, depth-first specialization and familiarity in certain parts of the codebase can boost developer efficiency for tasks in those areas. Without pair rotations, it often happens that one developer develops a deep familiarity, a kind of intellectual marriage, to one part of the codebase that they solo-coded at some point. Other developers begin avoiding that area, happy to just let the original author handle any issue that arises in their personal enclave of the codebase.
+However, this means developers may be slightly less specialized. Both a blessing and a curse, depth-first specialization and familiarity in certain parts of the codebase can boost developer efficiency for tasks in those areas. Without pair rotations, it often happens that one developer develops a deep familiarity, a kind of intellectual marriage, to one part of the codebase that they solo-coded at some point. Other developers begin avoiding that area, happy to just let the original author handle any issue that arises in their personal enclave of the codebase.
 
 This kind of specialization is efficient but dangerous. It is efficient in the short term to just let Dr. I-Wrote-this-Code whip out bug fixes, but in the mid to long term, this often causes idiosyncratic, ad hoc and quirky code. Isolation breeds individuality, and in a codebase individuality is really quirks. A quirky codebase is the last thing you want.
 
