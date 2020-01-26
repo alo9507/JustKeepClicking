@@ -4,7 +4,7 @@ import Toggle from "./Toggle"
 import sun from "../../content/assets/sun.png"
 import moon from "../../content/assets/moon.png"
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 
 class Layout extends React.Component {
   state = {
@@ -26,6 +26,7 @@ class Layout extends React.Component {
         <h1
           style={{
             marginTop: 0,
+            marginBottom: 0,
           }}
         >
           <Link
@@ -46,6 +47,9 @@ class Layout extends React.Component {
           style={{
             fontFamily: `Montserrat, sans-serif`,
             marginTop: 0,
+            marginBottom: 0,
+            height: "44px",
+            lineHeight: "2.625rem",
           }}
         >
           <Link
