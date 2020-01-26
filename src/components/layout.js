@@ -26,6 +26,7 @@ class Layout extends React.Component {
         <h1
           style={{
             marginTop: 0,
+            marginBottom: 0,
           }}
         >
           <Link
