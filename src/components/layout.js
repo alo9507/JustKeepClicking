@@ -1,11 +1,23 @@
 import React from "react"
 import { Link } from "gatsby"
+import Toggle from "./Toggle"
+import sun from "../../content/assets/sun.png"
+import moon from "../../content/assets/moon.png"
 
 import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
-  render() {
-    const { location, title, children } = this.props
+  state = {
+    theme: null,
+  }
+  componentDidMount() {
+    this.setState({ theme: window.__theme })
+    window.__onThemeChange = () => {
+      this.setState({ theme: window.__theme })
+    }
+  }
+  renderHeader() {
+    const { location, title } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
@@ -51,6 +63,12 @@ class Layout extends React.Component {
         </h3>
       )
     }
+    return header
+  }
+
+  render() {
+    const { children } = this.props
+
     return (
       <div
         className="article_container"
@@ -61,7 +79,39 @@ class Layout extends React.Component {
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
-        <header>{header}</header>
+        <header>
+          {this.renderHeader()}
+          {this.state.theme !== null ? (
+            <Toggle
+              icons={{
+                checked: (
+                  <img
+                    src={moon}
+                    width="16"
+                    height="16"
+                    role="presentation"
+                    style={{ pointerEvents: "none" }}
+                  />
+                ),
+                unchecked: (
+                  <img
+                    src={sun}
+                    width="16"
+                    height="16"
+                    role="presentation"
+                    style={{ pointerEvents: "none" }}
+                  />
+                ),
+              }}
+              checked={this.state.theme === "dark"}
+              onChange={e =>
+                window.__setPreferredTheme(e.target.checked ? "dark" : "light")
+              }
+            />
+          ) : (
+            <div style={{ height: "24px" }} />
+          )}
+        </header>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Powered by
