@@ -8,7 +8,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-
+import { Link } from "gatsby"
 import { rhythm } from "../utils/typography"
 
 const Bio = () => {
@@ -55,7 +55,18 @@ const Bio = () => {
         }}
       />
       <p className="bio_description">
-        dev thoughts of <br /> <strong>{author}</strong>
+        dev thoughts of <br />{" "}
+        <strong>
+          <Link
+            style={{
+              boxShadow: `none`,
+              textDecoration: `underline`,
+            }}
+            to={`/andrew-obrien`}
+          >
+            {author}
+          </Link>
+        </strong>
         {/* {` `}
         <a href={`https://twitter.com/${social.twitter}`}>
           You should follow him on Twitter

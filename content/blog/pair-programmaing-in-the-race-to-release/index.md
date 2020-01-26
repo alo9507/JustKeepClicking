@@ -80,7 +80,7 @@ We reflect this by dividing codebase size by codebase quality, since quality off
 
 <h2>Codebase Familiarity</h2>
 
-Familiarity with codebase here encapsulates:
+Codebase familiarity, or source code awareness, here encapsulates:
 
 - <b>Tribal knowledge</b>: “I remember what we named that method - let me just search for it”
 - <b>Architectural knowledge</b>: “How should I implement this new screen with navigation and networking. I should use the precedent set by the Coordinator pattern and Repository pattern.”
