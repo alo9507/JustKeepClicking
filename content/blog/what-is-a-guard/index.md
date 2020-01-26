@@ -8,31 +8,37 @@ description: "Get your integrity checks out of the way so you can code confident
 
 What is a guard?
 
+<blockquote>Official Docs: A guard statement is used to transfer program control out of a scope if one or more conditions aren’t met.</blockquote>
+
+In layman's terms:
+
 <blockquote>A guard is an if statement with one additional requirement: if the condition fails, then control-flow must end with a `return`</blockquote>
 
-That's it. It's a way to check integrity preconditions without deeply nested if/else blocks leading to massive indentation.
+That's it. It's a way to easily check an arbitrary number of integrity preconditions without using deeply nested if/else blocks leading to massive indentation.
 
-Guards turn this:
+Guards turn this labyrinthine, 2-dimensional and heavily-indented code:
 
 <div class="impl">
 
 ```swift
 if error == nil else{
-    print("An error occured \(error)")
     return
 } else {
     if object == nil {
-    print("No object returned!")
-    return
+        return
     } else {
-        // perform on object
+        if object.id == "" {
+            return
+        } else {
+            print("OBJECT ID IS: \(object.id)")
+        }
     }
 }
 ```
 
 </div>
 
-into this:
+into this concise, 1-dimensional and sequential code:
 
 <div class="impl">
 
@@ -49,6 +55,10 @@ guard object != nil else {
 
 // OBJECT EXISTS ZONE!
 
+guard object.id != "" else {
+    return
+}
+
 // you brilliant code goes here
 ```
 
@@ -56,22 +66,44 @@ guard object != nil else {
 
 Isn't it just cleaner? No indentation, a land where sequence of code rather than nesting and indentation determines safety of the integrtiy precondition.
 
+Furthermore, the else block isn't pushed ever further from it's corresponding if block. In deeply-nested `if/else` blocks.
+
+Guards can be de-facto implemented in non-nullsafe langauge like JavaScript. You just won't get helpful compile-time error reminding you to return if the integrity precondition fails:
+
+<div class="impl">
+
+```swift
+if error == nil {
+    return
+}
+
+// ERROR-FREE ZONE!
+
+if object == nil {
+    return
+}
+
+// OBJECT EXISTS ZONE!
+
+if object.id == "" {
+    return
+}
+
+// you brilliant code goes here
+```
+
+</div>
+
 <h3>Why Guards Pair Well With Null-Safe Languages</h3>
+
+Null-safe languages like Swift and Kotlin force you to answer the question <i>"What happens if this object is nil?"</i> at compile time, rather than runtime. So rather than receiving a surprising `undefined` or `NullPointerException` after building, or worse, in production, you receive compiler errors requesting that you as a developer consider the null case.
 
 Swift uses the question mark charcater `?` to indicate that an object is either the object, or nil. It is an <i>optional</i> type.
 
-An Optional is just an enum with two types: `.some` and `.none`
+An Optional is just an enum with two types: `.some` and `.none`. If it is `.some`, then the enum has an associated which is the object itself.
 
-Null-safe languages like Kotlin and Swift force you to answer the question <i>"What happens if this object is nil?"</i> at compile time, not runtime. So rather than receiving a surprising `undefined` or `NullPointerException` after building, or worse, in production, you receive compiler errors requesting that you as a developer consider the null case.
+We can leverage the null-safety and guards to create this idiomatic null-checking flow:
 
-We'll use Swift's built-in `guard` statement to direct authentication flow around null-checks.
+Because we return if the condition is false, all code appearing below a guard can safely execute knowing with certainty that the integrity precondition is true and that the object will not be nil.
 
-In other words, a guard statement allows you to check <i>integrity preconditions</i> before the objects under check are consumed later in your code. If the condition fails, you return from that method.
-
-Here's an idiomatic null-checking flow that uses guards:
-
-Because we return if the condition is false, all code appearing below a guard can safely execute knowing with certainty that the integrity precondition is true.
-
-A major advantage of this is that we don't end up separating our else blocks in the case that there are several integrity checks that rely on each other.
-
-Thank you Chris Lattner :-)
+Thank you [Chris Lattner](http://nondot.org/~sabre/) :-)
