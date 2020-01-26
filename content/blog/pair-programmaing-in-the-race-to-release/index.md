@@ -12,11 +12,15 @@ This legitimate concern with pairing stems from the following notion about the n
 
 Where number of programmers is taken to mean <i>independently operating</i> programmers. The argument goes that if two programmers are coalesced onto a single task, then the time to release will lengthen.
 
-But this is <b>not</b> even close to a comprehensive Time-to-Release (TTR) equation. The truth is, as usual, much more subtle.
+But this is <b>not</b> even close to a comprehensive Time-to-Release (TTR) equation. The truth is, as usual, much more subtle and involves not "# of developers", but also designers and others.
+
+Today we'll focus strictly on the role software engineers play in shortening or delaying TTR.
 
 Let's progressively introduce complexities to the TTR equation untl we arrive at a more realistic notion of what factors effect time to release.
 
 Once we've arrived at a more thorough (though unavoidably imperfect) TTR equation, in Part II we'll examine what human and codebase factors are effected positively and negatively by pair programming.
+
+This is intended as a framework for capacity planning nad explicitly stating the variables. Without a culture of self and peer assessment, and an awareness of known unknowns, it's not useful.
 
 <h2>Codebase Divided by Humans</h2>
 
@@ -44,11 +48,21 @@ The mythical 10x engineer fits in here as a major factor, with a massive skill w
 
 <h2>Code Reuse</h2>
 
-<blockquote>Good devs code well, great devs know how to lift, adapt and integrate existing code into a new feature.</blockquote>
+<blockquote>Good devs code well, but great devs know how to lift, adapt and integrate existing code into a new feature.</blockquote>
 
-Most codebases are not ex nihilo. The decision to buy or build should be made not in terms of what code you're reusing, but in terms of the <i><b>net value of the reusable code</b></i>. What is the net value of reusable code?
+Reusable code can be integrated from one of two places:
 
-Net Value of reusable code = Effort to Custom Build - Integration Cost of Reusable Code
+- <b>1st Party</b>: This is code that is either already in the codebase solving a similar but not identical problem
+  </br>
+  <i class="example">Examples: Reusable UI Components, services</i>
+
+- <b>3rd Party</b>: SaaS, open-source packages
+
+The decision to build from scratch versus integrating reusable code should be made in light of the estimated <i>net value of reusable code</i>:
+
+Net Value of reusable code = (Custom Build Effort \_ Value of Customization) - (Integration Effort - Dependency Risk)
+
+Dependency Risk is a whole other article in itself,
 
 If it takes more time and energy to integrate existing code than it would be to build from scratch, the net value becomes negative and lengthens TTR rather than shortening it.
 
@@ -56,17 +70,15 @@ Thus:
 
 <img src="./CodeReuse.svg" alt="technical_ability" class="equation">
 
-<h2>Codebase Size</h2>
+<h2>Codebase Size Divided By Codebase Quality</h2>
+
+<blockquote>Proper architecture allows codebases to grow in size without increasing in complexity.</blockquote>
 
 As the codebase grows in size, the possibility for regressions caused by new features grows.
 
 This is why greenfield projects often enjoy very high velocity early on: there are fewer constraints on each user story.
 
-<img src="./CodebaseSize.svg" alt="technical_ability" class="equation">
-
-<h2>Codebase Quality</h2>
-
-<blockquote>Good architecture allow codebases to grow in size without increasing in complexity.</blockquote>
+Though it's certainly a factor in TTR, Codebase Size cannot be considered as a TTR factor in isolation. What if the codebase were 1 million lines, but thanks to proper modularization, the feature could effectively ignore all but a single integration point in that codebase? The correlation between codebase size and TTR is meaningless without the following factor: Codebase Quality.
 
 The greater the quality of a codebase, the less effect codebase size will have on time-to-release
 
@@ -77,6 +89,8 @@ Good architecture and documentations allow codebases to grow in size without inc
 We reflect this by dividing codebase size by codebase quality, since quality offsets the negative effects of size. Even in a monorepo as massive as Google's, codebase size may not effect TTR if the quality is such that the place to add new modules is obvious and not interdependent.
 
 <img src="./CodebaseQuality.svg" alt="technical_ability" class="equation">
+
+The Quality and Size of a Codebase are separate from our next human factor: Codebase Familiarity.
 
 <h2>Codebase Familiarity</h2>
 
@@ -91,7 +105,9 @@ Codebase familiarity lets you solve problems once and use that answer everywhere
 
 Even a great dev in uncharted territory may perform slower than a less skilled dev familiar with the ley of this land, however idiosyncratic it may be.
 
-A feature can be added to even the most inconsistent and undisciplined codebase if a programmer is familair with the quirks from weeks in the trenches.
+In my mind "code discoverability" has to do with general code hygiene: are variable names sufficiently descriptive? Is the codebase searchable and documented well? "Code familiarity" on the other hand resides in the mind and memory of the developer.
+
+Through Codebase Familiarity, a feature can be added to even the most inconsistent and undisciplined codebase provided a developer is familair with the quirks from weeks in the trenches.
 
 I think familiarity isn't quite as valuable as technical skill, so we add it rather than multiply it by the individual developer.
 
@@ -135,7 +151,11 @@ The lead Software Engineer is responsible for minimizing the top half of this eq
 
 The Product Manager is responsible for maximizing the bottom half of this equation, i.e. the human half.
 
-Let's now answer the original question:
+Ideally, a partnership exists between the PM and Lead Software Engineer to jointly minimize TTR by singling out and increasing/decreasing the factors we outlined above.
+
+A Lead SE might get
+
+Let's now return to the original question:
 
 <blockquote><b>QUESTION</b>: How does pair programming effect time to release?</blockquote>
 
