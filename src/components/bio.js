@@ -58,7 +58,6 @@ const Bio = () => {
         dev thoughts of <br />{" "}
         <strong>
           <Link
-            id="site_title"
             style={{
               boxShadow: `none`,
               textDecoration: `underline`,

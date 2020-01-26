@@ -25,16 +25,14 @@ class Layout extends React.Component {
       header = (
         <h1
           style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
             marginTop: 0,
           }}
         >
           <Link
-            id="site_title"
             style={{
               boxShadow: `none`,
               textDecoration: `none`,
+              color: "var(--textTitle)",
             }}
             to={`/`}
           >
@@ -71,15 +69,21 @@ class Layout extends React.Component {
 
     return (
       <div
-        className="article_container"
         style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
+          marginLeft: "auto",
+          marginRight: "auto",
           maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          padding: `2.625rem ${rhythm(3 / 4)}`,
         }}
       >
-        <header>
+        <header
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "2.625rem",
+          }}
+        >
           {this.renderHeader()}
           {this.state.theme !== null ? (
             <Toggle
