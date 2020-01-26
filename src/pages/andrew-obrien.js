@@ -25,7 +25,7 @@ const AboutMe = () => {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { author } = data.site.siteMetadata
   return (
     <>
       <Layout location={"/about-me"} title={"just keep clicking"}>
@@ -37,7 +37,9 @@ const AboutMe = () => {
             marginBottom: "28px",
           }}
         >
-          <h1 style={{ textAlign: "center" }}>andrew o'brien</h1>
+          <h1 style={{ textAlign: "center", marginTop: "0px" }}>
+            andrew o'brien
+          </h1>
           <Image
             fixed={data.avatar.childImageSharp.fixed}
             alt={author}
@@ -52,21 +54,51 @@ const AboutMe = () => {
               borderRadius: `50%`,
             }}
           />
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <a
+              href="https://github.com/alo9507"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <i
+                class="fab fa-github fa-2x"
+                style={{
+                  color: "var(--textLink)",
+                }}
+              ></i>
+            </a>
+            <div>
+              <a
+                href="https://www.linkedin.com/in/andrew-o-brien-4ab468105/"
+                style={{ textDecoration: "none" }}
+              >
+                <i
+                  class="fab fa-linkedin-in fa-2x"
+                  style={{
+                    color: "var(--textLink)",
+                  }}
+                ></i>
+              </a>
+            </div>
+          </div>
         </div>
         <p>
-          Passionate about pair programming, test-driven development, and mobile
-          development.
+          I'm a fullstack software engineer living in Detroit. I work for
+          [Integral](https://www.integral.io/) on the mobile infrastructure team
+          for Ford's Autonomous Vehicle LLC.
         </p>
-        <p>
+        {/* <p>
           I studied at Georgetown University, Class of 2018. Started in an
           International Business track then switched to major in Linguistics
           with a focus in Computational Linguistics and Mandarin.
-        </p>
-        <a href="https://github.com/alo9507">GitHub</a>
-        <br />
-        <a href="https://www.linkedin.com/in/andrew-o-brien-4ab468105/">
-          Linked In
-        </a>
+        </p> */}
       </Layout>
     </>
   )
