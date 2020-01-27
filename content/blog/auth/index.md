@@ -1,5 +1,5 @@
 ---
-title: Domain Driven Authentication
+title: Domain Driven Authentication with EZClientAuth
 date: "2020-01-17T22:12:03.284Z"
 description: "Set your development team free with this flexible multi-provider authentication framework: EZClientAuth"
 ---
@@ -8,15 +8,19 @@ description: "Set your development team free with this flexible multi-provider a
 
 <blockquote>"All models are flawed. Some are useful." George E.P. Box</blockquote>
 
-GitHub: [EZClientAuth](https://github.com/alo9507/EZClientAuth) : <i>iOS Multi-Provider Authentication Manager</i>
+GitHub: [EZClientAuth](https://github.com/alo9507/EZClientAuth) : <i>A Multi-Provider Authentication Manager for iOS</i>
 
-Today, we'll lay the foundation for a fully-functional and flexible clientside authentication framework allowing your team to synchronize authentication state between remote, cache and runtime, as well as easily swap out authentication providers. EZClientAuth dervies this flexibilityfrom its adherence to Domain Driven Design, namely, writing to interfaces, not implementations.
+Today, we'll lay the foundation for EZClientAuth, a clientside authentication framework allowing your team to reliably synchronize authentication state between remote, cache and runtime, as well as easily swap out authentication providers. EZClientAuth gains this flexibility by adhering to the principles of Domain Driven Design (DDD) and Protocol Oriented Programming (POP).
+
+Long story short, we will write our consuming code to and authentication interfaces (aka protocols in Swift), not implementations.
+
+Here's what our framework will be capable of:
 
 <h4>EZClientAuth Behaviors</h4>
 
-- <b>Authentication CRUD Operations</b>: Sign-in, Sign-out, determining whether or not the client is already authenticated
+- <b>Authentication CRUD Operations</b>: Sign-in, Sign-out, determining whether or not the client is already authenticated or if a sign in is needed
 - <b>Caching Authentication State</b>: Peristing the AuthSession between application launches
-- <b>Synchronizing Auth State across the Entire App</b>: Because no one wants a stale cache or a stale token attached to http calls
+- <b>Synchronizing Auth State across the Entire App</b>: Because no one wants a stale cache or a stale token attached to HTTP calls
 
 We'll build out these behaviors using five primary building blocks:
 
@@ -38,26 +42,28 @@ An on-device cache for persisting an AuthSession between application launches
 <i class="example">Examples: Browser local storage, Keychain on iOS</i>
 
 `AuthManager`
-</br>A manager that kicks of remote authentication, caches the returned AuthSession, and stores a reference to the AuthSession for use during the application's runtime
+</br>A manager responsible for orchestrating sign in, sign out etc. Faciliattes the unidirectional transfer of the AuthSession from the RemoteAuthProvider into the DataStore, and finally how that AuthSession is exposed for the consuming code to use it.
 
 `Auth`
-</br>An abstraction that holds and exposes the ability to configure a singleton AuthManager in the consuming application. This is the only class that the consuming code interacts with.
+</br>The single entrypoint into the EZClientAuth framework. It's responsible for configuring the AuthManager with a developer-specified RemoteAuthProvider, and holding a singleton AuthManager.
 
-Today we'll only develop EZClientAuth up to sign in. The GitHub repo includes the complete framework with both a MockAuthManager and a Firebase implementation.
+Today we'll only develop sign-in. The GitHub repo includes the complete framework with both a MockAuthManager and a Firebase implementation.
 
 <h4>Domain Driven Development (DDD)</h4>
 
-Coined by Eric Evans in his 1962 masterpiece [Domain Driven Design: Tackling Complexity at the Heart of Software Development](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software-ebook/dp/B00794TAUG), DDD strips away the accidental complexities of implementations by focusing on the underlying similarities of a problem space.
-
 <blockquote>In Domain Driven Design, there is no "The". There is only "A/An". It's all about "A RemoteAuthProvider", never "The Firebase AuthProvider". Genericism endows your code with flexibility.</blockquote>
 
-A technique I use to realize DDD in my architecture is fill-in-the-blank of this sentence:
+Domain Driven Design is a term coined by Eric Evans in his 2004 book [Domain Driven Design: Tackling Complexity at the Heart of Software Development](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software-ebook/dp/B00794TAUG). DDD strips away the accidental complexities of implementations and provides a framework for development teams to focus on the inherent complexities of their domain.
 
-<blockquote>I want some X (component) that does Y (behavior). I don't care what the behind-the-curtain implementation is of X.</blockquote>
+A tool I use to help realize DDD style design in my architecture is this fill-in-the-blank of this sentence:
 
-In practice, DDD is realized through Protocol Oriented Programming. We create an interface of X that has methods and properties that do Y, and then we write all of our application code to only know about X, NEVER the implementation behind X.
+<blockquote>I want some X (component) that does Y (behavior). I don't care what the behind-the-curtain implementation is of X, and the consuming code should care either.</blockquote>
+
+In Swift practice, DDD is realized through Protocol Oriented Programming. We create an interface of X that has methods and properties that do Y, and then we write all of our application code to only know about X, NEVER the implementation behind X.
 
 This approach to development gives us a number of benefits:
+
+<b>Looser coupling between consuming code and dependencies:</b>If the application doesn't call any methods on the implementation, it can be changed.
 
 <b>Prevent vendor lock-in:</b> If you can easily change your implementation in one centralized place, you can jump ship on a lousy provider much more easily than if you'd spread direct calls to that implementation across your application.
 
@@ -65,15 +71,13 @@ In our case, this DDD approach endows EZClientAuth with the flexibility to plug 
 
 <b>Testability:</b> Because you've written to interfaces, you can always create mocks that implement that interface. Do this for every interface, and you have yourself a ready-made local environment.
 
-<b>Shared Domain Vocabulary:</b> DDD provides your team(s) with a shared language in the domain. This becomes difficult if you merely adopt the language of your implementation. Imagine an iOS team chatting or even cross-pairing with an Android team, all using the same explicitly-defined domain vocabulary.
+<b>Shared Domain Vocabulary:</b> DDD provides your team(s) with a shared language in the domain. This becomes difficult if you merely adopt the language of your implementation. In the mobile world, DDD/POP eases communication between iOS and Android teama because they are all using the same explicitly-defined domain vocabulary.
 
-DDD lets you maintain the blast-zone of rapidly changing business decisions to a nice directory titled “Implementations”. It encourages your application to talk to generic interfaces with nice laymen names like “AuthenticationManager”, rather than implementation-specific names like "FirebaseAuthenticator" or "KeycloakAuthenticationService".
+As you'll see, DDD lets you maintain the blast-zone of rapidly changing business decisions to a nice directory titled “Implementations”. It encourages your application to talk to generic interfaces with nice layman names like “AuthenticationManager”, rather than implementation-specific names like "FirebaseAuthenticator" or "KeycloakAuthenticationService".
 
 <h4>Implementation: Swift</h4>
-Today we'll be hacking in Swift, but I promise, even if you don't know Swift, this domain driven approach to authentication will port to any langauge that provides you with interfaces or protocols.
 
-</br>
-</br>
+Today we'll be hacking in Swift, but I promise, even if you don't know Swift, this domain driven approach to authentication will port to any langauge that provides you with interfaces or protocols.
 
 Much of what you'll see here was inspired by Ray Wenderlich's excellent resource, [Advanced iOS App Architecture](https://store.raywenderlich.com/products/advanced-ios-app-architecture)
 
@@ -102,11 +106,13 @@ struct AuthSession: Codable {
 
 </div>
 
-Why not a simple string for the token? Why wrap the token in a struct?
+Why don't we just use a simple string for the token?
 
-As you’re authentication needs grow more complex, you may want space to include new properties and helper methods to manage changing auth needs. The `AuthSession` class becomes the scaffold on which you build up your unique authentication needs.
+Because classes are flexible and strongly-typed, while primitives are not.
 
-There's an anti-pattern called [primtive obsession](https://martinfowler.com/articles/refactoring-adaptive-model.html#RemovePrimitiveObsession) that goes into more detail about the superiority of classes to strings for potentially complex or growing objects.
+As you’re authentication needs grow more complex, you may want space to stretch your legs, including new properties like refresh tokens. The `AuthSession` class becomes the scaffold on which you build up your unique authentication needs.
+
+[Martin Fowler](https://martinfowler.com/) singles out overuse of primitives as an anti-pattern, called [primtive obsession](https://martinfowler.com/articles/refactoring-adaptive-model.html#RemovePrimitiveObsession). He believes classes can provide <i>"a home that can attract useful behavior"</i>. This AuthSession will become a magnet for new authentication attributes.
 
 Where does this AuthSession come from? It comes from the `RemoteAuthProvider`.
 
@@ -114,7 +120,7 @@ Where does this AuthSession come from? It comes from the `RemoteAuthProvider`.
 
 <h2 style="text-decoration: underline;">RemoteAuthProvider</h2>
 
-I want some service that takes some form of credentials (e.g. email and password) and returns an AuthSession if they are valid, or a helpful error message if they are invalid or some error occurs.</span>
+I want a service that takes credentials (e.g. email and password) and returns an AuthSession if they are valid, or a helpful error message if they are invalid or some error occurs.</span>
 
 This is the responsibility of the `RemoteAuthProvider`.
 
@@ -126,9 +132,9 @@ protocol RemoteAuthProvider {}
 
 </div>
 
-Notice it is a <i>protocol</i> (Swift's version of what other languages call and <i>interface</i>), meaning that there are no implementations for these methods. It is only a contract that an object trying to be a `RemoteAuthProvider` must adhere to.
+Notice `RemoteAuthProvider` is just a <i>protocol</i> (Swift's version of what other languages call and <i>interface</i>), not a class. This means that there are no implementations for these methods. It is only a contract that an object trying to be a `RemoteAuthProvider` must adhere to.
 
-Any `RemoteAuthProvider` must have a sign-in method that looks exactly like this.
+Any `RemoteAuthProvider` must have a sign-in method with these parameters:
 
 <div class="impl">
 
@@ -143,9 +149,23 @@ protocol RemoteAuthProvider {
 
 </div>
 
-Notice that I said <i>some form of</i> credentials as the behavior of RemoteAuthProvider. That could be anything from an email and password to facial recognition to social media logins. That is why the parameters of sign-in are all Optionals.
+Let's have a closer look at this method signature, as it will appear as an idiom throughout EZClientAuth.
 
-Let's have a closer the last line, as it will appear as an idiom throughout EZClientAuth:
+First off, all the parameters are [Optionals](https://learnappmaking.com/swift-optionals-how-to/).
+
+<div class="impl">
+
+```swift
+// The '?' makes this an Optional parameter
+// It's either a String or nil
+email: String?
+```
+
+</div>
+
+EZClientAuth is built with flexibility at its core. These fields are optional because if you use something biometric, email/password won't be needed. The RemoteAuthProvider implementation can error check for it's own particular credential is present. The framework itself is unopinionated.
+
+Let's take a closer look at the completion handler, closure, or callback (whichever term you prefer) parameter:
 
 <div class="impl">
 
@@ -155,11 +175,13 @@ _ completion: @escaping AuthResponse)
 
 </div>
 
-The underscore \_ just means this is not a named parameter, so calling code need not include a parameter label. Our `RemoteAuthProvider` will communicate back to the calling code through callbacks, also known as <i>completion handlers</i>, hence the name `completion`.
+`_`: Swift let's developers choose whether or not they want to expose [named parameters](https://useyourloaf.com/blog/swift-named-parameters/) in their method signatures. The underscore `_` just means this is not a named parameter, so the consuming code need not include a parameter label.
 
-Ignoring the `@escaping` keyword is ay-okay, it's not important here. If you're learning Swift and are curious, it has to do with when the [closure](https://docs.swift.org/swift-book/LanguageGuide/Closures.html) is called.
+`completion`: Our `RemoteAuthProvider` will communicate back to the calling code through callbacks, also known as <i>completion handlers</i>, hence the name `completion`.
 
-When the `RemoteAuthProvider` has completed its operations, it will call the completion handler closure passed to it with an `AuthResponse` object.
+`@escaping`: Ignoring the `@escaping` keyword is ay-okay, it's not important here. If you're learning Swift and are curious, it has to do with when the [closure](https://docs.swift.org/swift-book/LanguageGuide/Closures.html) is called.
+
+`AuthResponse`: When the `RemoteAuthProvider` has completed its operations, it will call the completion handler closure passed to it with an `AuthResponse` objec, whether it succeeded or not. The `AuthResponse` is simply a tuple that packages up the `AuthSession` returned from `RemoteAuthProvider`, or any `AuthError`s if they occur, and calls the completion handler with the tuple.
 
 Here's what an `AuthReponse` looks like:
 
@@ -171,16 +193,23 @@ typealias AuthResponse = (AuthSession?, AuthError?) -> Void
 
 </div>
 
-<blockquote>A typealias in Swift is literally an alias for an existing type.</blockquote>
+A [typealias](https://www.avanderlee.com/swift/typealias-usage-swift/) in Swift is just an alias for an existing type. In this case, the existing types are `AuthSession` (which we've seen) and `AuthError` (which well see soon)
 
-The `AuthResponse` is a tuple that packages up the `AuthSession` returned from `RemoteAuthProvider`, or any `AuthError`s if they occur.
+Both the `AuthSession` and the `AuthError` are optionals. We don't know if an error will occur, and if one does occur, we sure won't be getting an `AuthSession` back
 
-There are 3 scenarios for the return from RemoteAuthProvider:
-`AuthSession` is not `nil` --> User is authenticated. Here is the `AuthSession`.
-`AuthError` is not `nil` --> Authentication with `RemoteAuthProvider` failed, therefore authentication status could not be determined and `AuthSession` is nil
-`AuthSession` is nil. `AuthError` is `nil` --> User is not authenticated.
+There are 2 scenarios for the return from `RemoteAuthProvider.signIn()`:
 
-<h3>Why Responsible SDKs Wrap Errors</h3>
+Scenario 1: `AuthSession` is non-nil:
+User is authenticated. Here is the `AuthSession`.
+
+Scenario 2: `AuthError` is non-nil:
+Scenario 1: Authentication with `RemoteAuthProvider` failed, therefore authentication status could not be determined and `AuthSession` is nil
+
+The unused combination (i.e. both `AuthSession` and `AuthError` are nil) should never happen. If authentication fails for any reason, only an `AuthError` should be provided to the closure. This requirement isn't enforced, but may be soon.
+
+Let's take a closer look at `AuthError` before moving on to caching the `AuthSession` we receive from sign-in.
+
+<h3>Be Responsible. Wrap Your Errors.</h3>
 
 <blockquote>A good error should be more than just a breadcrumb: it should be a massive, blinking neon sign telling the developer what went wrong and where to start bug hunting. As SDK developers, it's our responsibility create that sign.</blockquote>
 
@@ -201,12 +230,14 @@ or
 <div class="impl">
 
 ```bash
-AuthError.invalidCredentials: "The email: example@g.com and password: abc123! did not match anything on RemoteAuthProvider"
+AuthError.invalidCredentials:
+"The email: example@g.com and password: abc123!
+did not match any accounts on RemoteAuthProvider"
 ```
 
 </div>
 
-So let's create an `AuthError` to act as our massive neon error sign. Let's start with one common error: `invalidCredentials`.
+So let's create a custom `AuthError` that where we as SDK developers control the verbiage. Let's start with a common error: `invalidCredentials`.
 
 <div class="impl">
 
@@ -225,21 +256,15 @@ public enum AuthError: Error, Equatable {
 
 </div>
 
-This custom error gives you as an SDK developer intimate control over how network and caching errors percolate up to the consuming application.
+This custom error gives you as an SDK developer intimate control over how network and caching errors percolate up to the consuming application. We intercept these deeper network and caching errors, categorize them, and then deliver a helpful rather than obfuscated message.
 
-Now back to the `AuthResponse`.
-
-The `AuthSession` and `AuthError` in the `AuthResponse` are both Optional because we don't know for sure that an `AuthSession` will be returned (what if connection fails?) and we don't know for sure that any `AuthError`s will be returned (what if we successfully get the `AuthSession` error-free?)
-
-We now have the components we need to receive a valid `AuthSession` from a `RemoteAuthProvider`.
-
-Let's persist the `AuthSession` between app launches, using a generic `DataStore`.
+We now have the components we need to receive a valid `AuthSession` from a `RemoteAuthProvider`. It's now time to persist the `AuthSession` between app launches using a generic `DataStore`.
 
 <h2 style="text-decoration: underline;">DataStore</h2>
 
-I want some on-device cache to locally persist my AuthSession so that my users don’t have to sign-in between every launch.
+I want an on-device local storage to locally persist my `AuthSession` so that users don’t have to reauthenticate after every app relaunch.
 
-This is our `DataStore`. The `DataStore` is the <b><i>only</b></i> component in our entire authentication domain that has the ability to save, read, and delete an `AuthSession`'s from on-device cache.
+This is the sole responsibility of our `DataStore`.
 
 <div class="impl">
 
@@ -249,12 +274,14 @@ public protocol AuthDataStore {}
 
 </div>
 
-`AuthDataStore` implements three CRUD methods for interacting with the cache:
+The `DataStore` is the <b><i>only</b></i> component in our entire authentication domain with the ability to save, read, and delete an `AuthSession`'s to or from the on-device cache.
+
+`DataStore` implements three CRUD methods for interacting with local storage:
 
 <div class="impl">
 
 ```swift
-public protocol AuthDataStore {
+public protocol DataStore {
     func readAuthSession(_ completion: @escaping AuthResponse)
 
     // save also overwrites, so it double duties as an update
@@ -268,37 +295,50 @@ public protocol AuthDataStore {
 
 </div>
 
-Once we get our AuthSession from `RemoteAuthProvider`, we can persist it locally with an `AuthDataStore` using the `save` method.
+Once we get our AuthSession from `RemoteAuthProvider`, we can persist it locally by passing it the to the `DataStore`'s `save` method.
 
-But how do we ensure that the cached `AuthSession` never grows stale, i.e. fall out of sync with the `RemoteAuthProvider`? Likewise, how do we propogate this AuthSession across the rest of our app to use it in the headers of our many network calls?
+It's common for caching operations to throw either an error or just nil. It should never mutate the object passed in, it should just serialize it. Hence there's no reason to pass the saved object into the closure. Just an error if one occurs, or nil.
 
-This is a larger problem with synchronization, and it is at the core of what makes authentication so difficult to implement.
+Awesome! We can get and `AuthSession` by sending credentials to `RemoteAuthProvider.signIn` and perists the returned `AuthSession` by calling `DataStore.save`.
+
+Thus far, these are two separate operations. But how do we ensure that the cached `AuthSession` never grows stale, i.e. fall out of sync with the `RemoteAuthProvider`? Likewise, how do we propogate this AuthSession across the rest of our app to use it in the headers of our many network calls?
+
+Sequencing is at the heart of synchronization. Unidirectional data flow is one such sequencing to ensure synchronization.
+
+The synchronization problem can make authentication implemnetations very frustrating.
 
 <h3>Solving The Problem of Synchronizing Remote, Cached, and Runtime Authentication State</h3>
 
-Tell me if this has ever happened to you while implementing authentication in an app:
+Raise your hand if this has ever happened to you while implementing authentication in an app:
 
-You login. You kill the app. You open the app... and you have to login again.
+<i>You login. You kill the app. You re-open the app. You're presented with login page!</i>
+
 or
-You login. You attempt an authenticated network call, and receive an 401-Unauthorized network error.
 
-This class of error often stems from failures to synchronize authentication state across the three areas of memory auth information exists:
+<i>You login. You attempt an authenticated network call, yet still receive a 401-Unauthorized network error.</i>
 
-- <b>1. Remote</b>: The most recent AuthSession returned from your remote auth provider
-- <b>2. Local</b>: The AuthSession stored in cache
-- <b>3. Runtime:</b> The AuthSession object used to add tokens to header in the runtime of your app for making authenticated calls
+This class of error often stems from failures to synchronize authentication state across the three zones in which authentication state resigns:
 
-Errors of this sort are much more common if the seapration of responsibilities in your authentication implementation are fuzzy. That is why in EZClientAuth we have explicitly separated remote authentication responsibilities into the `RemoteAuthProvider` and caching responsibilities into the `AuthDataStore`.
+- <b>1. Remote</b>: The most recent `AuthSession` returned from your remote auth provider
+- <b>2. Local</b>: The `AuthSession` stored in cache
+- <b>3. Runtime</b>: The `AuthSession` object used to add tokens to header in the runtime of your app for making authenticated calls
 
-This responsibility for synchronizing the cached, remote, and runtime authentication state belongs to a third, very criticial class called the `AuthManager`.
+This class of very visible authentication errors are much more common if:
+
+- A) The seapration of responsibilities in your authentication implementation are unclear
+- B) The flow of authentication state from remote to cache to runtime is convoluted
+
+To battle against <b>Problem A</b>, EZClientAuth clearly gives the responsibility of remote to `RemoteAuthProvider` and caching to `DataStore`. But what about the runtime authentication state?
+
+To combat <b>Problem B</b>, EZClient uses a unidirectional dataflow model to .
+
+Synchronization of authentication state and housing the most recent `AuthSession` for access in runtime is the responsibility of the `AuthManager`.
 
 <hr/>
 
 <h2 style="text-decoration: underline;">AuthManager</h2>
 
-I want a manager that synchronizes the `AuthSession` between the `RemoteAuthProvider` and the `DataStore`. This manager should also have the most recent `AuthSession` as a class property.
-
-The `AuthManager` is will be the consuming codes point of access to sign in, sign out, and check if the client is authenticated.
+I want a manager that synchronizes the `AuthSession` between the `RemoteAuthProvider` and the `DataStore`. This manager should also hold the most recent `AuthSession` as a property.
 
 <div class="impl">
 
@@ -310,19 +350,13 @@ public protocol AuthManager {
     }
 
     var dataStore: AuthDataStore { get }
-
     var authSession: AuthSession? { get }
-
-    func signIn(
-        email: String?,
-        password: String?,
-        phoneNumber: String?,
-        _ completion: @escaping AuthResponse
-        )
 }
 ```
 
 </div>
+
+The `AuthManager` protocol is public unlike the previous protocols because this will be the consuming code's point of access to sign in, sign out, and checking if the client is authenticated.
 
 An AuthManager owns a `DataStore`, an `AuthSession`, and an `AuthProviderConfiguration`.
 
@@ -358,6 +392,21 @@ public enum AuthProviderConfiguration {
 </div>
 
 <h3>Finally: Signing In With AuthManager and Synchronizing All Authentication State</h3>
+
+<div class="impl">
+
+```swift
+public protocol AuthManager {
+    func signIn(
+        email: String?,
+        password: String?,
+        phoneNumber: String?,
+        _ completion: @escaping AuthResponse
+        )
+}
+```
+
+</div>
 
 When the consuming code calls `signIn` on `AuthManager`, the `AuthManager` will perform 3 tasks:
 
@@ -497,35 +546,21 @@ remoteAuthProvider.signIn(
 
 </div>
 
-AuthManager is pretty central to our applicaiton as the class repsonsible for maintaining `AuthSession` synchronization. But who's managing the AuthManager? What if we create ten `AuthManager`s in an app? Since the AuthManager hold the AuthSession, don't we only want one of them during runtime?
+AuthManager is pretty central to our applicaiton as the class repsonsible for maintaining `AuthSession` synchronization. But who's managing the AuthManager? What if we create ten `AuthManager`s in an app? Since the AuthManager hold the AuthSession, don't we only want one of them during runtime? If multiple instances of the AuthManager exist, all with their own particular `AuthSession`s, then we land right back with the problem of synchronization.
 
 This is where EZClientAuth gets...opinionated! _Dun-dun-dun!_
 
-<h3>On the Impossible Task Creating Perfect SDKs</h3>
+<h3>On the Impossible Task of Creating Perfect SDKs</h3>
 
 <blockquote>The more opinionated the SDK, the less work developers have to do within the SDK's use case, but the more work developers have to do to escape the SDKs opinions</blockquote>
 
-EZClientAuth was built as part of a mobility SDK and intended for use across several product lines of mobile iOS applications. Being early in the prototyping process, the jury was still out on an approved authentication provider. We didn't want our application code to be written to any one provider since that would be messy to change. We wanted to do it in one line of code instead.
+EZClientAuth was built as part of a mobility SDK and intended for use across several product lines of mobile iOS applications. The jury was still out on which authentication provider would be used. We didn't want our application code to be written to any one provider since that would lead to vendor lock-in with larger switching costs. We wanted to do it in one line of code instead.
 
 Some things my team faced while implementing EZClientAuth:
 
 Should we perform caching for the client?
 Should we keep a reference to the AuthSession for the user, or let them decide how to propogate it?
-Should we keep a singleton AuthManager?
-
-EZClientAuth is entirely unopinionated about what RemoteAuthProvider you choose (we can always add more optional paramaters to sign-in) and what dataStore the consuming code uses.
-
-EZClientAuth is however opinionated about the way it synchronizes the AuthSession. We see the benefits to the client (out of site out of mind) as justifying an opion in this area.
-
-Because EZClientAuth was built as part of an SDK for integration across multiple apps, it was necessary as SDK developers to limit the surface area of the API as much as possible. This was achieved by hiding the implementations of the RemoteAuthProvider and the DataStore. We only expose the interface of the AuthManager, so the client can mock it.
-
-<h2 style="text-decoration: underline;">Auth</h2>
-
-A struct that exposes the means of configuring and accessing a singleton AuthManager.
-
-We could just allow the consuming code to create as many AuthManagers as they want, but this could quickly lead to misuse of the API.
-
-I can think of few circumstances in which the consuming code could benefit from multiple AuthManager's all with different states.
+Should we keep a singleton AuthManager? Or allow the (probably misguided) instantiation of many `AuthManager`s?
 
 The `AuthManager` checks off all three of my usual criteria for justifying a singltone:
 
@@ -535,11 +570,20 @@ The `AuthManager` checks off all three of my usual criteria for justifying a sin
 
 If the above three criteria are not true, you may be better off just injecting through initializers, setters or methods as need as needed and spare yourself the trouble of Singletons.
 
-NOTE: Singletons are notoriously untestable. We'll cover how to keep things testable in Part III. (Hint: You just add an instance property called authManager to your object, then add an authManager in that object's initializer that defauls to the singleton. Inject for tests, don't inject for production)
+NOTE: Singletons are notoriously untestable. We'll cover how to keep things testable in the Part III: Integrating and Testing with EZClientAuth. (Hint: You just add an instance property called authManager to your object, then add an authManager in that object's initializer that defauls to the singleton. Inject for tests, don't inject for production)
 
-The occasional viability of the singleton design pattern now upheld, lets create our final abstraction, simply called `Auth`, that will confgirure and hold our one and only `AuthManager`, and therefore our one and only synchronized `AuthSession`.
+A reasonable argument for occasional usage of the dreaded singleton now made, lets create our final abstraction, simply called `Auth`, that will confgirure and hold our one and only `AuthManager`, and therefore our one and only synchronized `AuthSession`.
 
-Here's the [struct](https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html) (for non-Swifters, thinking of this as a class is non-lossy for our purposes):
+<h2 style="text-decoration: underline;">Auth</h2>
+
+A struct that exposes the means of configuring and accessing a singleton AuthManager.
+
+`Auth` serves three functions:
+Substantially reduces EZClientAuth's API surface area (also known as the public API)
+Provides a `configure` method for choosing which `RemoteAuthProvider` to use
+Holds a singleton `AuthManager`
+
+Here's the [struct](https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html) (for non-Swifters, thinking of this as a class is non-lossy in these circumstances):
 
 <div class="impl">
 
@@ -553,9 +597,9 @@ public struct Auth {
     static public func configure(
         for authProviderConfiguration: AuthProviderConfiguration,
         with dataStore: AuthDataStore? = nil) {
-        // 2.5 Hand off AuthProviderChoice and datastore to the singleton manager
+        // 2.5 Hand off AuthProviderConfiguration and datastore to the singleton manager
         manager.configure(
-            for: authProvider,
+            for: authProviderConfiguration,
             with: dataStore)
     }
 
@@ -568,17 +612,19 @@ public struct Auth {
 
 </div>
 
-In case you parsed over, here's the moneyshot of EZClientAuth:
+In case you parsed over it, here's the moneyshot of EZClientAuth:
 
 `manager.configure(for: authProvider)`
 
-We use the `Auth.configure` method to <i>method-inject</i> the `RemoteAuthProvider` into our singleton `AuthManager`.
+We use the `Auth.configure` method to <i>method-inject</i> the `RemoteAuthProvider` into our singleton `AuthManager` held on `Auth`. Remember the `RemoteAuthProvider` implementation is held as an associated value of the `AuthProviderConfiguration` enum.
 
-In our application we can simply configure our `AuthManager` with any authProvider we've written an implementation for, and rest assured that our remote, cached, and runtime AuthSession will all remain synchronized thanks to the controlled and tested code paths of the `AuthManager`.
+In the consuming code we can simply configure our `AuthManager` with any authProvider we've written an implementation for, and rest assured that our remote, cached, and runtime AuthSession will all remain synchronized thanks to the controlled and tested code paths of the `AuthManager`.
 
-SIDENOTE: To the keen eyed among you, this may look familair. It's is inspired by FirebaseAuth with Firebase.configure(). and Auth.auth() syntax.
+<blockquote>SIDENOTE: To the keen eyed among you, this may look familair. It's is inspired by FirebaseAuth's simple Firebase.configure() syntax.</blockquote>
 
-When our application boots up, the only thing we have to do to start using EZClientAuth is this:
+When our application first begins, all we need to do to start using EZClientAuth is this:
+
+`UIScene.willConnectTo session` is essentially the SwiftUI equivalent of UIKit's `AppDelegate.applicationDidLoad`.
 
 <div class="impl">
 
@@ -588,7 +634,9 @@ func scene(
     _ scene: UIScene,
     willConnectTo session: UISceneSession,
     options connectionOptions: UIScene.ConnectionOptions) {
-    Auth.configure(.myRemoteAuthProviderChoice)
+
+    Auth.configure(.firebase) // or Keycloak, OAuth, etc.
+
 }
 ```
 

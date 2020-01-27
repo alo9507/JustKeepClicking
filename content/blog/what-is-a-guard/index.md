@@ -106,4 +106,4 @@ We can leverage the null-safety and guards to create this idiomatic null-checkin
 
 Because we return if the condition is false, all code appearing below a guard can safely execute knowing with certainty that the integrity precondition is true and that the object will not be nil.
 
-Thank you [Chris Lattner](http://nondot.org/~sabre/) :-)
+Thank you [Chris Lattner](http://nondot.org/~sabre/) and anyone who's ever worked on one of the almost 100,000 (Jan 20202) commits to [Swift](https://github.com/apple/swift) :-)
