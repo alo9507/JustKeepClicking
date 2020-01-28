@@ -20,6 +20,8 @@ Frederick Brooks says it well in the classic software engineering anthology, [Th
 
 Our TTR equation will operate under a <i>ceteris paribus</i> assumption, i.e. all other factors outside of software engineers, their skill and their interactions with each other being held equal.
 
+This is intended as a framework for capacity planning nad explicitly stating the variables. Without a culture of self and peer assessment, and an awareness of known unknowns, it's not useful.
+
 <h2>Codebase Divided by Humans</h2>
 
 Before we get started adding complexities to the TTR equation, let's first observe the fact that one level of abstraction higher than the equation above, we arrive at:
@@ -61,6 +63,7 @@ The decision to build from scratch versus integrating reusable code should be ma
 Net Value of Reusable Code = Custom Build Effort - Integration Effort
 
 There are other things to consider with 3rd Party code, like the risk of adding a dependency to the project and the loss of cuztomizability if you adopt 3rd party code.
+
 
 If it takes more time and energy to integrate existing code than it would be to build from scratch, the net value becomes negative and lengthens TTR rather than shortening it.
 
