@@ -54,24 +54,38 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
-      <p className="bio_description">
-        dev thoughts of <br />{" "}
+      <div
+        style={{
+          display: `flex`,
+          flexDirection: "column",
+        }}
+      >
+        <p className="bio_description">
+          dev thoughts of <br />{" "}
+          <strong>
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `underline`,
+              }}
+              to={`/andrew-obrien`}
+            >
+              {author}
+            </Link>
+          </strong>
+        </p>
         <strong>
           <Link
             style={{
               boxShadow: `none`,
               textDecoration: `underline`,
             }}
-            to={`/andrew-obrien`}
+            to={`/resources`}
           >
-            {author}
+            modern developer resources
           </Link>
         </strong>
-        {/* {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a> */}
-      </p>
+      </div>
     </div>
   )
 }
