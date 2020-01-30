@@ -61,7 +61,8 @@ const Bio = () => {
         }}
       >
         <p className="bio_description">
-          a curated stream consciousness <br />{" "}
+          a curated stream of consciousness <br />
+          <br />{" "}
           <strong>
             <Link
               style={{
