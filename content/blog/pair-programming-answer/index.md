@@ -28,6 +28,22 @@ Here we venture an answer:
 
 Let's examine how pairing effects
 
+<h2>Pair Programming is like an Open Source Microchosm</h2>
+
+I see some parallels between the value of pair programming and the value of open source.
+
+Pair programming is like a microchosm of open source development.
+
+Eric Raymond's classic The Cathedral and the Bazaar
+
+"Given enough eyeballs, all bugs are shallow"
+
+"Somebody finds the problem, and somebody else understands it."
+
+This is where codebase familiarity meets developer skill.
+
+For example: Enter a senior developer onto a new project. The juniors are oh-so familiar with all the quirks of the codebase, they just don't know how to fix them. In my experience this leads to some of the most productive pairing sessions there can be, as the juniors explain the problem they've been facing, problems which the new senior could not have known from lack of codebase familiarity.
+
 <h2>Ample Upskilling Opportuntiies</h2>
 
 Pairing provides upskilling opportunities every minute of every day. Pair programming makes knowledge transfer and onboarding a near inevitability.
@@ -68,3 +84,5 @@ They are all correct.
 I happen to be a social dev. My entire career except for a few months has been within pair programming cultures. I prefer rabbit holing with my headphones on for hours, getting lunch, then popping out and sharing what I made in a good pairing session. My personal preferred work routine would be 3 days pairing and 2 days solo coding, to be decided by me and my pair in our iteration planning meeting.
 
 That's all! LMK what your take is on pairing in the comments, and any additional factors I missed in the Time-to-Release Equation. Everything on here is a living document.
+
+(wondering about project halo idea for getting fresh set of eyes)
