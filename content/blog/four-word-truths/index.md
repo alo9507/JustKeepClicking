@@ -12,6 +12,8 @@ Bad code kills companies
 
 Thoughtful perks foster culture
 
+Missing semi-colon, failed demo. <i>(Ancient Chinese proverb I believe)</i>
+
 Diversity isn’t just quota
 
 Actions talk, emails lie
@@ -73,8 +75,6 @@ Discursive thought wastes energy
 Lasting lessons require suffering
 
 Nostalgia guilds the Past
-
-Missing semi-colon, failed demo. (Ancient Chinese proverb I believe)
 
 Creative constraints enforce innovation
 
