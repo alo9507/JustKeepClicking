@@ -8,6 +8,12 @@ I've never made an open source contribution. After reading Eric Raymond's [The C
 
 Here's how I started, the absolute simplest way possible.
 
+<h2>First Timers Only</h2>
+
+[First Timers Only](https://www.firsttimersonly.com/)
+
+After a simple Google of "easy open source contributions", I found the site above which led me to a good sequence of other first time OSS contribution sites.
+
 <h2>First Contributions</h2>
 
 Github: [First Contributions](https://github.com/firstcontributions/first-contributions)
