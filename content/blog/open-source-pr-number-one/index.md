@@ -4,7 +4,9 @@ date: "2020-01-13T22:12:03.284Z"
 description: " "
 ---
 
-I've never made an open source contribution. After reading Eric Raymond's [The Cathedral and the Bazaar](https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088/ref=sr_1_1?crid=NDMVJQ6VR94C&keywords=cathedral+and+the+bazaar&qid=1580359078&sprefix=cathedral+and+the+ba%2Caps%2C142&sr=8-1), I felt the time had come to break the seal and see where it might lead.
+As of the writing of this article, I've been developing for 1.5 years from webdev to backend Java to mobile iOS. I voraciously consume open source packages every day of my life without thinking about the social infrastructure backing so many of my personal and professional projects. And yet, I've never contributed to any.
+
+After reading Eric Raymond's [The Cathedral and the Bazaar](https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088/ref=sr_1_1?crid=NDMVJQ6VR94C&keywords=cathedral+and+the+bazaar&qid=1580359078&sprefix=cathedral+and+the+ba%2Caps%2C142&sr=8-1), I felt obliged to make my first open source commit, however small, to at least get the ball rolling
 
 Here's how I started, the absolute simplest way possible.
 
@@ -12,45 +14,41 @@ Here's how I started, the absolute simplest way possible.
 
 [First Timers Only](https://www.firsttimersonly.com/)
 
-After a simple Google of "easy open source contributions", I found the site above which led me to a good sequence of other first time OSS contribution sites.
+After a simple Google of "easy open source contributions", I found the site above. <i>First Timers Only</i> curates a lot of helpful resources. All of the below I found on that site.
 
-<h2>First Contributions</h2>
+<h2>Level 0: First Contributions</h2>
 
 Github: [First Contributions](https://github.com/firstcontributions/first-contributions)
 
-This repo is as easy as it gets to try a risk-free, judgement-free first open source commit.
+This repository is as easy as it gets to make your first risk-free, judgement-free first open source PR.
 
-Your task: add yourself to the CONTRIBUTORS.md.
+<blockquote>Your task: add your name to CONTRIBUTORS.md</blockquote>
 
-Since you dont have write-access to this repository, you'll learn how the Open Source contribution flow:
+Since you dont have write-access to this repository, you'll learn the Open Source contribution flow:
 
-Fork -> Clone -> Modify -> PR your forked branch to base repository master
+<blockquote>Fork -> Clone -> Modify -> PR forked branch to base repository</blockquote>
 
-differs from full write-access contribution flow you're may be familiar with from work:
+which differs from full write-access contribution flow you're may be familiar with from work:
 
-Branch -> Modify -> PR into master
+<blockquote>Branch -> Modify -> PR</blockquote>
 
-Forking rather than branching also keeps the base repository from becoming to cluttered with experimental branches.
+Forking rather than branching keeps the base repository from becoming cluttered with experimental branches.
 
-Good lesson. But I wanted to make a slightly larger contribution, something that would require actually pulling down and running a JavaScript or iOS project.
+Great lesson. I wanted to apply this knowledge to make a PR into a project that's actually used by other developers.
 
-<h2>Up For Grabs</h2>
+<h2>Level 1: Up For Grabs</h2>
 
-[Up For Grabs](https://up-for-grabs.net/)
+[Up For Grabs](https://up-for-grabs.net/) curates OSS projects that tag issues as `Great First Timer` if they're low-hanging fruit for new OSS contributors to grab.
 
-I found this site called Up For Grabs. They curate OSS projects that tag issues as `Great First Timer` if they're low-hanging fruit.
+I filtered by `javascript` and `swift` and randomly clicked on a few projects and cheked out their open issues.
 
-I filtered by `javascript` and `swift` and randomly clicked on a few projects. I checked out their open issues.
+I found [open-wc](https://open-wc.org/). They're mission:
 
-Some projects had contributin guidelines with lengthy descriptions of standards upheld in the codebase.
+<blockquote>The goal of Open Web Components is to empower everyone with a powerful and battle-tested setup for sharing open source web components.</blockquote>
 
-I found [open-wc](https://github.com/open-wc/open-wc/labels/help%20wanted)
-
-They were missing an `await` in an async test `README.md`.
+I found this [issue](https://github.com/open-wc/open-wc/issues/954) to add a missing `await` in a `README.md`.
 
 I forked, added the `await` keyword in the docs, and PR'd my branch.
-
-My tests passsed CircleCI. Nice.
 
 A bot commented on my PR with a red ❌ prompting me to sign the Contributor License Agreement before my contribution could be accepted.
 
@@ -60,33 +58,45 @@ I signed and it rerouted me to the project. Now I saw the message:
 
 `All committers have signed the CLA.`
 
-Great. I still had one more PR blocker.
-
-Turns out my commit message of "added missing await to testing README.md" did not abide by the projects guidelines.
-
-Something called [commitlint](https://github.com/conventional-changelog/commitlint) found 2 issues with my commit message:
+Great. I still had one more PR blocker: [commitlint](https://github.com/conventional-changelog/commitlint). Turns out my commit message of "added missing await to testing README.md" did not abide by the projects guidelines. The error read:
 
 `You may need to change the commit messages to comply with the repository contributing guidelines.`
 
 I didn't know what those standards were and couldn't find them immediately, so I just looked at other commits and saw that documentation related issues were prefixed with `docs:`. That was probably it.
 
-So I on my local I ran `git commit --amend`, modified my previous commit message to be prefixed with `docs:`, then I `git push -f`'d up to my remote branch.
+So I on my local I ran `git commit --amend`, prefixed my previous commit message with `docs:`, then I `git push -f`'d up to my remote branch.
 
 This time I passed commitlint. The final check now was a code review by a maintainer.
 
-Nice! Waiting time.
+The next morning, I received a kind comment-email from the Open Web Component project maintainer Lars den Bakker:
+
+<img src="./email.png" alt="first_pr">
+
+I replied to the email not realizing that it would comment on the repo as well. Oh well, it was kind words.
+
+And just like that I'd officially made my [first open source contribution](https://github.com/open-wc/open-wc/pull/1288):
+
+<img src="./first_pr.png" alt="first_pr">
+
+<h2>Level 2: On My Own</h2>
+
+[in progress]
+
+(find a project issue that requires actual coding)
 
 <h2>Lessons Learned</h2>
 
 I can't truly call myself an open source contributor yet, but the seal has been broken.
 
+I learned:
+
 - Forking prevents clutter and allows maximum access to auxiliary repos without adding contributors to main repo
-- OSS requires stricter commit message standards, or standards for online communication in general
+- OSS requires stricter communication standards than a work environment
 - Contributor License Agreements are often necessary before contributing
-- I realized that it's not great to have auto-formatting on when you're working on OSS. If there's no common IDE config files, your apt to be making PRs that look WAY bigger than they really are thanks to formatting changes.
+- It's not great to have auto-formatting on when you're working on OSS. Auto-formatting on save
 
 I didn't realize how often in the office I rely on proximity to facilitate communication. That's an impossibility in OSS and a lot of their strict standards could serve office environments well.
 
 I think it would be cool to give several hours each month to your team to heavily encourage your developers to search for an open source project to contribute to. ANY Open Source project.
 
-Don't wait to contribute to OSS. The medium is the message. The content is secondary to cracking the seal on giving back to an ecosystem and social economy that has given the world so much.
+Don't wait to contribute to OSS. The medium is the message. The content of your first commit is secondary to cracking the seal on giving back to an ecosystem and social economy that has given the world so much.

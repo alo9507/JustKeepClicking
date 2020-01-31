@@ -6,6 +6,8 @@ description: "Use Bitmasks for Rendering Form Fields"
 
 <h2>IN PROGRESS</h2>
 
+"The app kinda worked, so I was thrilled with the experience." <- That's not a sentence
+
 The Goal: Create an exhaustive form field renderer in ~50 lines of code to keep the touched, focused, set and valid appearance of our forms in sync with their state.
 
 The Tool: Bitmasks
