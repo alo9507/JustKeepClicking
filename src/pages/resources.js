@@ -14,48 +14,7 @@ const Resources = () => {
       <p style={{ textAlign: "center", marginTop: "0px", fontSize: "18px" }}>
         categorized best ofs
       </p>
-      <h2>Learn iOS</h2>
-      <a href="https://store.raywenderlich.com/products/advanced-ios-app-architecture">
-        Advanced iOS App Architecture
-      </a>
-      <p>
-        A career-changingly good read on{" "}
-        <a href="https://developer.apple.com/videos/play/wwdc2015/408/">
-          Protocol Oriented Programming
-        </a>{" "}
-        and more with Swift.
-      </p>
-
-      <h2>Learn React</h2>
-      <a href="https://www.udemy.com/course/react-redux/">
-        Stephen Grider's Udemy Course
-      </a>
-      <p>
-        Stephen Grider's Excellent Udemy Course. No rush... Udemy is
-        oxymoronically always having a "flash" sale
-      </p>
-
-      <h2>Learn GraphQL</h2>
-      <a href="https://graphql.dev/news/2019/10/31/linux-foundation-training-announces-a-free-online-course-exploring-graphql-a-query-language-for-apis/">
-        Linux Foundation GraphQL Course
-      </a>
-      <p>
-        The Linux Foundation houses the GraphQL Foundation and have kindly
-        created this awesome course to get you started
-      </p>
-
-      <h2>(Deeply) Learn Deep Learning</h2>
-      <a href="https://www.fast.ai/">fast.ai</a>
-      <p>
-        Jeremy Howard is a democratizer of AI, a refreshingly practical
-        programmer, and one of the best instructors I've ever had
-      </p>
-
-      <a href="https://www.youtube.com/user/lexfridman">
-        The Lex Friedman Podcast
-      </a>
-
-      <h2>The Canon</h2>
+      <h2>Canon</h2>
       <p>
         <a href="https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215/ref=sr_1_2?crid=15BD78KQGY5UE&keywords=domain+driven+design&qid=1580360758&sprefix=domain+driven+design%2Caps%2C140&sr=8-2">
           Domain Driven Design
@@ -97,6 +56,47 @@ const Resources = () => {
           Test Driven Development By Example
         </a>
       </p>
+      <h2>Learn iOS</h2>
+      <a href="https://store.raywenderlich.com/products/advanced-ios-app-architecture">
+        Advanced iOS App Architecture
+      </a>
+      <p>
+        A career-changingly good read on{" "}
+        <a href="https://developer.apple.com/videos/play/wwdc2015/408/">
+          Protocol Oriented Programming
+        </a>{" "}
+        and more with Swift.
+      </p>
+
+      <h2>Learn React</h2>
+      <a href="https://www.udemy.com/course/react-redux/">
+        Stephen Grider's Udemy Course
+      </a>
+      <p>
+        Stephen Grider's Excellent Udemy Course. No rush... Udemy is
+        oxymoronically always having a "flash" sale
+      </p>
+
+      <h2>Learn GraphQL</h2>
+      <a href="https://graphql.dev/news/2019/10/31/linux-foundation-training-announces-a-free-online-course-exploring-graphql-a-query-language-for-apis/">
+        Linux Foundation GraphQL Course
+      </a>
+      <p>
+        The Linux Foundation houses the GraphQL Foundation. They have kindly
+        created this awesome course to get you started.
+      </p>
+
+      <h2>(Deeply) Learn Deep Learning</h2>
+      <a href="https://www.fast.ai/">fast.ai</a>
+      <p>
+        Jeremy Howard is a democratizer of AI, a refreshingly practical
+        programmer, and one of the best instructors I've ever had.
+      </p>
+
+      <a href="https://www.youtube.com/user/lexfridman">
+        The Lex Friedman Podcast
+      </a>
+      <br />
       <br />
     </Layout>
   )

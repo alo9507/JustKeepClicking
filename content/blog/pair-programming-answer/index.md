@@ -1,6 +1,6 @@
 ---
 title: Pair Programming in the The Race to Release | Part 2
-date: "2020-01-13T22:12:03.284Z"
+date: "2020-01-21T22:12:03.284Z"
 description: "What part of the software development equation does pairing improve?"
 ---
 

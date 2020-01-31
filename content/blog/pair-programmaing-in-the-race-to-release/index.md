@@ -1,6 +1,6 @@
 ---
 title: Pair Programming in the The Race to Release | Part 1
-date: "2020-01-13T22:12:03.284Z"
+date: "2020-01-21T22:12:03.284Z"
 description: "What part of the software development equation does pairing improve?"
 ---
 
@@ -63,7 +63,6 @@ The decision to build from scratch versus integrating reusable code should be ma
 Net Value of Reusable Code = Custom Build Effort - Integration Effort
 
 There are other things to consider with 3rd Party code, like the risk of adding a dependency to the project and the loss of cuztomizability if you adopt 3rd party code.
-
 
 If it takes more time and energy to integrate existing code than it would be to build from scratch, the net value becomes negative and lengthens TTR rather than shortening it.
 
