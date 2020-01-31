@@ -60,6 +60,12 @@ const Resources = () => {
       <a href="https://store.raywenderlich.com/products/advanced-ios-app-architecture">
         Advanced iOS App Architecture
       </a>
+      <a href="https://github.com/raywenderlich/swift-algorithm-club">
+        Swift Algorithm Club
+      </a>
+      <a href="https://www.raywenderlich.com/762435-swift-interview-questions-and-answers">
+        Beginner, Intermediate and AdvancedSwift Interview Questions and Answers
+      </a>
       <p>
         A career-changingly good read on{" "}
         <a href="https://developer.apple.com/videos/play/wwdc2015/408/">

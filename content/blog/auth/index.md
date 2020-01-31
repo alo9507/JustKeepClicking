@@ -556,6 +556,8 @@ Congratulations on getting this far! We're one step away from integrating this i
 
 <blockquote>The more opinionated the SDK, the less work developers have to do within the SDK's use case, but the more work developers have to do to escape the SDKs opinions</blockquote>
 
+An SDK ought to be simple enough that common operations are easy, yet customizable enough that complicated things are also easy.
+
 We do not want multiple `AuthManager`s created. This would ruin our synchronization efforts.
 
 The `AuthManager` checks off all three of my usual criteria for justifying a singleton. It is:
