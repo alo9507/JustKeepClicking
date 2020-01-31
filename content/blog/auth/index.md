@@ -1,10 +1,8 @@
 ---
 title: Domain Driven Authentication with EZClientAuth
 date: "2020-01-29T22:12:03.284Z"
-description: "Set your development team free with this flexible multi-provider authentication framework: EZClientAuth"
+description: "Because authentication doesn't have to be difficult"
 ---
-
-<h2>IN PROGRESS</h2>
 
 <blockquote>"All models are flawed. Some are useful." George E.P. Box</blockquote>
 
