@@ -1,32 +1,28 @@
 ---
 title: Pair Programming in the The Race to Release | Part 2
-date: "2020-01-21T22:12:03.284Z"
+date: "2020-01-20T22:12:03.284Z"
 description: "What part of the software development equation does pairing improve?"
 ---
 
-<i>This is Part II of Pair Programming in the The Race to Release.</i>
+<i>This is Part II of the two-part Pair Programming in the The Race to Release series.</i>
 
-Read [Part I](/pair-programmaing-in-the-race-to-release/) first for full effect.
+Read [Part I](/race-to-release-part-1/) first for full effect.
 
-<h2>Pair Programming and Time To Release</h2>
+<h2>Pair Programming in the Time To Release Equation</h2>
 
-Here's the equation we arrived at in Part I:
+Here's the Time to Release equation we arrived at in Part I:
 
 <img src="./FinalEquation.svg" alt="final_equation" class="equation">
 
 We asked the questions:
 
-<blockquote>Why would I pay two developers to do the job of one?</blockquote>
-
-and
-
 <blockquote>How does pair programming effect time to release?</blockquote>
 
-Here we venture an answer:
+And now we venture an answer:
 
 <blockquote>Pairing has the potential to directly MAXIMIZE the bottom human part of the TTR equation, resulting in second order consequences that MINIMIZE the top codebase half of the TTR equation.</blockquote>
 
-Let's examine how pairing effects
+Pair programming has a direct affect on maximizing the human potential of a team, and a consequence of a better team is a more robust codebase.
 
 <h2>Pair Programming is like an Open Source Microchosm</h2>
 
@@ -84,5 +80,3 @@ They are all correct.
 I happen to be a social dev. My entire career except for a few months has been within pair programming cultures. I prefer rabbit holing with my headphones on for hours, getting lunch, then popping out and sharing what I made in a good pairing session. My personal preferred work routine would be 3 days pairing and 2 days solo coding, to be decided by me and my pair in our iteration planning meeting.
 
 That's all! LMK what your take is on pairing in the comments, and any additional factors I missed in the Time-to-Release Equation. Everything on here is a living document.
-
-(wondering about project halo idea for getting fresh set of eyes)

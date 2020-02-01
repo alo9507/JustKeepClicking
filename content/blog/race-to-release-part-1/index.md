@@ -10,7 +10,7 @@ This legitimate concern with pairing stems from the following notion about the n
 
 <img src="./StartingEquation.svg" alt="equation_1" class="equation">
 
-Where number of developers is taken to mean <i>independently operating</i> developers. If this were all there is to determing <b>Time-to-Release (TTR)</b>, then coalescing the efforts of two developers onto a single task should effectively <i>double</i> the time it takes to complete a project.
+Where number of developers is taken to mean <i>independently operating</i> developers. If this were all there is to determing <b>Time-to-Release (TTR)</b>, then coalescing the efforts of two developers onto a single task should effectively <i>double</i> the time it takes to complete a project, right?
 
 But this is not what we see in practice. This two-part series attempts to formulate a more full-fledged TTR equation in Part I, then show how pairing effects TTR in Part II.
 
@@ -20,11 +20,9 @@ Frederick Brooks says it well in the classic software engineering anthology, [Th
 
 Our TTR equation will operate under a <i>ceteris paribus</i> assumption, i.e. all other factors outside of software engineers, their skill and their interactions with each other being held equal.
 
-This is intended as a framework for capacity planning nad explicitly stating the variables. Without a culture of self and peer assessment, and an awareness of known unknowns, it's not useful.
-
 <h2>Codebase Divided by Humans</h2>
 
-Before we get started adding complexities to the TTR equation, let's first observe the fact that one level of abstraction higher than the equation above, we arrive at:
+Before we get started adding more factors to the TTR equation, let's first observe the fact that one level of abstraction higher than the equation above, we arrive at:
 
 <img src="./CodeOverHuman.svg" alt="technical_ability" class="equation">
 
@@ -38,7 +36,7 @@ With this in mind, let's go through those codebase and human factors one by one.
 
 Not all programmers are of equal technical skill. Software development is nothing more than hundreds of small decisions every day. Experienced devs make better decisions quicker.
 
-Thus:
+This skill discrepancy can be reflected as each developer's skill-weighting.
 
 <img src="./TechnicalAbility.svg" alt="technical_ability" class="equation">
 
@@ -62,11 +60,9 @@ The decision to build from scratch versus integrating reusable code should be ma
 
 Net Value of Reusable Code = Custom Build Effort - Integration Effort
 
-There are other things to consider with 3rd Party code, like the risk of adding a dependency to the project and the loss of cuztomizability if you adopt 3rd party code.
-
 If it takes more time and energy to integrate existing code than it would be to build from scratch, the net value becomes negative and lengthens TTR rather than shortening it.
 
-Thus:
+Let's subtract the net value of reusable code from the raw effort size of the feature.
 
 <img src="./CodeReuse.svg" alt="technical_ability" class="equation">
 
@@ -82,7 +78,7 @@ Though it's certainly a factor in TTR, Codebase Size cannot be considered as a T
 
 The greater the quality of a codebase, the less effect codebase size should have on time-to-release.
 
-"Codebase quality" is intentionally general, including everything from properly deployed architectural patterns and naming consistency, to performance and documentation.
+"Codebase quality" is intentionally vague, including everything from properly deployed architectural patterns and naming consistency, to performance and documentation.
 
 Good architecture and documentations allow codebases to grow in size without increasing in complexity. New features fit snugly into existing paradigms rather than being solved in an ad hoc “take it as it comes” manner that leads to gross interdependencies and spaghetti code.
 
@@ -101,8 +97,6 @@ Codebase familiarity, or source code awareness, here encapsulates:
 
 Codebase familiarity is the ability to reach for precedent in existing code rather than solving the problem for the first time. Familiarity enables much faster code discoverability.
 
-Codebase familiarity lets you solve problems once and use that answer everywhere.
-
 Even a great developer in uncharted territory may perform slower than a less skilled dev familiar with the ley of this land, however idiosyncratic it may be.
 
 In my mind "code discoverability" has to do with general code hygiene: are variable names sufficiently descriptive? Is the codebase searchable and documented well? "Code familiarity" on the other hand resides in the mind and memory of the developer.
@@ -113,7 +107,17 @@ I think familiarity isn't quite as valuable as technical skill, so we add it rat
 
 <h2>Upskilling Opportunities during Project</h2>
 
-<blockquote>You are not the same developer towards the end of a project as you were at the beginning. Programmer skill is dynamic across time. Programmer skill makes step-wise leaps when a new concept is realized, then levels off asymptotically as the new lesson settles in. The amount of growth is proportional to the quantity and diversity of upskilling opportunitites presented to developers during a project.</blockquote>
+You are not the same developer at the end of a project as you were at the beginning.
+
+Programmer skill makes <b>step-wise</b> leaps when a new concept is realized.
+
+It takes time for new concepts to sink into a programmer's arsenal. These revelations level off asymptotically to new norms.
+
+The amount of growth is proportional to the quantity and diversity of upskilling opportunitites presented to developers during a project.
+
+Here's a graph of my own step-wise, logarithmic leaps over this past year:
+
+<img src="./SkillOverTime.svg" alt="technical_ability" class="equation">
 
 Let's unpack that statement, in particular why I think improvement is both logarithmic and step-wise.
 
@@ -133,7 +137,9 @@ Let's add Upskilling during Project to our Skill Weighting to reflect the increa
 
 <img src="./UpskillingOpportunity.svg" alt="technical_ability" class="equation">
 
-<h2>A Tentative Time to Release Equation</h2>
+<h2>A More Realistic Time to Release Equation</h2>
+
+<i>More realistic, but hardly exhaustive.</i>
 
 Endlessly debatable, but here’s what I take to be a more realistic equation for determing time to release a new feature:
 
@@ -147,10 +153,10 @@ Both the Product Manager and the lead Software Engineer together are responsible
 
 Ideally, a partnership exists between the PM and Lead Software Engineer to jointly minimize TTR by singling out and increasing/decreasing the factors we outlined above.
 
-<h2>Time for Part II</h2>
+<h2>Time for Part II: Pair Programming</h2>
 
 Let's now return to the original question:
 
 <blockquote><b>QUESTION</b>: How does pair programming effect time to release?</blockquote>
 
-I attempt an answer to this question in Part II: [How Pair Programming Effects TTR](/pair-programming-answer/)
+I attempt an answer to this question in Part II: [How Pair Programming Effects TTR](/race-to-release-part-2/)

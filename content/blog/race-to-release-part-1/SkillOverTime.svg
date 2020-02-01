@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="989px" height="426px" viewBox="0 0 989 426" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
     <title>SkillOverTime</title>
     <desc>Created with Sketch.</desc>
     <g id="SkillOverTime" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -28,14 +28,13 @@
         <text id="I’m-occasionally-use" font-family="Avenir-Black, Avenir" font-size="21" font-weight="700" letter-spacing="-0.504" fill="#000000">
             <tspan x="17.092" y="359">I’m occasionally useful</tspan>
         </text>
-        <text id="Cocky-enough-to-thin" font-family="Avenir-Black, Avenir" font-size="21" font-weight="700" letter-spacing="-0.504" fill="#000000">
-            <tspan x="0.439" y="58">Cocky enough to think I </tspan>
-            <tspan x="13.312" y="87">don’t need Medium to </tspan>
-            <tspan x="116.443" y="116">get readers</tspan>
+        <text id="Pollutes-the-Interne" font-family="Avenir-Black, Avenir" font-size="21" font-weight="700" letter-spacing="-0.504" fill="#000000">
+            <tspan x="31.708" y="58">Pollutes the Internet</tspan>
+            <tspan x="15.349" y="87">with another dev blog</tspan>
         </text>
-        <text id="Cocky-enough-to-writ" font-family="Avenir-Black, Avenir" font-size="21" font-weight="700" letter-spacing="-0.504" fill="#000000">
-            <tspan x="64.846" y="187">Cocky enough to </tspan>
-            <tspan x="12.703" y="216">write a Medium article</tspan>
+        <text id="Becomes-critical-of" font-family="Avenir-Black, Avenir" font-size="21" font-weight="700" letter-spacing="-0.504" fill="#000000">
+            <tspan x="48.928" y="151">Becomes critical of </tspan>
+            <tspan x="75.262" y="180">Medium articles</tspan>
         </text>
         <text id="test-driven-developm" font-family="Avenir-Black, Avenir" font-size="18" font-weight="700" letter-spacing="-0.432" fill="#000000">
             <tspan x="544" y="296">test-driven development</tspan>
@@ -53,7 +52,7 @@
             <tspan x="787" y="154">basic Sketch</tspan>
         </text>
         <rect id="Rectangle" fill="#000000" x="231" y="79" width="33" height="3"></rect>
-        <rect id="Rectangle-Copy-2" fill="#000000" x="231" y="195" width="33" height="3"></rect>
+        <rect id="Rectangle-Copy-2" fill="#000000" x="231" y="170" width="33" height="3"></rect>
         <rect id="Rectangle-Copy-3" fill="#000000" x="231" y="267" width="33" height="3"></rect>
         <rect id="Rectangle-Copy-4" fill="#000000" x="231" y="352" width="33" height="3"></rect>
         <rect id="Rectangle" fill="#FFFFFF" x="849" y="0" width="140" height="109"></rect>

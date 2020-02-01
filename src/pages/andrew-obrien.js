@@ -90,16 +90,12 @@ const AboutMe = () => {
           </div>
         </div>
         <p>
-          I'm Andrew, a fullstack software engineer living in Detroit. I work
-          for {` `}
+          Hello, world! I'm Andrew, a fullstack software engineer living in
+          Detroit. I work for {` `}
           <a href="https://www.integral.io">Integral</a> with Ford Autonomous
           Vehicles LLC as an iOS Engineer on the Mobile Infrastructure Team.
         </p>
-        {/* <p>
-          I studied at Georgetown University, Class of 2018. Started in an
-          International Business track then switched to major in Linguistics
-          with a focus in Computational Linguistics and Mandarin.
-        </p> */}
+        <p></p>
       </Layout>
     </>
   )

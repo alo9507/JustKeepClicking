@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="286px" height="363px" viewBox="0 0 286 363" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+<svg width="286px" height="361px" viewBox="0 0 286 361" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
     <title>FinalEquation</title>
     <desc>Created with Sketch.</desc>
     <g id="FinalEquation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#FFFFFF" x="0" y="0" width="286" height="363"></rect>
+        <rect fill="#FFFFFF" x="0" y="0" width="286" height="361"></rect>
         <g id="Equation" transform="translate(0.000000, -12.000000)" fill="#000000">
             <text id="TTR" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576">
                 <tspan x="0.624" y="68">TTR</tspan>
             </text>
-            <text id="n(D-*-(S-+-U)-+-CF" font-family="Avenir-Roman, Avenir" font-size="24" font-weight="normal" letter-spacing="-0.576">
-                <tspan x="90.088" y="90">n(D * (S + U) + CF</tspan>
+            <text id="n(D-*-(S-+-U)-+-CF)" font-family="Avenir-Roman, Avenir" font-size="24" font-weight="normal" letter-spacing="-0.576">
+                <tspan x="83.992" y="90">n(D * (S + U) + CF)</tspan>
             </text>
             <rect id="Rectangle" x="83" y="62" width="198" height="3"></rect>
             <text id="=" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576">

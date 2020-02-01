@@ -1,6 +1,6 @@
 ---
 title: Guards and Nils, A Match Made in Heaven
-date: "2020-01-17T22:12:03.284Z"
+date: "2019-12-17T22:12:03.284Z"
 description: "Get your integrity checks out of the way so you can code confidently and prevent massive if-else indentations"
 ---
 

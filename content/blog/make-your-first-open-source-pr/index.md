@@ -1,24 +1,22 @@
 ---
-title: Open Source PR Number One
+title: It's Time - Make Your First Open Source PR
 date: "2020-01-13T22:12:03.284Z"
 description: " "
 ---
 
-As of the writing of this article, I've been developing for 1.5 years from webdev to backend Java to mobile iOS. I voraciously consume open source packages every day of my life without thinking about the social infrastructure backing so many of my personal and professional projects. And yet, I've never contributed to any.
+As of the writing of this article, I've been developing for 1.5 years from webdev to backend Java to mobile iOS. I voraciously consume open source packages every day of my life, benefitting enormously from the social infrastructure backing so many of my personal and professional projects.
 
-After reading Eric Raymond's [The Cathedral and the Bazaar](https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088/ref=sr_1_1?crid=NDMVJQ6VR94C&keywords=cathedral+and+the+bazaar&qid=1580359078&sprefix=cathedral+and+the+ba%2Caps%2C142&sr=8-1), I felt obliged to make my first open source commit, however small, to at least get the ball rolling
+And yet, I've never contributed code to any non-company projects.
+
+After reading Eric Raymond's [The Cathedral and the Bazaar](https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088/ref=sr_1_1?crid=NDMVJQ6VR94C&keywords=cathedral+and+the+bazaar&qid=1580359078&sprefix=cathedral+and+the+ba%2Caps%2C142&sr=8-1), I felt obliged to make my first open source commit, however small, to at least get the ball rolling. Maybe it would be the start of a good habit of open source contributions.
 
 Here's how I started, the absolute simplest way possible.
 
-<h2>First Timers Only</h2>
-
-[First Timers Only](https://www.firsttimersonly.com/)
+<h2><a href="https://www.firsttimersonly.com/">First Timers Only</a></h2>
 
 After a simple Google of "easy open source contributions", I found the site above. <i>First Timers Only</i> curates a lot of helpful resources. All of the below I found on that site.
 
-<h2>Level 0: First Contributions</h2>
-
-Github: [First Contributions](https://github.com/firstcontributions/first-contributions)
+<h2>Level 0: <a href="https://github.com/firstcontributions/first-contributions">First Contributions</a></h2>
 
 This repository is as easy as it gets to make your first risk-free, judgement-free first open source PR.
 
@@ -36,9 +34,9 @@ Forking rather than branching keeps the base repository from becoming cluttered 
 
 Great lesson. I wanted to apply this knowledge to make a PR into a project that's actually used by other developers.
 
-<h2>Level 1: Up For Grabs</h2>
+<h2>Level 1: <a href="https://up-for-grabs.net/">Up For Grabs</a></h2>
 
-[Up For Grabs](https://up-for-grabs.net/) curates OSS projects that tag issues as `Great First Timer` if they're low-hanging fruit for new OSS contributors to grab.
+Up For Grabs curates open source projects that tag low-hanging fruit open issues with `Great First Timer`.
 
 I filtered by `javascript` and `swift` and randomly clicked on a few projects and cheked out their open issues.
 

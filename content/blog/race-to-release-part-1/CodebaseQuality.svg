@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="403px" height="216px" viewBox="0 0 403 216" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
     <title>CodebaseQuality</title>
     <desc>Created with Sketch.</desc>
     <g id="CodebaseQuality" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -17,7 +17,7 @@
                     <tspan x="104.4" y="41" font-family="Avenir-Roman, Avenir" font-weight="normal">  + </tspan>
                 </text>
                 <rect id="Rectangle-Copy" fill="#000000" transform="translate(217.000000, 33.500000) scale(1, -1) translate(-217.000000, -33.500000) " x="153" y="33" width="128" height="1"></rect>
-                <text id="Codebase-Size" font-family="Avenir-Heavy, Avenir" font-size="16" font-weight="600" letter-spacing="-0.384" fill="#000000">
+                <text id="Codebase-Size" font-family="Avenir-Heavy, Avenir" font-size="16" font-weight="600" letter-spacing="-0.384" fill="#FF0000">
                     <tspan x="164.072" y="30">Codebase Size</tspan>
                 </text>
                 <text id="Codebase-Quality" font-family="Avenir-Heavy, Avenir" font-size="16" font-weight="600" letter-spacing="-0.384" fill="#FF0000">
