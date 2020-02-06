@@ -62,6 +62,12 @@ const Resources = () => {
         </a>
       </p>
       <h2>Learn iOS</h2>
+      <p>
+        <a href="https://www.pluralsight.com/courses/ios-11-fundamentals">
+          Simon Alardice's iOS 11 Fundamentals
+        </a>
+      </p>
+
       <a href="https://store.raywenderlich.com/products/advanced-ios-app-architecture">
         Advanced iOS App Architecture
       </a>
@@ -73,12 +79,20 @@ const Resources = () => {
         and more with Swift. Explains how to scale your iOS codebase from
         example MVC app and into full-featured MVVM app
       </p>
-      <a href="https://github.com/raywenderlich/swift-algorithm-club">
-        Swift Algorithm Club
-      </a>
-      <a href="https://www.raywenderlich.com/762435-swift-interview-questions-and-answers">
-        Beginner, Intermediate and AdvancedSwift Interview Questions and Answers
-      </a>
+
+      <p>
+        <a href="https://github.com/raywenderlich/swift-algorithm-club">
+          Swift Algorithm Club
+        </a>
+      </p>
+
+      <p>
+        <a href="https://www.raywenderlich.com/762435-swift-interview-questions-and-answers">
+          Beginner, Intermediate and Advanced Swift Interview Questions and
+          Answers
+        </a>
+      </p>
+
       <h2>Learn React</h2>
       <a href="https://www.udemy.com/course/react-redux/">
         Stephen Grider's Udemy Course

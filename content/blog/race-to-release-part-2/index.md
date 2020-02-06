@@ -42,7 +42,19 @@ For example: Enter a senior developer onto a new project. The juniors are oh-so 
 
 <h2>Ample Upskilling Opportuntiies</h2>
 
-Pairing provides upskilling opportunities every minute of every day. Pair programming makes knowledge transfer and onboarding a near inevitability.
+Pairing provides upskilling opportunities every minute of every day. Pair programming makes knowledge transfer and onboarding a near inevitability and prevents knowledge siloing into a single engineer.
+
+<blockquote>Silo Cycle: If left unchecked, an engineer who knows a lot is more likely to learn more, as they address more challenges.</blockquote>
+
+In Gerald Weinberg's classic The Psychology of Computer Programming, in an article titled <i>The Programming Project</i> he identifies team (read: product) longevity as arising from team interaction:
+
+<blockquote>"...in a programming team, we sometimes see the survival of the team when not a single original member remains...This ability comes, of course, from the interaction among team members, because the interaction permits the goals and accomplishments of the team to be transmitted to new members and so remain when old members depart"</blockquote>
+
+<blockquote>Many project managers are unable to grasp this view of a project. THeir view of the probject's structure is, instead, much like that of a house - a structure that might collapse should one of the beams be removed</blockquote>
+
+Replace "one of the beams" with "10x engineer", and the point becomes immediately clear.
+
+<blockquote>If a programmer is indispensable, get rid of [them] as quickly as possible</blockquote>
 
 Lasting lessons require a degree of suffering. When confronting a difficult technical challenge, the solo developer bears that suffering alone. In a pair programming environment, that lasting lessons sits with both developers as they co-construct a soltuion and remember the lesson for later use.
 

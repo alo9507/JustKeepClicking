@@ -8,11 +8,7 @@ description: "Get your integrity checks out of the way so you can code confident
 
 What is a guard?
 
-<blockquote>Official Docs: A guard statement is used to transfer program control out of a scope if one or more conditions aren’t met.</blockquote>
-
-In layman's terms:
-
-<blockquote>A guard is an if statement with one additional requirement: if the condition fails, then control-flow must end with a `return`</blockquote>
+<blockquote>A guard is like an if statement with one additional requirement: if the condition fails, then control-flow must end with a `return`</blockquote>
 
 That's it. It's a way to easily check an arbitrary number of integrity preconditions without using deeply nested if/else blocks leading to massive indentation.
 
