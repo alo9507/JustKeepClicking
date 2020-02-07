@@ -16,11 +16,11 @@ But this is not what we see in practice.
 
 Frederick Brooks states the misconception eloquently in his classic software engineering anthology, [The Mythical Man-Month](https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959/ref=sr_1_1?crid=3O2L8PDSPQDPI&keywords=the+mythical+man+month&qid=1580174025&sprefix=the+mythical+man+m%2Caps%2C140&sr=8-1):
 
+<blockquote>...our estimating techniques fallaciously confuse effort with progress, hiding the assumption that [people] and months are interchangable</blockquote>
+
 To see how the reality diverges from the above oversimplification, this article will first formulate a more realistic TTR Equation by adding other factors one by one. The following article, [Pair Programming and The Race to Release Part II](/race-to-release-part-2), will demonstrate which factors of the TTR equation may be effected by pair programming culture.
 
 This two-part series attempts to formulate a more full-fledged TTR equation in Part I, then show how pairing effects TTR in Part II.
-
-<blockquote>...our estimating techniques fallaciously confuse effort with progress, hiding the assumption that [people] and months are interchangable</blockquote>
 
 Our TTR equation will operate under the <i>ceteris paribus</i> assumption. We hold all other factors outside of software engineers, their skill and their interactions with each other as equal.
 
@@ -160,4 +160,4 @@ Let's now return to the original question:
 
 <blockquote><b>QUESTION</b>: How does pair programming effect time to release?</blockquote>
 
-With our TTR equation in tow, let's attempt to answer this question in Part II: [How Pair Programming Effects TTR](/race-to-release-part-2/).
+With our TTR equation in tow, let's attempt to answer this question in Part II: [How Pair Programming Effects TTR](/race-to-release-part-2/).c

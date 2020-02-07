@@ -12,7 +12,7 @@ What is a guard?
 
 That's it. It's a way to easily check an arbitrary number of integrity preconditions without using deeply nested if/else blocks leading to massive indentation.
 
-Guards turn this labyrinthine, 2-dimensional and heavily-indented code:
+Guards turn labyrinthine, 2-dimensional and heavily-indented code:
 
 <div class="impl">
 
@@ -34,7 +34,7 @@ if error == nil else{
 
 </div>
 
-into this concise, 1-dimensional and sequential code:
+into concise, 1-dimensional and sequential code:
 
 <div class="impl">
 
