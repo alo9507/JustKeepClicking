@@ -10,7 +10,7 @@ This legitimate concern with pairing stems from the following notion about the n
 
 <img src="./StartingEquation.svg" alt="equation_1" class="equation">
 
-Where number of developers is taken to mean <i>independently operating</i> developers. If this were all there is to determing <b>Time-to-Release (TTR)</b> a new feature, then combining the efforts of two developers onto a single task should effectively <i>double</i> the time it takes to complete that feature, right?
+Where number of developers is taken to mean <i>developers operating in parllel</i>. If this equation were all there is to determing <b>Time-to-Release (TTR)</b> a new feature, then combining the efforts of two developers onto a single task should effectively <i>double</i> the time it takes to complete two features compared to if those developers were working in parallel, right?
 
 But this is not what we see in practice.
 
