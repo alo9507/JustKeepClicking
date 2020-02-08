@@ -1,7 +1,7 @@
 ---
 title: Pair Programming in the The Race to Release | Part 1
 date: "2020-01-21T22:12:03.284Z"
-description: "What part of the software development equation does pairing improve?"
+description: "What factors affect the time to release a new feature"
 ---
 
 <blockquote>Enterprise asks of pair programming culture: why would I pay two developers to do the job of one?</blockquote>
@@ -18,9 +18,7 @@ Frederick Brooks states the misconception eloquently in his classic software eng
 
 <blockquote>...our estimating techniques fallaciously confuse effort with progress, hiding the assumption that [people] and months are interchangable</blockquote>
 
-To see how the reality diverges from the above oversimplification, this article will first formulate a more realistic TTR Equation by adding other factors one by one. The following article, [Pair Programming and The Race to Release Part II](/race-to-release-part-2), will demonstrate which factors of the TTR equation may be effected by pair programming culture.
-
-This two-part series attempts to formulate a more full-fledged TTR equation in Part I, then show how pairing effects TTR in Part II.
+To see how the reality diverges from the above oversimplification, this article will first formulate a more realistic TTR Equation by adding more factors one by one. The following article, [Pair Programming and The Race to Release Part II](/race-to-release-part-2), will demonstrate which factors of the TTR equation may be effected by pair programming culture.
 
 Our TTR equation will operate under the <i>ceteris paribus</i> assumption. We hold all other factors outside of software engineers, their skill and their interactions with each other as equal.
 

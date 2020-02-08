@@ -1,7 +1,7 @@
 ---
 title: Domain Driven Authentication with EZClientAuth
 date: "2020-01-29T22:12:03.284Z"
-description: "Because authentication doesn't have to be difficult"
+description: "Because clientside authentication shouldn't be difficult"
 ---
 
 <small>Special Thanks: [Jacob Pricket](https://www.linkedin.com/in/jacob-prickett-19a771a0/), [Eugene Pavlov](https://www.linkedin.com/in/epavlov29/), [Shivum Bharill](https://www.linkedin.com/in/shivum-bharill/), [Waseem Hijazi](https://www.linkedin.com/in/waseemhijazi/), [Waleed Johnson](https://www.linkedin.com/in/waleed-johnson-07873b63/)</small>

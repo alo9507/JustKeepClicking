@@ -4,13 +4,11 @@ date: "2020-01-13T22:12:03.284Z"
 description: " "
 ---
 
-As of the writing of this article, I've been developing for 1.5 years from webdev to backend Java to mobile iOS. I voraciously consume open source packages every day of my life, benefitting enormously from the social infrastructure backing so many of my personal and professional projects.
+Here's the story of how I made my contribution to the open source ecosystem.
 
-And yet, I've never contributed code to any non-company projects.
+After reading Eric Raymond's [The Cathedral and the Bazaar](https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088/ref=sr_1_1?crid=NDMVJQ6VR94C&keywords=cathedral+and+the+bazaar&qid=1580359078&sprefix=cathedral+and+the+ba%2Caps%2C142&sr=8-1), I felt obliged to make my first open source commit, however small, to at least get the ball rolling on giving back to a community we benefit from every time we `npm install` or `pod install`.
 
-After reading Eric Raymond's [The Cathedral and the Bazaar](https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088/ref=sr_1_1?crid=NDMVJQ6VR94C&keywords=cathedral+and+the+bazaar&qid=1580359078&sprefix=cathedral+and+the+ba%2Caps%2C142&sr=8-1), I felt obliged to make my first open source commit, however small, to at least get the ball rolling. Maybe it would be the start of a good habit of open source contributions.
-
-Here's how I started, the absolute simplest way possible.
+The goal of this article is to demonstrate just how accepting and non-threatening the open source community is so you can feel motivated to get started.
 
 <h2><a href="https://www.firsttimersonly.com/">First Timers Only</a></h2>
 
@@ -89,9 +87,11 @@ I can't truly call myself an open source contributor yet, but the seal has been 
 I learned:
 
 - Forking prevents clutter and allows maximum access to auxiliary repos without adding contributors to main repo
-- OSS requires stricter communication standards than a work environment
+- OSS requires stricter communication standards than a colocated office environment
 - Contributor License Agreements are often necessary before contributing
-- It's not great to have auto-formatting on when you're working on OSS. Auto-formatting on save
+- It's not great to have auto-formatting on when you're working on OSS. Spacing differences cause way more modified files than you want in a PR.
+
+<h2>Conclusion</h2>
 
 I didn't realize how often in the office I rely on proximity to facilitate communication. That's an impossibility in OSS and a lot of their strict standards could serve office environments well.
 

@@ -16,6 +16,8 @@ Missing semi-colon, failed demo. <i>(Ancient Chinese proverb I believe)</i>
 
 Diversity isn’t just quota
 
+DevX manifests in UX
+
 Actions talk, emails lie
 
 Unconscious biases are inefficient
@@ -77,8 +79,6 @@ Lasting lessons require suffering
 Nostalgia guilds the Past
 
 Creative constraints enforce innovation
-
-Personal narrative warps reality
 
 Creativity cannot be mandated
 
