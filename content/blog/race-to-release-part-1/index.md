@@ -18,7 +18,9 @@ Frederick Brooks states the misconception eloquently in his classic software eng
 
 <blockquote>...our estimating techniques fallaciously confuse effort with progress, hiding the assumption that [people] and months are interchangable</blockquote>
 
-To see how the reality diverges from the above oversimplification, this article will first formulate a more realistic TTR Equation by adding more factors one by one. The following article, [Pair Programming and The Race to Release Part II](/race-to-release-part-2), will demonstrate which factors of the TTR equation may be effected by pair programming culture.
+To demonstrate how reality diverges from the above oversimplification, this article will progressively introduce human and codebase factors until we arrive at a more comprehensive TTR equation.
+
+The following article, [Pair Programming and The Race to Release Part II](/race-to-release-part-2), will demonstrate which factors of the TTR equation may be effected by pair programming culture.
 
 Our TTR equation will operate under the <i>ceteris paribus</i> assumption. We hold all other factors outside of software engineers, their skill and their interactions with each other as equal.
 
