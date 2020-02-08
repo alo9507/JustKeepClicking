@@ -7,9 +7,9 @@ import { rhythm } from "../utils/typography"
 const AboutMe = () => {
   const data = useStaticQuery(graphql`
     query AboutMeQuery {
-      avatar: file(absolutePath: { regex: "/coffee.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/coffee_crop.png/" }) {
         childImageSharp {
-          fixed(width: 150, height: 150) {
+          fixed(width: 250, height: 250) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -46,13 +46,14 @@ const AboutMe = () => {
             style={{
               marginRight: rhythm(1 / 2),
               marginBottom: 0,
-              minWidth: 200,
-              minHeight: 200,
-              borderRadius: `100%`,
+              minWidth: 250,
+              minHeight: 250,
             }}
-            imgStyle={{
-              borderRadius: `50%`,
-            }}
+            imgStyle={
+              {
+                // borderRadius: `50%`,
+              }
+            }
           />
           <div
             style={{

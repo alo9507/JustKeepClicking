@@ -1,6 +1,6 @@
 ---
 title: Domain Driven Authentication with EZClientAuth
-date: "2020-01-29T22:12:03.284Z"
+date: "2020-02-06T22:12:03.284Z"
 description: "Because clientside authentication shouldn't be difficult"
 ---
 
@@ -407,7 +407,7 @@ remoteAuthProvider.signIn(
 
 </div>
 
-NOTE: If you're not familiar with the concept of a <i>guard</i>, I suggest you read this 3 minute article on [the advantages of guards over if/else statements](https://medium.com/better-programming/why-you-need-to-stop-using-else-statements-5b1fd09dea9e) then come back. If you are familiar with guards, onwards!
+NOTE: If you're not familiar with the concept of a <i>guard</i>, I suggest you give this article on [guards and null-safe langauges](/what-is-a-guard) a quick read and then come back. If you are familiar with guards, onwards!
 
 If no errors is returned, `AuthManager` proceeds to Step 2.
 

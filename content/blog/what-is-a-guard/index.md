@@ -10,7 +10,7 @@ What is a guard?
 
 <blockquote>A guard is like an if statement with one additional requirement: if the condition fails, then control-flow must end with a `return`</blockquote>
 
-That's it. It's a way to easily check an arbitrary number of integrity preconditions without using deeply nested if/else blocks leading to massive indentation.
+That's it. It's a way to easily check an arbitrary number of integrity preconditions without using deeply nested if/else blocks that lead to ugly indentation.
 
 Guards turn labyrinthine, 2-dimensional and heavily-indented code:
 
@@ -62,33 +62,9 @@ guard object.id != "" else {
 
 Isn't it just cleaner? No indentation, a land where sequence of code rather than nesting and indentation determines safety of the integrtiy precondition.
 
-Furthermore, the else block isn't pushed ever further from it's corresponding if block. In deeply-nested `if/else` blocks.
+Furthermore, the else block isn't pushed ever further from it's corresponding if block.
 
-Guards can be de-facto implemented in non-nullsafe langauge like JavaScript. You just won't get helpful compile-time error reminding you to return if the integrity precondition fails:
-
-<div class="impl">
-
-```swift
-if error == nil {
-    return
-}
-
-// ERROR-FREE ZONE!
-
-if object == nil {
-    return
-}
-
-// OBJECT EXISTS ZONE!
-
-if object.id == "" {
-    return
-}
-
-// you brilliant code goes here
-```
-
-</div>
+Swift comes with prebuilt and compile-time checked guard clauses, but guard clauses can still be implicitly implemented in non-nullsafe languages like JavaScript.
 
 <h3>Why Guards Pair Well With Null-Safe Languages</h3>
 
@@ -98,8 +74,8 @@ Swift uses the question mark charcater `?` to indicate that an object is either 
 
 An Optional is just an enum with two types: `.some` and `.none`. If it is `.some`, then the enum has an associated which is the object itself.
 
-We can leverage the null-safety and guards to create this idiomatic null-checking flow:
+<blockquote>Guarding on nulls early in control flow frees you from wondering if an object is present.</blockquote>
 
 Because we return if the condition is false, all code appearing below a guard can safely execute knowing with certainty that the integrity precondition is true and that the object will not be nil.
 
-Thank you [Chris Lattner](http://nondot.org/~sabre/) and anyone who's ever worked on one of the almost 100,000 (Jan 20202) commits to [Swift](https://github.com/apple/swift) :-)
+Thank you [Chris Lattner](http://nondot.org/~sabre/) and anyone who's ever worked on one of the almost 100,000 (Jan 2020) commits to [Swift](https://github.com/apple/swift) :-)

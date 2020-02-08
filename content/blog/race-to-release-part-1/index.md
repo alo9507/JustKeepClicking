@@ -1,6 +1,6 @@
 ---
 title: Pair Programming in the The Race to Release | Part 1
-date: "2020-01-21T22:12:03.284Z"
+date: "2020-02-01T22:12:03.284Z"
 description: "What factors affect the time to release a new feature"
 ---
 

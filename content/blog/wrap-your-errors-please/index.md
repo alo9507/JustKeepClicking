@@ -1,16 +1,18 @@
 ---
 title: Be Responsible. Wrap Your Errors.
 date: "2020-01-29T22:12:03.284Z"
-description: "A good error is a flashing neon sign. Not a breadcrumb."
+description: "A good error is like a flashing neon sign. Not a breadcrumb."
 ---
 
-<blockquote>An error message should be more than just a breadcrumb. An error should be a massive, blinking neon sign informing the developer what went wrong and where to start bug hunting. As SDK developers, it's our responsibility wire that neon sign.</blockquote>
+<blockquote>An error message ought to be more than just a breadcrumb. An error should be a massive, blinking neon sign informing the developer what went wrong and where to start bug hunting. As SDK developers, it's our responsibility wire that neon sign.</blockquote>
 
-Let's imagine we're implementing a clientside authentication library as part of an SDK. Authentication is fertile ground for confusing errors.
+SDK developers control how deeper errors surface to the developer.
 
-Complicated as the domain might be, SDK developers control how those errors are surfaced. Do they surface them genericall, or with helpful categories and instructions on where to start searching for bugs?
+Irresponsible developers surface errors thrown by 3rd party sources generically and raw.
 
-Let's get ahead of our errors with detailed error logging in Swift.
+Responsible developers wrap them in helpful categories?
+
+Let's wrap our errors to provide detailed error logging in Swift!
 
 What would you rather see in your debug console:
 
@@ -44,7 +46,7 @@ public enum CustomError: Error {}
 
 </div>
 
-After inheriting, we can override `errorDescription`.
+After inheriting, we can override `errorDescription`. Error description is a string representation of the error that occured.
 
 <div class="impl">
 
@@ -56,13 +58,13 @@ public enum CustomError: Error {
 
 </div>
 
-We compose a quality custom error from 3 parts:
+A quality custom error is composed from 3 parts:
 
-1. The error itself
-2. An enum of error sub-categories
-3. A tailored error description for each category
+1. The verbiage of the raw error itself
+2. An enum with a developer-friendly name for each kind of error
+3. An error description composed of a) our own and b) the underlying error message
 
-SDKs that only provide the error itself miss out on a huge opportunity to enhance developer experience by leveraging a developer-friendly wrapper to house generic errors before percolating them up to the application.
+SDKs that only provide the raw error message itself miss out on a huge opportunity to enhance developer experience by leveraging a developer-friendly wrapper to house generic errors before percolating them up to the application.
 
 <h3>Example: AuthError</h3>
 
@@ -92,8 +94,30 @@ public enum AuthError: Error, Equatable {
 
 </div>
 
-`AuthError` becomes the logical home for all things that can go wrong during authentication. The `errorDescription` is a computed property that returns a String we define.
+`AuthError` becomes the logical home for all things that can go wrong during authentication.
 
-The `error` we see in `.invalidCredentials(let error)` is an [associated value](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html). It lets us pass the deeper and probably less comprehensible error that was thrown and wrap it up with the helpful name `invalidCredentials` and an `errorDescription` that we as SDK developers control before exposing it to the client in console.
+`errorDescription` switches over the AuthError enum type to determine which helpful error message to return.
 
-Cultivate developer empathy with custom errors!
+The `let error` we see in `.invalidCredentials(let error)` is an [associated value](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html). Associated values allow the SDK developer to determine the category of error and respond appropriately.
+
+This could be used at the scene of the crime like so:
+
+<div class="impl">
+
+```swift
+yourAuthenticationProvder.signIn { error in
+    if error != nil {
+        if error.isInvalidCredentialError {
+            // we pre-cateogrize the error so the consuming code doesn't have to
+            return AuthError.invalidCredentials(error)
+        }
+        ...
+    }
+}
+```
+
+</div>
+
+We wrap the 3rd party error that we don't control into an error that we do control.
+
+Cultivate developer empathy with custom errors! (Especially if I ever have to integrate your code!)

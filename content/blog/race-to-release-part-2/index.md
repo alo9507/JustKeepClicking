@@ -1,6 +1,6 @@
 ---
 title: Pair Programming in the The Race to Release | Part 2
-date: "2020-01-20T22:12:03.284Z"
+date: "2020-02-01T22:12:03.284Z"
 description: "How does pair programming affect a features time to release?"
 ---
 
