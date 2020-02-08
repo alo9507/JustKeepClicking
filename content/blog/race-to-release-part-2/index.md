@@ -82,7 +82,9 @@ Some time will be spent talking rather than typing.
 
 <h3>Pair programming changes how you hire</h3>
 
-This is not bad in itself, but it may exclude certain anti-social or even misanthropic geniuses with very high individual skill weightings from joining you organization. 10x Engineers glow on the surface, but if they leave, they could take your product's success with them.
+This is not bad in itself, but it may exclude certain anti-social or even misanthropic geniuses with very high individual skill weightings from joining you organization.
+
+10x Engineers glow on the surface, but if they leave, they could take your product's success with them.
 
 Though a healthy pairing culture may preclude the hiring of a certain breed of irascible genius 10x Engineers, it is still the best way to provide literally constant upskilling opportunities to all developers on the project.
 

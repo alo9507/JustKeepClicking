@@ -1,6 +1,6 @@
 ---
 title: 40 Four Word Truths
-date: "2020-01-20T22:12:03.284Z"
+date: "2020-01-01T22:12:03.284Z"
 description: " "
 ---
 
