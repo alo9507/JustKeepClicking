@@ -63,6 +63,11 @@ const Resources = () => {
       </p>
       <h2>Learn iOS</h2>
       <p>
+        <a href="https://www.udemy.com/course/ios-13-app-development-bootcamp/">
+          iOS 13 and Swift 5 - The Complete iOS App Development Bootcamp
+        </a>
+      </p>
+      <p>
         <a href="https://www.pluralsight.com/courses/ios-11-fundamentals">
           Simon Alardice's iOS 11 Fundamentals
         </a>

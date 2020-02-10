@@ -12,6 +12,8 @@ Bad code kills companies
 
 Thoughtful perks foster culture
 
+Personality is not fixed
+
 Missing semi-colon, failed demo. <i>(Ancient Chinese proverb I believe)</i>
 
 Diversity isn’t just quota

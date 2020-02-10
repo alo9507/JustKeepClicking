@@ -69,7 +69,7 @@ const AboutMe = () => {
               }}
             >
               <i
-                class="fab fa-github fa-2x"
+                className="fab fa-github fa-2x"
                 style={{
                   color: "var(--textLink)",
                 }}
@@ -81,7 +81,7 @@ const AboutMe = () => {
                 style={{ textDecoration: "none" }}
               >
                 <i
-                  class="fab fa-linkedin-in fa-2x"
+                  className="fab fa-linkedin-in fa-2x"
                   style={{
                     color: "var(--textLink)",
                   }}
@@ -90,9 +90,10 @@ const AboutMe = () => {
             </div>
           </div>
         </div>
+        <p>Hello world!</p>
         <p>
-          Hello, world! I'm Andrew, a fullstack software engineer living in
-          Detroit. I work for {` `}
+          I'm Andrew, a fullstack software engineer living in Detroit. I work
+          for {` `}
           <a href="https://www.integral.io">Integral</a> with Ford Autonomous
           Vehicles LLC as an iOS Engineer on the Mobile Infrastructure Team.
         </p>

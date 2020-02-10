@@ -62,6 +62,8 @@ An on-device cache for persisting an `AuthSession` between application launches
 
 <h4>Domain Driven Design</h4>
 
+<blockquote>The goal of domain-driven design is to create better software by focusing on a model of the domain rather than the technology.</blockquote>
+
 <blockquote>In Domain Driven Design, there is no "the". There is only "a". It's all about "a RemoteAuthProvider", never "the Firebase AuthProvider". Genericism endows your code with flexibility.</blockquote>
 
 Domain Driven Design (DDD) is a term coined by Eric Evans in his 2004 book [Domain Driven Design: Tackling Complexity at the Heart of Software Development](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software-ebook/dp/B00794TAUG). DDD strips away the accidental complexities of implementations and provides a framework for development teams to focus on the inherent complexities of their domain.
