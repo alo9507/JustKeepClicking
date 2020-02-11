@@ -76,7 +76,17 @@ Let's subtract the net value of reusable code from the raw effort size of the fe
 
 <blockquote>Proper architecture allows codebases to grow in size without increasing in complexity.</blockquote>
 
-As the codebase grows in size, the possibility for regressions caused by new features grows.
+Martin Fowler calls this <i>design stamina</i>, and plots it like so:
+
+<div class=img_bg>
+  <img src="./designStamina.png" alt="design_stamina" class="equation">
+</div>
+
+<br/>
+
+So If you're working on a codebase with an intended lifespan beyond even a few weeks, you'll likely want to put design in the front seat.
+
+As the codebase grows in size, the possibility for regressions caused by new features also grows.
 
 This is why greenfield projects often enjoy very high velocity early on: there are fewer constraints on each additional feature.
 
@@ -128,15 +138,16 @@ You are not the same developer at the end of a project as you were at the beginn
 
 I believe that skill development for software engineers does not grow linearly. Instead, it grows in a <i>step-wise</i> fashion. When a new concept is realized, be it from a mentor or a blog article, a developer's productivity may inrease dramatically almost instantaneously. Hence the step-wise nature of development.
 
-<img src="./SkillOverTime.svg" alt="technical_ability" class="equation">
+It's a bit like Eric Evan's description of the non-linear payoffs of good refactoring:
+
+<div class="img_bg">
+  <img src="./breakthrough.jpg" alt="breakthrough" class="equation">
+</div>
+<br/>
 
 It takes some time for new concepts to sink into a programmer's arsenal. These step-wise boosts level off asymptotically to new norms, and a new conceptual kick is needed.
 
 I believe the degree of developer growth is proportional to the quantity and diversity of upskilling opportunitites presented to developers during a project.
-
-Here's a graph of my own step-wise, asymptotic leaps over this past year:
-
-<img src="./SkillOverTime.svg" alt="technical_ability" class="equation">
 
 Let's add Upskilling during Project to Skill Weighting to reflect the increase in skill programmers ought to undergo on a well managed project:
 

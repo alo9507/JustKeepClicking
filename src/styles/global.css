@@ -17,6 +17,13 @@ body.light {
   --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
 }
 
+.img_bg {
+  width: 100%;
+  background-color: white;
+  border: 20px solid white;
+  border-radius: 20px;
+}
+
 body.dark {
   -webkit-font-smoothing: antialiased;
 
