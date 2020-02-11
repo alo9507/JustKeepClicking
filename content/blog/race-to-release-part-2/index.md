@@ -1,22 +1,22 @@
 ---
 title: Pair Programming in the The Race to Release | Part 2
 date: "2020-02-01T22:12:03.284Z"
-description: "How does pair programming affect a features time to release?"
+description: "How does pair programming affect a feature's time to release?"
 ---
 
 <i>NOTE: This is Part II of the two-part series, Pair Programming in the The Race to Release. Read [Part I](/race-to-release-part-1/) before diving in here for full context.</i>
 
-Here's the Time to Release equation we arrived at in [Part I](/race-to-release-part-1/):
+Here's the Time to Release (TTR) equation we arrived at in [Part I](/race-to-release-part-1/):
 
 <img src="./FinalEquation.svg" alt="final_equation" class="equation">
 
 Acting as a hiring manager, we posed the question:
 
-<blockquote>How does pair programming effect feature time to release?</blockquote>
+<blockquote>Why would I pay two developers to work on the same task simultaneously?</blockquote>
 
-We're now conceptually equipped venture an answer:
+We're now conceptually equipped to venture an answer:
 
-<blockquote>Pair programming encourages a net mid- and long-term increase in the bottom, human part of the TTR equation.</blockquote>
+<blockquote>Pair programming encourages a net mid- and long-term maximization of the bottom, human part of the TTR equation.</blockquote>
 
 Here, in no particular order, is how I've seen pair programming push and pull on several TTR factors.
 
@@ -26,13 +26,13 @@ The above quote is from Eric Raymond's classic on the history and economy of Ope
 
 I see parallels between pair programming and the mindshare crowdsourcing economy that has driven the success of open source software since the sixties.
 
-Raymond observed over decades working on open source projects that bugs were quickly fixed when "somebody finds [a] problem, and somebody else understands [the problem]."
+Over decades working on open source projects, Raymond observed that bugs were quickly fixed when "somebody finds [the] problem, and somebody else understands [the problem]."
 
 Pair programming is like a microchosm of open source development.
 
 Pair programming allows one developer's codebase familiarity to complement another developer's skill.
 
-EXAMPLE: Enter a senior developer onto a new project. The juniors are oh-so familiar with all the quirks of the codebase, they just don't know how to fix them. The juniors explain the problem they've been facing, problems which the new senior could not have known from lack of codebase familiarity. The seniors propose and then implement solutions.
+EXAMPLE: Enter a senior developer onto a new project. The juniors are oh-so familiar with all the quirks of the codebase, they just don't know how to fix them. The juniors explain the problem they've been facing, problems which the new senior could not have known from lack of codebase familiarity. The seniors propose and guide implementations of their solution.
 
 <h2>Preventing Silos</h2>
 
@@ -48,27 +48,23 @@ The Silo Cycle looks like this:
 
 - The 10X Engineer fixes it. Return to Step 1
 
-The Silo Cycle is the factory that churns out 10x Engineers that can kill products.
+The Silo Cycle is a factory churning out 10x Engineers that can breathe life into, but who later suffocate products.
 
 In the classic [The Psychology of Computer Programming](https://www.amazon.com/s?k=the+psychology+of+computer+programming&crid=1UJ6Q3B06AUYV&sprefix=the+psychology+of+computer%2Caps%2C156&ref=nb_sb_ss_i_1_26), Weinberg identifies team interaction as the primary mechanism for ensuring team longevity:
 
-<blockquote>"...in a programming team, we sometimes see the survival of the team when not a single original member remains...This ability comes, of course, from the interaction among team members, because the interaction permits the goals and accomplishments of the team to be transmitted to new members and so remain when old members depart"</blockquote>
-
-<blockquote>Many project managers are unable to grasp this view of a project. Their view of the probject's structure is, instead, much like that of a house - a structure that might collapse should one of the beams be removed</blockquote>
+<blockquote>"...in a programming team, we sometimes see the survival of the team when not a single original member remains...This ability comes, of course, from the interaction among team members, because the interaction permits the goals and accomplishments of the team to be transmitted to new members and so remain when old members depart...Many project managers are unable to grasp this view of a project. Their view of the probject's structure is, instead, much like that of a house - a structure that might collapse should one of the beams be removed"</blockquote>
 
 Replace "one of the beams" with "10x engineer", and the point becomes immediately clear.
 
 Proper pair programming culture increases your [bus factor](https://en.wikipedia.org/wiki/Bus_factor).
 
-If a developer is indispensable, get rid of them as quickly as possible. </br><i>(This may not apply to high-tech projects like chip architecture and the like, but it certainly applies to low- to mid-tech projects for which the market is teeming with replacements)</i>
-
 <h2>Ample Upskilling Opportunities</h2>
 
 Pairing provides upskilling opportunities every minute of every day.
 
-Lasting lessons require a degree of suffering. When confronting a difficult technical challenge, the solo developer bears that suffering alone. In a pair programming environment, that lasting lessons sits with both developers as they co-construct a soltuion and remember the lesson for later use.
+Lasting lessons require a degree of suffering. When confronting a difficult technical challenge, the solo developer bears that suffering alone. In a pair programming environment, that lasting lessons sits with both developers as they co-construct a soltuion and remember the lesson.
 
-Many developers value on-the-job professional development opportunities very highly. This makes companies with pair programming cultures highly attractive to both junior developers as well as intermediate or senior developers entering a new software engineering discipline. Certain breeds of senior devs of course enjoy pairing with other senior devs as well.
+Many developers value on-the-job professional development opportunities very highly. This makes companies with pair programming cultures highly attractive to both junior developers as well as intermediate or senior developers entering a new software engineering discipline.
 
 <h3>Talking rather than typing</h3>
 
@@ -82,29 +78,19 @@ Some time will be spent talking rather than typing.
 
 <h3>Pair programming changes how you hire</h3>
 
-This is not bad in itself, but it may exclude certain anti-social or even misanthropic geniuses with very high individual skill weightings from joining you organization.
+This is not bad in itself, but it may exclude certain anti-social or even misanthropic geniuses with very high individual skill weightings from joining your organization.
 
 10x Engineers glow on the surface, but if they leave, they could take your product's success with them.
 
 Though a healthy pairing culture may preclude the hiring of a certain breed of irascible genius 10x Engineers, it is still the best way to provide literally constant upskilling opportunities to all developers on the project.
 
-<h2>Breadth-first Codebase Familiarity</h2>
-
-Devs talk shop. The conversations that take place organically during pairing and exploring the codebase lead to a healthy breadth-first familiarity with the entire codebase with good pairing rotations.
-
-However, this means developers may be slightly less specialized. Both a blessing and a curse, depth-first specialization and familiarity in certain parts of the codebase can boost developer efficiency for tasks in those areas. Without pair rotations, it often happens that one developer develops a deep familiarity, a kind of intellectual marriage, to one part of the codebase that they solo-coded at some point. Other developers begin avoiding that area, happy to just let the original author handle any issue that arises in their personal enclave of the codebase.
-
-This kind of specialization is efficient but dangerous. It is efficient in the short term to just let Dr. I-Wrote-this-Code whip out bug fixes, but in the mid to long term, this often causes idiosyncratic, ad hoc and quirky code. Isolation breeds individuality, and in a codebase individuality is really quirks. A quirky codebase is the last thing you want.
-
-This can of course be offset with intentional user story rotations.
-
 <h2>A thousand little experiments</h2>
 
-Many developers dislike pair programming. Many developers have never paired in a disciplined way.
+Major positive architectural changes begin with quickly spiked experiments that require a rabbit hole. Developers fear that pair programming prevents them from executing on these experiments because they need to get the buy-in of their pair to execute on them.
+
+Many developers dislike pair programming. Many developers who have paired have not paired in a disciplined way.
 
 They were served burnt pizza and now they've decided they don't like pizza.
-
-Major positive architectural changes begin with quickly spiked experiments that require a rabbit hole. Developers fear that pair programming prevents them from executing on these experiments because they need to get the buy-in of their pair to execute on them.
 
 Proper pairing methodology should allow every developer to complete their thought and run their experiment without interruption. This methodology, [Mobbing RPG](https://github.com/willemlarsen/mobprogrammingrpg), is the best one I've found yet for enabling experimentation. It divides roles into [Navigator](https://github.com/willemlarsen/mobprogrammingrpg/blob/master/theNavigator.pdf), [Driver](https://github.com/willemlarsen/mobprogrammingrpg/blob/master/theDriver.pdf), and [Archivist](https://github.com/willemlarsen/mobprogrammingrpg/blob/master/theArchivist.pdf).
 
@@ -114,6 +100,10 @@ The above roles paired with a simple desktop turn-taking tool with adjustable pa
 
 The above quote is from Frederick Brooks's [No Silver Bullet](http://worrydream.com/refs/Brooks-NoSilverBullet.pdf).
 
+Other group-programming configurations have been proposed besides one-on-one pair programming. One notable example is Frederick Brook's metaphor of a Surgical Team which he proposes in [The Mythical Man Month](https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959/ref=sr_1_1?crid=O75FGAVRA4RP&keywords=the+mythical+man+month&qid=1581379436&sprefix=the+mythical+man%2Caps%2C142&sr=8-1).
+
+The surgical team approach is an attempt give the 10x engineer full expression while still maintaining the checks, balances and insurance policy of a full team which (ideally) remains familiar with the codebase in case of the demise or departure of the surgeon.
+
 <h2>The Only Thing that Matters: Who Wins this Debate?</h2>
 
 Just kidding.
@@ -122,8 +112,8 @@ Some devs like pairing all the time. Some like pairing most of the time. Some li
 
 They are all correct.
 
-I happen to be a social dev. My entire career except for a few months has been within pair programming cultures. I prefer rabbit holing with my headphones on for hours, getting lunch, then popping up and sharing out the software I grew with a good pairing session.
+I happen to be a more social dev. My entire career except for a few months has been within pair programming cultures. I prefer rabbit holing with my headphones on for hours, getting lunch, then popping up and sharing out the software I grew with a good pairing session.
 
 My personal preferred work routine would be 3 days pairing and 2 days solo coding.
 
-Comment your experiences with pair programming below! Everything on justkeepclicking is a living document.
+Add other ways you think pair programming may positively or negatively affect TTR below!
