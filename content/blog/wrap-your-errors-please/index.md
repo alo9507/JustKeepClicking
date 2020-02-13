@@ -4,15 +4,13 @@ date: "2020-01-29T22:12:03.284Z"
 description: "A good error is like a flashing neon sign. Not a breadcrumb."
 ---
 
-<blockquote>An error message ought to be more than just a breadcrumb. An error should be a massive, blinking neon sign informing the developer what went wrong and where to start bug hunting. As SDK developers, it's our responsibility wire that neon sign.</blockquote>
+<blockquote>Developer experience manifests in user experience</blockquote>
+
+An error message ought to be more than just a breadcrumb. An error should be a massive, blinking neon sign informing the developer of what went wrong and where to start bug hunting. As SDK developers, it's our responsibility wire that neon sign.
 
 SDK developers control how deeper errors surface to the developer.
 
-Irresponsible developers surface errors thrown by 3rd party sources generically and raw.
-
-Responsible developers wrap them in helpful categories?
-
-Let's wrap our errors to provide detailed error logging in Swift!
+SDKs that only provide the raw error message without classifying and wrapping it miss out on a huge opportunity to enhance developer experience by leveraging a developer-friendly wrapper to house generic errors before percolating them up to the application.
 
 What would you rather see in your debug console:
 
@@ -35,6 +33,12 @@ did not match any accounts on Firebase"
 ```
 
 </div>
+
+I vote for the second.
+
+So let's wrap our errors using a `CustomError` to provide detailed error logging in Swift!
+
+<h2>CustomError</h2>
 
 All you need to do to create custom errors in Swift is create an enum that inherits from the native Swift `Error`.
 
@@ -61,10 +65,8 @@ public enum CustomError: Error {
 A quality custom error is composed from 3 parts:
 
 1. The verbiage of the raw error itself
-2. An enum with a developer-friendly name for each kind of error
-3. An error description composed of a) our own and b) the underlying error message
-
-SDKs that only provide the raw error message itself miss out on a huge opportunity to enhance developer experience by leveraging a developer-friendly wrapper to house generic errors before percolating them up to the application.
+2. An enum with a developer-friendly name for each class of error
+3. An error description composed of a) the SDK developers description, and b) the underlying error message
 
 <h3>Example: AuthError</h3>
 
@@ -81,7 +83,8 @@ public enum AuthError: Error, Equatable {
     // A case in Swift is an option for an enum
     case invalidCredentials(_ error: String)
 
-    // AuthError can switch on itself and return a String that we define
+    // AuthError can switch on itself and return
+    // the appropriate developer-defined error message
     public var errorDescription: String? {
         switch self {
         // This case has an associated type of error
@@ -98,21 +101,24 @@ public enum AuthError: Error, Equatable {
 
 `errorDescription` switches over the AuthError enum type to determine which helpful error message to return.
 
-The `let error` we see in `.invalidCredentials(let error)` is an [associated value](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html). Associated values allow the SDK developer to determine the category of error and respond appropriately.
+The `let error` we see in `.invalidCredentials(let error)` is an [associated value](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html). This is where the "wrapping" of the deeper error is manifested: we wrap the deeper error as an associated value of its error category.
 
-This could be used at the scene of the crime like so:
+Fore example, using `FirebaseAuth`, our custom `AuthError` can be used at the scene of the error crime like so:
 
 <div class="impl">
 
 ```swift
-yourAuthenticationProvder.signIn { error in
+Auth.auth().signIn(withEmail: email, password: password) { (firestoreAuthResult, error) in
     if error != nil {
-        if error.isInvalidCredentialError {
-            // we pre-cateogrize the error so the consuming code doesn't have to
-            return AuthError.invalidCredentials(error)
+        let nsError = error! as NSError
+        switch nsError.userInfo["error_name"] as? String {
+        case "ERROR_WRONG_PASSWORD":
+            // We have everything we need to pre-categorize
+            // this auth error before percolating to the client!
+            authError = AuthError.invalidCredentials(error)
         }
-        ...
     }
+    ...
 }
 ```
 
