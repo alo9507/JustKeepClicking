@@ -62,7 +62,7 @@ Isn't it just cleaner? No indentation. A magical land where the linear sequence 
 
 <h3>Why Guards Pair Well With Null-Safe Languages</h3>
 
-Null-safe languages like Swift and Kotlin force you to answer the question <i>"What happens if this object is nil?"</i> at compile time, rather than runtime.
+Null-safe languages like Swift and Kotlin force you to answer the question <i>"What happens if this object is nil?"</i> at compiletime, rather than runtime.
 
 So instead of receiving a surprising `undefined` or `NullPointerException` at runtime, or worse, in production, you receive compiler errors requesting that you as a responsible developer consider the null case.
 
@@ -81,7 +81,7 @@ var optionalString: String?
 
 The `?` indicates that `optionalString` is either a `String` or `nil`.
 
-Under the hood, an Optional is just an enum with two types: `.some(Wrapped)` and `.none`. If it is `.some`, then the enum has an associated `Wrapped` which is the object itself. Here it is in just three lines of code:
+Under the hood, an Optional is just an enum with two types: `.some(Wrapped)` and `.none`. If it is `.some`, then the enum has an associated value `Wrapped` which is the object itself. Here it is in just four lines of code:
 
 <div class="impl">
 
@@ -94,7 +94,7 @@ public enum Optional<Wrapped>: ExpressibleByNilLiteral {
 
 </div>
 
-Swift provides a number of ways to [unwrap](https://www.hackingwithswift.com/sixty/10/2/unwrapping-optionals) Optionals as part of a guard clause. My favorite is <i>optional binding</i>:
+Swift provides a number of ways to [unwrap](https://www.hackingwithswift.com/sixty/10/2/unwrapping-optionals) Optionals. My favorite is called <i>optional binding</i>:
 
 <div class="impl">
 
@@ -109,11 +109,11 @@ print(person.name)
 
 Optional binding elegantly combines three operations:
 
-- 1. Instantiates a new variable `person`
+- 1. Initializes a new variable called `person`
 - 2. Assigns the value of `optionalPerson` to `person`
-- 3. Forces a return if the assignment resolves to `nil`
+- 3. Forces a return if the `optionalPerson` is `nil`
 
-Because we are <i>compile-time required</i> to return if the assignment of `optionalPerson` to the new variable `person` is nil, all code appearing below a guard can safely execute knowing that `person` will not be nil.
+Because we are <i>compiletime required</i> to return if the assignment of `optionalPerson` to the new variable `person` is nil, all code appearing below a guard can safely execute knowing that `person` will not be nil.
 
 All that without a single if/else indentation!
 

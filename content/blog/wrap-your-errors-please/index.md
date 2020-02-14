@@ -109,14 +109,16 @@ Fore example, using `FirebaseAuth`, our custom `AuthError` can be used at the sc
 
 ```swift
 Auth.auth().signIn(withEmail: email, password: password) { (firestoreAuthResult, error) in
-    if error != nil {
+    guard error == nil else {
         let nsError = error! as NSError
-        switch nsError.userInfo["error_name"] as? String {
+        let errorType = nsError.userInfo["FIRAuthErrorUserInfoNameKey"] as? String
+        switch errorType {
         case "ERROR_WRONG_PASSWORD":
             // We have everything we need to pre-categorize
             // this auth error before percolating to the client!
             authError = AuthError.invalidCredentials(error)
         }
+        return completion(authError)
     }
     ...
 }
