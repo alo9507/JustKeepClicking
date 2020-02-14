@@ -22,7 +22,7 @@ EZClientAuth is a clientside authentication manager that gives your app three ne
 
 EZClientAuth gains this flexibility by adhering to the principles of Domain Driven Design (DDD) and Protocol Oriented Programming (POP). More on these codebase-saving paradigms later.
 
-Today we'll be hacking with Swift. However, I promise that the domain driven core of EZClientAuth makes it conceptually portable to any langauge with interfaces (i.e. most).
+Today we'll be hacking with Swift. However, I promise that the domain driven core of EZClientAuth makes it conceptually portable to any language with interfaces (i.e. most).
 
 Here's what EZClientAuth is capable of:
 
@@ -64,7 +64,7 @@ An on-device cache for persisting an `AuthSession` between application launches
 
 Domain Driven Design (DDD) is a term coined by Eric Evans in his 2004 book [Domain Driven Design: Tackling Complexity at the Heart of Software Development](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software-ebook/dp/B00794TAUG). DDD strips away the accidental complexities of implementations and provides a modelling framework for development teams to focus on the inherent complexities of their domain.
 
-In Domain Driven Design, we name by <i>function</i>, not implementation. This means there is no "the". There is only "a". Our code calls "a RemoteAuthProvider", not "the FirebaseAuthProvider". Genericism endows your code with flexibility.
+In Domain Driven Design, we name by <i>function</i>, not implementation. This means there is no "the". There is only "a". The client calls "a RemoteAuthProvider", not "the FirebaseAuthProvider". Genericism endows your code with flexibility.
 
 In Swift practice, DDD is realized through Protocol Oriented Programming (POP). We create a protocol (Swift's word for <i>interface</i>) that sits in front of some implementation. We then write all of our client code to only know about that intention-revealing interface, NEVER the implementation behind it.
 
@@ -103,7 +103,7 @@ struct AuthSession: Codable {
 
 </div>
 
-As you’re authentication needs grow more complex, you will want space to stretch your legs and add new properties, like a refresh token. The `AuthSession` class becomes what [Martin Fowler](https://martinfowler.com/) describes as <i>"a home that can attract useful behavior"</i>. A primitive String token would provide no room for future expansion.
+As your authentication needs grow more complex, you will want space to stretch your legs and add new properties, like a refresh token. The `AuthSession` class becomes what [Martin Fowler](https://martinfowler.com/) describes as <i>"a home that can attract useful behavior"</i>. A primitive String token would provide no room for future expansion.
 
 Where does the `AuthSession` come from? It comes from the `RemoteAuthProvider`.
 
@@ -123,7 +123,7 @@ protocol RemoteAuthProvider {}
 
 </div>
 
-Notice that `RemoteAuthProvider` is a protocol, i.e. an interface. `RemoteAuthProvider` describes the the proeprties and method signatures that an object aspiring to be a `RemoteAuthProvider` must provide. It does not implement these methods itself.
+Notice that `RemoteAuthProvider` is a protocol, i.e. an interface. `RemoteAuthProvider` describes the the properties and method signatures that an object aspiring to be a `RemoteAuthProvider` must provide. It does not implement these methods itself.
 
 For example, any `RemoteAuthProvider` must have a sign-in method accepting these parameters:
 
@@ -173,14 +173,14 @@ _ completion: @escaping (AuthSession?, AuthError?) -> Void)
 
 `(AuthSession?, AuthError?) -> Void`: This is the completion closure (aka lambda or anonymous function) passed by the calling code. Our `RemoteAuthProvider` will call this completion callback once it has either authenticated successfully or encountered an error.
 
-There are 2 scenarios for what is passed to the `(AuthSession?, AuthError?) -> Void` closure upon authentication compeletion:
+There are 2 scenarios for what is passed to the `(AuthSession?, AuthError?) -> Void` closure upon authentication completion:
 
-<div class="example"><b>Scenario 1:</b> Authenticated successfully!</div>
+<div class="example"><b>Scenario 1:</b> Authentication succeeded!</div>
 
 `completion(authSession, nil)`</br>
 We call the completion with the returned `AuthSession` and nil errors
 
-<div class="example"><b>Scenario 2:</b> Authenticated failed!</div>
+<div class="example"><b>Scenario 2:</b> Authentication failed!</div>
 
 `completion(nil, AuthError.*the specific error*)`</br>
 We call the completion with a nil `AuthSession` and the particular `AuthError` that occurred.</br>
@@ -230,7 +230,7 @@ If caching is successful, `AuthDataStore` completes with a `nil` error.
 
 If a serialization error occurs, `AuthDataStore` completes with an `AuthError`.
 
-Great! We can get an `AuthSession` by sending credentials to `RemoteAuthProvider.signIn(_:_:_:)` and perists the returned `AuthSession` by passing it to `AuthDataStore.save(_:_:)`.
+Great! We can get an `AuthSession` by sending credentials to `RemoteAuthProvider.signIn(_:_:_:)` and persists the returned `AuthSession` by passing it to `AuthDataStore.save(_:_:)`.
 
 How do we keep these two `AuthSession`s in sync? How will the client actually use this `AuthSession` at runtime to make authenticated calls to our backend?
 
@@ -263,13 +263,13 @@ But as far as our domain is concerned, <b>these are identical `AuthSession`s!</b
 
 They are <i>domain-identical</i> but memory-distinct.
 
-Your control over the synchonrized CRUD of these three `AuthSession`s will determine whether you succeed or fail in clientside authentication.
+Your control over the synchronized CRUD of these three `AuthSession`s will determine whether you succeed or fail in clientside authentication.
 
 EZClientAuth uses unidirectional data flow to ensure synchronization of these three `AuthSession`s.
 
 Unidirectional data flow for authentication means that authentication state MUST flow from the `RemoteAuthProvider` into the `AuthDataStore` and finally into the single `AuthSession` used by your application.
 
-The class responsible for coordinating unidirectional authenticaion flow is called the `AuthManager`.
+The class responsible for coordinating unidirectional authentication flow is called the `AuthManager`.
 
 <hr/>
 
@@ -397,7 +397,7 @@ It takes the same arguments as `RemoteAuthProvider.signIn(_:_:_:)`. That's becau
 
 <h4>Step 1: Call RemoteAuthProvider.signIn with the provided credentials.</h4>
 
-You will receive an `AuthSession` if successful, or an `AuthError` if unsuccesful.
+You will receive an `AuthSession` if successful, or an `AuthError` if unsuccessful.
 
 <div class="impl">
 
@@ -426,7 +426,7 @@ remoteAuthProvider.signIn(
 
 </div>
 
-If you're not familiar with the concept of a <i>guard</i>, I suggest you give this article on [guards and null-safe langauges](/what-is-a-guard) a quick read and then come back. If you are familiar with guards, onwards!
+If you're not familiar with the concept of a <i>guard</i>, I suggest you give this article on [guards and null-safe languages](/what-is-a-guard) a quick read and then come back. If you are familiar with guards, onwards!
 
 If no errors is returned, `AuthManager` proceeds to Step 2.
 
@@ -583,7 +583,7 @@ public struct EZAuth {
 
 We use the `EZAuth.configure(for authProviderConfiguration: AuthProviderConfiguration)` method to method-inject an `AuthProviderConfiguration`.
 
-On the client, we can simply configure our `AuthManager` with any `AuthProviderConfiguration` that EZClientAuth provides an implementation for. The client can then rest assured that the remote, cached, and runtime `AuthSession` will all remain synchronized, thanks to the unidrectional control of the `AuthManager`.
+On the client, we can simply configure our `AuthManager` with any `AuthProviderConfiguration` that EZClientAuth provides an implementation for. The client can then rest assured that the remote, cached, and runtime `AuthSession` will all remain synchronized, thanks to the unidirectional control of the `AuthManager`.
 
 On application start, we can simply call `EZAuth.configure` with our chosen `AuthProviderConfiguration` and that will suffice to begin using EZClientAuth.
 
@@ -618,7 +618,7 @@ This is the moneyshot of EZClientAuth:
 
 </div>
 
-Becuase we abstract away our auth provider implementation using the `RemoteAuthProvider` protocol, a single line is all we need to swap out auth providers.
+Because we abstract away our auth provider implementation using the `RemoteAuthProvider` protocol, a single line is all we need to swap out auth providers.
 
 If the day comes to switch to a new authentication provider, it ought to take hours or days rather than weeks to implement.
 
