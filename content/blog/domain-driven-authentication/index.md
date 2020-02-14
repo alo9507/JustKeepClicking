@@ -551,18 +551,18 @@ The `AuthManager` checks off all four of my usual criteria for justifying a sing
 
 - Should propogate any mutations to its state across the entire application immediately
 
-We need one more building block to configure and hold reference to the `AuthManager` singleton: a struct simply named `Auth`.
+We need one more building block to configure and hold reference to the `AuthManager` singleton: a struct simply named `EZAuth`.
 
 This is the only part of our authentication domain the client needs to enjoy EZClientAuth's benefits.
 
-<h2 style="text-decoration: underline;">Auth</h2>
+<h2 style="text-decoration: underline;">EZAuth</h2>
 
-`Auth` is a struct (basically an immutable and uninheritable class) that exposes a static `configure` method for configuring the static singleton `AuthManager` with a particular `AuthProviderConfiguration`.
+`EZAuth` is a struct (basically an immutable and uninheritable class) that exposes a static `configure` method for configuring the static singleton `AuthManager` with a particular `AuthProviderConfiguration`.
 
 <div class="impl">
 
 ```swift
-public struct Auth {
+public struct EZAuth {
     // 1: A singleton AuthManager instance
     static public let manager: AuthManager = AuthManager()
 
@@ -581,11 +581,11 @@ public struct Auth {
 
 </div>
 
-We use the `Auth.configure(for authProviderConfiguration: AuthProviderConfiguration)` method to method-inject an `AuthProviderConfiguration`.
+We use the `EZAuth.configure(for authProviderConfiguration: AuthProviderConfiguration)` method to method-inject an `AuthProviderConfiguration`.
 
 On the client, we can simply configure our `AuthManager` with any `AuthProviderConfiguration` that EZClientAuth provides an implementation for. The client can then rest assured that the remote, cached, and runtime `AuthSession` will all remain synchronized, thanks to the unidrectional control of the `AuthManager`.
 
-On application start, we can simply call `Auth.configure` with our chosen `AuthProviderConfiguration` and that will suffice to begin using EZClientAuth.
+On application start, we can simply call `EZAuth.configure` with our chosen `AuthProviderConfiguration` and that will suffice to begin using EZClientAuth.
 
 This is the boot method for iOS applications:
 
@@ -597,7 +597,7 @@ func scene(
     willConnectTo session: UISceneSession,
     options connectionOptions: UIScene.ConnectionOptions) {
 
-    Auth.configure(.firebase) // or Keycloak, OAuth, etc.
+    EZAuth.configure(.firebase) // or Keycloak, OAuth, etc.
 }
 ```
 
@@ -608,11 +608,11 @@ This is the moneyshot of EZClientAuth:
 <div class="impl">
 
 ```swift
-    Auth.configure(.firebase)
+    EZAuth.configure(.firebase)
     // OR!
-    Auth.configure(.keycloak)
+    EZAuth.configure(.keycloak)
     // OR!
-    Auth.configure(.myCustomAuthService)
+    EZAuth.configure(.myCustomAuthService)
     // etc...
 ```
 
@@ -622,7 +622,7 @@ Becuase we abstract away our auth provider implementation using the `RemoteAuthP
 
 If the day comes to switch to a new authentication provider, it ought to take hours or days rather than weeks to implement.
 
-After calling `Auth.configure(_:)`, the client can simply call `Auth.manager.signIn(_:_:_:)` and reap the benefits of Remote, Cache and Runtime authentication synchronization.
+After calling `EZAuth.configure(_:)`, the client can simply call `EZAuth.manager.signIn(_:_:_:)` and reap the benefits of Remote, Cache and Runtime authentication synchronization.
 
 <h2>Check out the Full EZClientAuth Implementation</h2>
 
