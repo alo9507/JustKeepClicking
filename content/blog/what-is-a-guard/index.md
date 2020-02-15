@@ -1,7 +1,7 @@
 ---
 title: Guards and Nils, A Match Made in Heaven
 date: "2019-12-17T22:12:03.284Z"
-description: "Code confidently without constant if/elsing!"
+description: "Guarding against the unreadable if/else pyramid"
 ---
 
 What is a guard?

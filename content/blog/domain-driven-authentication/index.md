@@ -1,7 +1,7 @@
 ---
 title: Domain Driven Authentication with EZClientAuth
 date: "2020-02-06T22:12:03.284Z"
-description: "Because clientside authentication shouldn't be difficult"
+description: "Clientside authentication shouldn't be difficult"
 ---
 
 <small>Special Thanks: [Jacob Pricket](https://www.linkedin.com/in/jacob-prickett-19a771a0/), [Eugene Pavlov](https://www.linkedin.com/in/epavlov29/), [Shivum Bharill](https://www.linkedin.com/in/shivum-bharill/), [Waseem Hijazi](https://www.linkedin.com/in/waseemhijazi/), [Waleed Johnson](https://www.linkedin.com/in/waleed-johnson-07873b63/)</small>
@@ -649,6 +649,6 @@ After calling `EZAuth.configure(_:)`, the client can simply call `EZAuth.manager
 
 Now that we've implemented `signIn` together, the behaviors for `signOut`, `signUp`, and `isAuthenticated` should be a breeze. You can see the complete implementation of EZClientAuth as well as pointers for testing in the [EZClientAuth example app](https://github.com/alo9507/EZClientAuth).
 
-Clone it, run it, write a `RemoteAuthProvider` implementation for your use case, and stop worrying about authentication state synchronization.
+Clone it, run it, write a `RemoteAuthProvider` implementation for your use case, and start authenticating without worrying about synchronization.
 
 Thanks for reading! Please roast me in the comments!

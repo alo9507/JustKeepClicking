@@ -60,7 +60,7 @@ Cultures are adaptive machines <i>(Eric Raymond's, not mine)</i>
 
 Style points always matter
 
-Good Art morphs minds
+Good art morphs minds
 
 Personal progress accumulates exponentially
 

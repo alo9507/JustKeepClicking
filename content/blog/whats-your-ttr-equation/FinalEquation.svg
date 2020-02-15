@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="286px" height="361px" viewBox="0 0 286 361" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="286px" height="336px" viewBox="0 0 286 336" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
     <title>FinalEquation</title>
     <desc>Created with Sketch.</desc>
     <g id="FinalEquation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#FFFFFF" x="0" y="0" width="286" height="361"></rect>
+        <rect fill="#FFFFFF" x="0" y="0" width="286" height="336"></rect>
         <g id="Equation" transform="translate(0.000000, -12.000000)" fill="#000000">
             <text id="TTR" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576">
                 <tspan x="0.624" y="68">TTR</tspan>
             </text>
-            <text id="n(D-*-(S-+-U)-+-CF)" font-family="Avenir-Roman, Avenir" font-size="24" font-weight="normal" letter-spacing="-0.576">
-                <tspan x="83.992" y="90">n(D * (S + U) + CF)</tspan>
+            <text id="Σ(D-*-(S-+-U)-+-CF)" font-family="LucidaGrande, Lucida Grande" font-size="24" font-weight="normal" letter-spacing="-0.576">
+                <tspan x="83.0977187" y="89">Σ</tspan>
+                <tspan x="96.76" y="89" font-family="Avenir-Roman, Avenir">(D * (S + U) + CF)</tspan>
             </text>
             <rect id="Rectangle" x="83" y="62" width="198" height="3"></rect>
             <text id="=" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576">
@@ -47,16 +48,14 @@
             <tspan x="0" y="206">Cq</tspan>
             <tspan x="22.806" y="206" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Codebase Quality</tspan>
             <tspan x="0" y="231" font-family="Avenir-Roman, Avenir" font-weight="normal"></tspan>
-            <tspan x="0" y="256">n</tspan>
-            <tspan x="9.9" y="256" font-family="Avenir-Roman, Avenir" font-weight="normal"> = # of Developers</tspan>
-            <tspan x="0" y="281">D</tspan>
-            <tspan x="13.23" y="281" font-family="Avenir-Roman, Avenir" font-weight="normal"> = 1 Developer</tspan>
-            <tspan x="0" y="306">S</tspan>
-            <tspan x="9.9" y="306" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Skill Weighting</tspan>
-            <tspan x="0" y="331">U</tspan>
-            <tspan x="12.564" y="331" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Upskilling during Project</tspan>
-            <tspan x="0" y="356">CF</tspan>
-            <tspan x="21.798" y="356" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Codebase Familiarity</tspan>
+            <tspan x="0" y="256">D</tspan>
+            <tspan x="13.23" y="256" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Developer</tspan>
+            <tspan x="0" y="281">S</tspan>
+            <tspan x="9.9" y="281" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Skill Weighting</tspan>
+            <tspan x="0" y="306">U</tspan>
+            <tspan x="12.564" y="306" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Upskilling during Project</tspan>
+            <tspan x="0" y="331">CF</tspan>
+            <tspan x="21.798" y="331" font-family="Avenir-Roman, Avenir" font-weight="normal"> = Codebase Familiarity</tspan>
         </text>
     </g>
 </svg>

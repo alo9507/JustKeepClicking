@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="398px" height="156px" viewBox="0 0 398 156" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+<svg width="398px" height="102px" viewBox="0 0 398 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
     <title>TechnicalAbility</title>
     <desc>Created with Sketch.</desc>
     <g id="TechnicalAbility" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#FFFFFF" x="0" y="0" width="398" height="156"></rect>
+        <rect fill="#FFFFFF" x="0" y="0" width="398" height="102"></rect>
         <g id="Equation" transform="translate(0.000000, -5.000000)">
             <text id="TTR" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
                 <tspan x="0.624" y="48">TTR</tspan>
@@ -12,10 +12,11 @@
             <text id="Effort-Size-of-Featu" font-family="Avenir-Roman, Avenir" font-size="24" font-weight="normal" letter-spacing="-0.576" fill="#000000">
                 <tspan x="134.368" y="24">Effort Size of Feature</tspan>
             </text>
-            <text id="n(Developer-*-Skill" font-family="Avenir-Roman, Avenir" font-size="24" font-weight="normal" letter-spacing="-0.576">
-                <tspan x="88.424" y="71" fill="#000000">n(Developer * </tspan>
-                <tspan x="236.888" y="71" fill="#FF0000">Skill Weigthing</tspan>
-                <tspan x="388.904" y="71" fill="#000000">)</tspan>
+            <text id="Σ(Developer-*-Skill" font-family="LucidaGrande, Lucida Grande" font-size="24" font-weight="normal" letter-spacing="-0.576">
+                <tspan x="87.5297187" y="70" fill="#000000">Σ</tspan>
+                <tspan x="101.192" y="70" font-family="Avenir-Roman, Avenir" fill="#000000">(Developer * </tspan>
+                <tspan x="236.888" y="70" font-family="Avenir-Roman, Avenir" fill="#FF0000">Skill Weigthing</tspan>
+                <tspan x="388.904" y="70" font-family="Avenir-Roman, Avenir" fill="#000000">)</tspan>
             </text>
             <rect id="Rectangle" fill="#000000" x="84" y="39" width="314" height="3"></rect>
             <text id="=" font-family="Avenir-Black, Avenir" font-size="24" font-weight="700" letter-spacing="-0.576" fill="#000000">
@@ -28,8 +29,7 @@
             <tspan x="47.16" y="101"> </tspan>
             <tspan x="52.056" y="101" font-family="Avenir-Roman, Avenir" font-weight="normal">Time to Release</tspan>
             <tspan x="0" y="126" font-family="Avenir-Roman, Avenir" font-weight="normal"></tspan>
-            <tspan x="0" y="151">n</tspan>
-            <tspan x="9.9" y="151" font-family="Avenir-Roman, Avenir" font-weight="normal"> = # of programmers</tspan>
+            <tspan x="0" y="151" font-family="Avenir-Roman, Avenir" font-weight="normal"></tspan>
         </text>
     </g>
 </svg>
