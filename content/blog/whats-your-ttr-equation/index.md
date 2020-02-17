@@ -82,7 +82,7 @@ Let's subtract the net value of reusable code from the raw effort size of the fe
 
 <blockquote>Proper architecture allows codebases to grow in size without increasing in complexity.</blockquote>
 
-Martin Fowler calls the codebase superpower described above as <i>design stamina</i>, and plots it like so:
+[Martin Fowler](https://martinfowler.com/) calls the codebase superpower described above as <i>design stamina</i>, and plots it like so:
 
 <div class=img_bg>
   <img src="./designStamina.png" alt="design_stamina" class="equation">
