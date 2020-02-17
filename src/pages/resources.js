@@ -52,8 +52,7 @@ const Resources = () => {
           Extreme Programming Explained
         </a>
         <p>
-          On the Origins of Agile (Fun Fact: It was born in Detroit at
-          Chevrolet)
+          On the Origins of Agile (Fun Fact: It was born in Detroit at Chrysler)
         </p>
       </p>
       <p>

@@ -90,12 +90,12 @@ const AboutMe = () => {
             </div>
           </div>
         </div>
-        <p>Hello world!</p>
         <p>
-          I'm Andrew, a fullstack software engineer living in Detroit. I work
-          for {` `}
+          Welcome! I'm Andrew, a fullstack software engineer living in Detroit.
+          I work for {` `}
           <a href="https://www.integral.io">Integral</a> with Ford Autonomous
-          Vehicles LLC as an iOS Engineer on the Mobile Infrastructure Team.
+          Vehicles LLC as a Mobile (iOS) Engineer on the Mobile Infrastructure
+          Team.
         </p>
         <p></p>
       </Layout>

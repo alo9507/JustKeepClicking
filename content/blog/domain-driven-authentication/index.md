@@ -1,7 +1,7 @@
 ---
 title: Domain Driven Authentication with EZClientAuth
 date: "2020-02-06T22:12:03.284Z"
-description: "Clientside authentication shouldn't be difficult"
+description: "Because clientside authentication doesn't have to be difficult"
 ---
 
 <small>Special Thanks: [Jacob Pricket](https://www.linkedin.com/in/jacob-prickett-19a771a0/), [Eugene Pavlov](https://www.linkedin.com/in/epavlov29/), [Shivum Bharill](https://www.linkedin.com/in/shivum-bharill/), [Waseem Hijazi](https://www.linkedin.com/in/waseemhijazi/), [Waleed Johnson](https://www.linkedin.com/in/waleed-johnson-07873b63/)</small>
@@ -269,7 +269,7 @@ This class of error stems from failure to synchronize the AuthSession across the
 - <b>2. Cached</b>: The `AuthSession` stored in cache
 - <b>3. Runtime</b>: The `AuthSession` object used in your application's runtime to make authenticated calls
 
-<b>In its remote form</b>, the AuthSession is stored in some serialized form a remote server.</br>
+<b>In its remote form</b>, the AuthSession is stored in some serialized form on a remote server.</br>
 <b>In its cached form</b>, the AuthSession is serialized JSON.</br>
 <b>In its runtime form</b>, the AuthSession is a Swift struct.
 

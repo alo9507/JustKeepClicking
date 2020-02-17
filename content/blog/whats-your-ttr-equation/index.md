@@ -1,7 +1,7 @@
 ---
 title: What's Your Time to Release Equation?
 date: "2020-02-01T22:12:03.284Z"
-description: "How humans and code pair to determine time to release a new feature"
+description: "How humans and code combine to determine your time to release a new feature"
 ---
 
 <blockquote>Enterprise asks of pair programming culture: Why would I pay two developers to do the job of one?</blockquote>
@@ -12,13 +12,13 @@ This concern with pair programming stems from the following notion about the nat
 
 Where number of developers is taken to mean <i>developers operating in parallel</i>.
 
-If this equation were all there is to determing <b>Time-to-Release (TTR)</b> a new feature, then combining the efforts of two developers onto two tasks should effectively <i>double</i> the time it takes to complete those two tasks compared to the TTR if those developers were working in parallel, right?
+If this equation were all there is to determining <b>Time-to-Release (TTR)</b> a new feature, then combining the efforts of two developers onto two tasks should effectively <i>double</i> the time it takes to complete those two tasks compared to the TTR if those developers were working in parallel, right?
 
 But this is often not what we see in practice.
 
 Frederick Brooks reframes the misconception eloquently in his classic software management anthology, [The Mythical Man-Month](https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959/ref=sr_1_1?crid=3O2L8PDSPQDPI&keywords=the+mythical+man+month&qid=1580174025&sprefix=the+mythical+man+m%2Caps%2C140&sr=8-1):
 
-<blockquote>...our estimating techniques fallaciously confuse effort with progress, hiding the assumption that [people] and months are interchangable</blockquote>
+<blockquote>...our estimating techniques fallaciously confuse effort with progress, hiding the assumption that [people] and months are interchangeable</blockquote>
 
 To demonstrate how reality diverges from the above oversimplification, this article will progressively introduce human and codebase factors until we arrive at a more comprehensive TTR equation.
 
@@ -92,6 +92,8 @@ Martin Fowler calls the codebase superpower described above as <i>design stamina
 
 If you're codebase's intended lifespan stretches beyond a few weeks, you'll likely want to put proper design in the front seat of your development effort.
 
+Good architecture is the difference between coding with duct tape and coding with cement.
+
 As the codebase grows in size, the possibility for regressions caused by new features also grows, especially if it's design-less.
 
 This is why greenfield projects often enjoy very high velocities early on: there are fewer constraints on each additional feature.
@@ -134,7 +136,7 @@ I think familiarity isn't quite as valuable as technical skill, so we add it rat
 
 You are not the same developer at the end of a project as you were at the beginning.
 
-I believe that skill development for software engineers does not grow linearly. Instead, it grows in a <i>step-wise</i> fashion. When a new concept is realized, be it from a mentor or a blog article, a developer's productivity may inrease dramatically almost instantaneously. Hence the step-wise nature of development.
+I believe that skill development for software engineers does not grow linearly. Instead, it grows in a <i>step-wise</i> fashion. When a new concept is realized, be it from a mentor or a blog article, a developer's productivity may increase dramatically almost instantaneously. Hence the step-wise nature of development.
 
 It's a bit like Eric Evans's description of the non-linear payoffs of good refactoring:
 
@@ -145,7 +147,7 @@ It's a bit like Eric Evans's description of the non-linear payoffs of good refac
 
 Upskilling is a kind of refactoring of the mind that yields new, previously unnoticed opportunities in development.
 
-Assuming even the slightest modicum of motivation to improve is present, I believe the degree of developer growth is proportional to the quantity and diversity of upskilling opportunitites presented to developers during a project.
+Assuming even the slightest modicum of motivation to improve is present, I believe the degree of developer growth is proportional to the quantity and diversity of upskilling opportunities presented to developers during a project.
 
 Let's add Upskilling during Project to Skill Weighting to reflect the increase in skill programmers ought to undergo on a well managed project:
 
@@ -159,16 +161,20 @@ Some devs just teach really well. They care that others know what they know. The
 
 <h2>A More Realistic Time to Release Equation</h2>
 
-<i>More realistic, though hardly exhaustive.</i>
+As a provisional definition of such an expansive domain as feature release time, these factors are endlessly debatable.
 
-Endlessly debatable, but here’s what I take to be a more realistic equation for determing time to release a new feature:
+Nonetheless, here’s what I take to be a more realistic equation for determining time to release a new feature:
 
 <img src="./FinalEquation.svg" alt="final_equation" class="equation">
 
-The lead Software Engineer is responsible for leading a team to minimize the effect the top codebase numerator of this equation.
+The lead Software Engineer is responsible for leading a team to minimize the effect the codebase numerator of this equation.
 
 Both the Product Manager and the lead Software Engineer are jointly responsible for maximizing the human denominator of this equation.
 
 <h2>Next Week: Pair Programming in The Race to Release</h2>
 
-With our TTR equation in tow, next week we'll answer the question <i>"How does pair programming effect time to release?"</i> in a sequel article, <b>Pair Programming in The Race to Release</b>
+With our TTR equation in tow, we're now better equipped to venture an answer to the manager's question that kicked off our exploration:
+
+<blockquote>Why would I pay two developers to do the job of one?</blockquote>
+
+Part II, <b>Pair Programming in The Race to Release</b>, will break down factor by factor how pairing can help or hurt your time to release.

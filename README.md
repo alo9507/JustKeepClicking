@@ -2,7 +2,7 @@
 
 Developer blog of Andrew O'Brien, Software Engineer @ [Integral](https://www.integral.io/).
 
-Forked from [Gatsby started blog](https://github.com/gatsbyjs/gatsby-starter-blog).
+Forked from [Gatsby starter blog](https://github.com/gatsbyjs/gatsby-starter-blog).
 
 Design and lightmode/darkmode toggle based on Dan Abramov's blog, [Overreacted](https://github.com/gaearon/overreacted.io).
 
