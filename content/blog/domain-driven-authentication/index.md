@@ -53,7 +53,7 @@ An on-device cache for persisting an `AuthSession` between application launches
 `AuthManager`
 </br>A manager responsible for orchestrating interactions between the `RemoteAuthProvider`, `AuthDataStore`, and the runtime of your application
 
-`Auth`
+`EZAuth`
 </br>The client's sole entrypoint to EZClientAuth
 
 <h4>Domain Driven Design</h4>
