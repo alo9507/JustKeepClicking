@@ -161,9 +161,9 @@ Some devs just teach really well. They care that others know what they know. The
 
 <h2>A More Realistic Time to Release Equation</h2>
 
-As a provisional definition of such an expansive domain as feature release time, these factors are endlessly debatable.
+In such a multivariate domain as feature release time, these factors are endlessly debatable and refineable.
 
-Nonetheless, here’s what I take to be a more realistic equation for determining time to release a new feature:
+Nonetheless, here’s a provisional definition which I take to be a more realistic equation for determining time to release a new feature:
 
 <img src="./FinalEquation.svg" alt="final_equation" class="equation">
 

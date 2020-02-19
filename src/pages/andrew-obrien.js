@@ -127,26 +127,28 @@ const AboutMe = () => {
           </b>
         </p>
         <p>
-          I spend most of my time experimenting with how a codebase itself can
-          be designed to encourage longevity and collaboration, and how pair
-          programming and test-driven development cooperate to do the same.
+          I spend most of my time experimenting with different techniques for
+          growing codebases into something people look forward to collaborating
+          on, and how pair programming and test-driven development cooperate to
+          do the same.
         </p>
         <p>
-          The top three factors I beleive determine the success or failure of a
-          software endeavor:
+          From this I've developed several core software beliefs, including:
           <br />
           <br />
           <ul>
             <li>
-              <b>A)</b> decisions regarding codebase architecture
+              <b>A)</b> Developer experience WILL manifest in user experience
             </li>
             <li>
-              <b>B)</b> social factors playing out close to the metal, at the
-              interpersonal and team-level
+              <b>B)</b> Developer experience is a product of codebase
+              architecture, developer-to-manager and developer-to-developer
+              interaction, and freedom to choose the right tools
             </li>
             <li>
-              <b>C)</b> the presence (or absence) of a shared domain-driven
-              langauge pervading a project
+              <b>C)</b> Without the presence of a shared, domain-driven langauge
+              uniting both codebase and business, most meetings are just people
+              talking past each other
             </li>
           </ul>
         </p>
