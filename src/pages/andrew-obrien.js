@@ -97,7 +97,71 @@ const AboutMe = () => {
           Vehicles LLC as a Mobile (iOS) Engineer on the Mobile Infrastructure
           Team.
         </p>
-        <p></p>
+        <h2>PM -> Software Engineer</h2>
+        <p>
+          I began my journey into software as a Product Manager, but quickly
+          realized that I wanted to build rather than manage products. Tutorial
+          by tutorial and book by book, I transitioned from acting as a business
+          liason to tech teams into acting as a tech liason to business teams.
+        </p>
+        <h2>I -> We</h2>
+        <p>
+          At first, I lived by the modus operandi{" "}
+          <b>
+            <i>"If I want it, I build it."</i>
+          </b>{" "}
+        </p>
+        <p>
+          Curious how GraphQL compares to REST? Build an API with both and see
+          for yourself. Can React Native supplant native development? Build with
+          both and form your own opinion.
+        </p>
+        <p>
+          This approach worked great!...but it came with major shortcomings: it
+          doesn't scale, and it gets lonely quick.
+        </p>
+        <p>
+          Now I live by{" "}
+          <b>
+            <i>"If we want it, we build it."</i>
+          </b>
+        </p>
+        <p>
+          I spend most of my time experimenting with how a codebase itself can
+          be designed to encourage longevity and collaboration, and how pair
+          programming and test-driven development cooperate to do the same.
+        </p>
+        <p>
+          The top three factors I beleive determine the success or failure of a
+          software endeavor:
+          <br />
+          <br />
+          <ul>
+            <li>
+              <b>A)</b> decisions regarding codebase architecture
+            </li>
+            <li>
+              <b>B)</b> social factors playing out close to the metal, at the
+              interpersonal and team-level
+            </li>
+            <li>
+              <b>C)</b> the presence (or absence) of a shared domain-driven
+              langauge pervading a project
+            </li>
+          </ul>
+        </p>
+        <h2>justkeepclicking.io</h2>
+        <p>
+          justkeepclicking.io is where I post new things I learn about the above
+          three factors.
+        </p>
+        <p>
+          My goal with <b>justkeepclicking.io</b> is to encourage and
+          destigmatize learning in public, and provide a place for me to
+          broadcast development techniques I see working for my teams to the
+          community.
+        </p>
+        <p>Think of it like open source learning :-)</p>
       </Layout>
     </>
   )
