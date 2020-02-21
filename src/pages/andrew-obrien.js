@@ -154,8 +154,8 @@ const AboutMe = () => {
         </p>
         <h2>justkeepclicking.io</h2>
         <p>
-          justkeepclicking.io is where I post new things I learn about the above
-          three factors.
+          <b>justkeepclicking.io</b> is where I post new things I learn about
+          the above three beliefs.
         </p>
         <p>
           My goal with <b>justkeepclicking.io</b> is to encourage and
