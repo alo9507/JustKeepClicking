@@ -13,6 +13,8 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
+    const { tags } = post.frontmatter.tags
+
     return (
       <>
         <Helmet>
@@ -70,6 +72,9 @@ class BlogPostTemplate extends React.Component {
               >
                 {post.frontmatter.date}
               </p>
+              {tags.map(tag => {
+                return <h2>{tag}</h2>
+              })}
             </header>
             <section
               className="artcile_body"
@@ -141,6 +146,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }

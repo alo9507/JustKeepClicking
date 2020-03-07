@@ -1,6 +1,7 @@
 ---
 title: Be Responsible. Wrap Your Errors.
 date: "2020-01-29T22:12:03.284Z"
+tags: ["software"]
 description: "A good error is a flashing neon sign. Not a breadcrumb."
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Guards and Nils - A Love Story
 date: "2019-12-17T22:12:03.284Z"
+tags: ["software"]
 description: "Guarding against the unreadable if/else pyramid"
 ---
 
