@@ -37,6 +37,26 @@ class BlogIndex extends React.Component {
                       {title}
                     </Link>
                   </h3>
+                  <ul style={{ marginBottom: "0px" }}>
+                    {node.frontmatter.tags.map(tag => {
+                      return (
+                        <li
+                          style={{
+                            display: "inline",
+                            marginRight: "20px",
+                          }}
+                        >
+                          <Link
+                            style={{ boxShadow: "none" }}
+                            to={`/tags/${tag}`}
+                          >
+                            {`#${tag}`}
+                            {` `}
+                          </Link>
+                        </li>
+                      )
+                    })}
+                  </ul>
                   <small className="frontpage_date">
                     {node.frontmatter.date} • {node.fields.readingTime.text}
                   </small>
@@ -80,6 +100,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }

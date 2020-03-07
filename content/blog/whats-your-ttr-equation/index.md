@@ -1,7 +1,7 @@
 ---
 title: What's Your Time to Release Equation?
 date: "2020-02-01T22:12:03.284Z"
-tags: ["software"]
+tags: ["software", "xp", "management"]
 description: "How humans and code combine to determine your time to release a new feature"
 ---
 

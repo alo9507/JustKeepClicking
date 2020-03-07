@@ -1,7 +1,7 @@
 ---
 title: EZClientAuth Part III - Integration
 date: "2020-02-06T20:12:03.284Z"
-tags: ["software"]
+tags: ["software", "ddd", "swift", "authentication"]
 description: "How to integrate EZClientAuth into your apps for simple sign-in"
 ---
 

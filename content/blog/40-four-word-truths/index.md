@@ -1,7 +1,7 @@
 ---
 title: 40 Four Word Truths
 date: "2020-01-30T22:12:03.284Z"
-tags: ["philosophy"]
+tags: ["philosophy", "aphorisms"]
 description: " "
 ---
 

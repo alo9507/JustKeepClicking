@@ -13,7 +13,7 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
-    const { tags } = post.frontmatter.tags
+    const tags = post.frontmatter.tags
 
     return (
       <>
@@ -67,14 +67,28 @@ class BlogPostTemplate extends React.Component {
                 style={{
                   ...scale(-1 / 5),
                   display: `block`,
-                  marginBottom: rhythm(1),
+                  marginBottom: "0px",
                 }}
               >
                 {post.frontmatter.date}
               </p>
-              {tags.map(tag => {
-                return <h2>{tag}</h2>
-              })}
+              <ul>
+                {tags.map(tag => {
+                  return (
+                    <li
+                      style={{
+                        display: "inline",
+                        marginRight: "20px",
+                      }}
+                    >
+                      <Link style={{ boxShadow: "none" }} to={`/tags/${tag}`}>
+                        {`#${tag}`}
+                        {` `}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
             </header>
             <section
               className="artcile_body"
