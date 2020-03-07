@@ -1,6 +1,7 @@
 ---
 title: EZClientAuth Part I - Core
 date: "2020-02-06T22:12:03.284Z"
+tags: ["software"]
 description: "Domain Driven Authentication for clientside bliss"
 ---
 

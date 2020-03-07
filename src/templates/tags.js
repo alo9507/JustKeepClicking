@@ -12,11 +12,14 @@ class TagArticles extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
 
+    const { tag } = this.props.pageContext
+
     return (
       <>
         <Layout location={this.props.location} title={siteTitle}>
           <SEO title="just keep clicking" />
           <Bio />
+          <h1>{tag}</h1>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
