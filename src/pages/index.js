@@ -37,7 +37,13 @@ class BlogIndex extends React.Component {
                       {title}
                     </Link>
                   </h3>
-                  <ul style={{ marginBottom: "0px" }}>
+                  <ul
+                    style={{
+                      marginBottom: "0px",
+                      marginLeft: "0px",
+                      fontSize: "14px",
+                    }}
+                  >
                     {node.frontmatter.tags.map(tag => {
                       return (
                         <li

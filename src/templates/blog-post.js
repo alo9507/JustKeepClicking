@@ -72,7 +72,7 @@ class BlogPostTemplate extends React.Component {
               >
                 {post.frontmatter.date}
               </p>
-              <ul>
+              <ul style={{ marginLeft: "0px" }}>
                 {tags.map(tag => {
                   return (
                     <li
