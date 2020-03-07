@@ -104,7 +104,7 @@ public enum AuthError: Error, Equatable {
 
 The `let error` we see in `.invalidCredentials(let error)` is an [associated value](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html). This is where the "wrapping" of the deeper error is manifested: we wrap the deeper error as an associated value of its error category.
 
-Fore example, using `FirebaseAuth`, our custom `AuthError` can be used at the scene of the error crime like so:
+For example, using `FirebaseAuth`, our custom `AuthError` can be used at the scene of the error crime like so:
 
 <div class="impl">
 
