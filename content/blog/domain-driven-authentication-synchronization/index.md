@@ -1,6 +1,7 @@
 ---
 title: EZClientAuth Part II - Synchronization
 date: "2020-02-06T21:12:03.284Z"
+tags: ["software"]
 description: "Synchronize authentication state across your app"
 ---
 

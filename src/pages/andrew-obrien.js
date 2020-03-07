@@ -154,16 +154,11 @@ const AboutMe = () => {
         </p>
         <h2>justkeepclicking.io</h2>
         <p>
-          <b>justkeepclicking.io</b> is where I post new things I learn about
-          the above three beliefs.
-        </p>
-        <p>
-          My goal with <b>justkeepclicking.io</b> is to encourage and
-          destigmatize learning in public, and provide a place for me to
-          broadcast development techniques I see working for my teams to the
+          <b>justkeepclicking.io</b> is where I learn in public and broadcast
+          development techniques I see working for my teams to the wider
           community.
         </p>
-        <p>Think of it like open source learning :-)</p>
+        <p>Basically it's open source learning.</p>
       </Layout>
     </>
   )
