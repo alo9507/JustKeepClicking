@@ -8,7 +8,7 @@ import { rhythm } from "../utils/typography"
 
 class Layout extends React.Component {
   state = {
-    theme: null,
+    theme: "dark",
   }
   componentDidMount() {
     this.setState({ theme: window.__theme })
