@@ -98,18 +98,31 @@ const Resources = () => {
       </p>
 
       <h2>Learn JAMStack</h2>
-      <a href="https://www.youtube.com/channel/UC8bRyfU7ycLXnEBfvdorpUg/videos">
-        JAMStack_conf 2019
-      </a>
-      <a href="https://github.com/gaearon/overreacted.io">
-        Dan Abramov's Blog Repo
-      </a>
-      <a href="https://www.staticgen.com/">Static Site Generator Explorer</a>
-      <a href="https://headlesscms.org/">Headless CMS Explorer</a>
-      <a href="https://bejamas.io/blog/jamstack-seo-guide/">JAMStack + SEO</a>
-      <a href="https://twitter.com/kylemathews?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-        Kyle Matthews' (Gatsby BDFL) Twitter
-      </a>
+      <p>
+        <a href="https://www.youtube.com/channel/UC8bRyfU7ycLXnEBfvdorpUg/videos">
+          JAMStack_conf 2019
+        </a>
+      </p>
+
+      <p>
+        <a href="https://github.com/gaearon/overreacted.io">
+          Dan Abramov's Blog Repo
+        </a>
+      </p>
+      <p>
+        <a href="https://www.staticgen.com/">Static Site Generator Explorer</a>
+      </p>
+      <p>
+        <a href="https://headlesscms.org/">Headless CMS Explorer</a>
+      </p>
+      <p>
+        <a href="https://bejamas.io/blog/jamstack-seo-guide/">JAMStack + SEO</a>
+      </p>
+      <p>
+        <a href="https://twitter.com/kylemathews?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+          Kyle Matthews' (Gatsby BDFL) Twitter
+        </a>
+      </p>
 
       <h2>Learn React</h2>
       <a href="https://www.udemy.com/course/react-redux/">
