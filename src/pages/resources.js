@@ -1,11 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
-import Image from "gatsby-image"
-import { rhythm } from "../utils/typography"
+import { Link } from "gatsby"
 
 const Resources = () => {
   return (
-    <Layout location={"/about-me"} title={"just keep clicking"}>
+    <Layout location={"/resources"} title={"just keep clicking"}>
       <h1
         style={{ textAlign: "center", marginTop: "0px", marginBottom: "0px" }}
       >
@@ -33,7 +32,7 @@ const Resources = () => {
       </p>
       <p>
         <a href="https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088/ref=sr_1_1?crid=NDMVJQ6VR94C&keywords=cathedral+and+the+bazaar&qid=1580359078&sprefix=cathedral+and+the+ba%2Caps%2C142&sr=8-1">
-          The Cathedral & the Bazaar: Musings on Linux and Open Source by an
+          The Cathedral + the Bazaar: Musings on Linux and Open Source by an
           Accidental Revolutionary
         </a>
       </p>
@@ -83,7 +82,6 @@ const Resources = () => {
         and more with Swift. Explains how to scale your iOS codebase from
         example MVC app and into full-featured MVVM app
       </p>
-
       <p>
         <a href="https://github.com/raywenderlich/swift-algorithm-club">
           Swift Algorithm Club
@@ -103,7 +101,6 @@ const Resources = () => {
           JAMStack_conf 2019
         </a>
       </p>
-
       <p>
         <a href="https://github.com/gaearon/overreacted.io">
           Dan Abramov's Blog Repo
