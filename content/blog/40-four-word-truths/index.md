@@ -5,9 +5,13 @@ tags: ["philosophy", "aphorisms"]
 description: " "
 ---
 
+Nihilism is a copout
+
 Step One is starting
 
 Good writing scales vision
+
+Meandering curiosity risks dilletantism
 
 Bad code kills companies
 

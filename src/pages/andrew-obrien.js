@@ -92,10 +92,10 @@ const AboutMe = () => {
         </div>
         <p>
           Welcome! I'm Andrew, a fullstack software engineer living in Detroit.
-          I work for {` `}
+          I worked for {` `}
           <a href="https://www.integral.io">Integral</a> with Ford Autonomous
           Vehicles LLC as a Mobile (iOS) Engineer on the Mobile Infrastructure
-          Team.
+          Team, and this summer was part of the <a href="https://community.wolfram.com/groups/-/m/t/2029824">Wolfram Summer School.</a>
         </p>
         <h2>PM -> Software Engineer</h2>
         <p>
