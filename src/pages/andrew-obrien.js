@@ -1,8 +1,8 @@
-import React from "react"
-import Layout from "../components/layout"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-import { rhythm } from "../utils/typography"
+import React from "react";
+import Layout from "../components/layout";
+import { useStaticQuery, graphql } from "gatsby";
+import Image from "gatsby-image";
+import { rhythm } from "../utils/typography";
 
 const AboutMe = () => {
   const data = useStaticQuery(graphql`
@@ -23,9 +23,9 @@ const AboutMe = () => {
         }
       }
     }
-  `)
+  `);
 
-  const { author } = data.site.siteMetadata
+  const { author } = data.site.siteMetadata;
   return (
     <>
       <Layout location={"/about-me"} title={"just keep clicking"}>
@@ -91,11 +91,16 @@ const AboutMe = () => {
           </div>
         </div>
         <p>
-          Welcome! I'm Andrew, a fullstack software engineer living in Detroit.
-          I worked for {` `}
-          <a href="https://www.integral.io">Integral</a> with Ford Autonomous
+          Welcome! I'm Andrew, a fullstack software engineer living in Boston.
+          </p>
+        <p>
+          I work for Wolfram Research on Wolfram | Alpha.
+          </p>
+        <p>
+          Previously I worked for {` `}
+          <a href="https://www.integral.io">Integral</a> in Detroit with Ford Autonomous
           Vehicles LLC as a Mobile (iOS) Engineer on the Mobile Infrastructure
-          Team, and this summer was part of the <a href="https://community.wolfram.com/groups/-/m/t/2029824">Wolfram Summer School.</a>
+          Team and with Ford Motor Company on the Dynamic Routing team. Other software dev related escapades include participating in <a href="https://community.wolfram.com/groups/-/m/t/2029824">Wolfram Summer School 2020</a> and writing for this blog.
         </p>
         <h2>PM -> Software Engineer</h2>
         <p>
@@ -127,7 +132,7 @@ const AboutMe = () => {
           </b>
         </p>
         <p>
-          I spend most of my time experimenting with different techniques for
+          Sounds motivational-postery, but I mean it. I spend most of my time experimenting with different techniques for
           growing codebases into something people look forward to collaborating
           on, and how pair programming and test-driven development cooperate to
           do the same.
@@ -158,10 +163,10 @@ const AboutMe = () => {
           development techniques I see working for my teams to the wider
           community.
         </p>
-        <p>Basically it's open source learning.</p>
+        <p>It's like open source learning.</p>
       </Layout>
     </>
-  )
-}
+  );
+};
 
-export default AboutMe
+export default AboutMe;
