@@ -107,11 +107,11 @@ const AboutMe = () => {
           I began my journey into software as a Product Manager, but quickly
           realized that I wanted to build rather than manage products. Tutorial
           by tutorial and book by book, I transitioned from acting as a business
-          liason to tech teams into acting as a tech liason to business teams.
+          liason to tech, to acting as a tech liason to business.
         </p>
-        <h2>I -> We</h2>
+        <h2>If We Want it We Build It</h2>
         <p>
-          At first, I lived by the modus operandi{" "}
+          For the first year or so I lived by the modus operandi of {" "}
           <b>
             <i>"If I want it, I build it."</i>
           </b>{" "}
@@ -126,7 +126,7 @@ const AboutMe = () => {
           doesn't scale, and it gets lonely quick.
         </p>
         <p>
-          Now I live by{" "}
+          Adjusting the motto slightly I now prefer {" "}
           <b>
             <i>"If we want it, we build it."</i>
           </b>
@@ -138,7 +138,7 @@ const AboutMe = () => {
           do the same.
         </p>
         <p>
-          From this I've developed several core software beliefs, including:
+          From this I've developed several tenets of my core software belief system.
           <br />
           <br />
           <ul>
